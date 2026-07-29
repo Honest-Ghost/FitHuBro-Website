@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import { getPersonaContent, type Persona } from '../content'
 import { Logo } from '../visuals/Logo'
-import { Smartphone } from 'lucide-react'
 
 export const Footer = React.memo(function Footer({ persona }: { persona: Persona }) {
   const { NAV_LINKS } = getPersonaContent(persona)
@@ -57,8 +56,8 @@ export const Footer = React.memo(function Footer({ persona }: { persona: Persona
             <h4 className="mb-6 text-lg font-medium text-foreground">Company</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About Us</Link></li>
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"><Smartphone className="h-4 w-4" /> Download Fitness App (Members)</Link></li>
-              <li><Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"><Smartphone className="h-4 w-4" /> Download Trainers App</Link></li>
+              <li><Link href="/members" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Fitness App (Members)</Link></li>
+              <li><Link href="/trainers" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Trainers App</Link></li>
               <li><Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Gym Management Software</Link></li>
             </ul>
           </div>
