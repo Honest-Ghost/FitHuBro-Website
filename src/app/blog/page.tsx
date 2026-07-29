@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { Nav } from '@/components/sections/Nav'
+import { Footer } from '@/components/sections/Footer'
 
 export const metadata: Metadata = {
   title: 'Blog | FitHuBro',
@@ -44,7 +46,10 @@ const POSTS = [
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-background pt-24 pb-20">
+    <div className="marketing-scope min-h-screen bg-transparent relative">
+      <div className="relative z-10 w-full">
+        <Nav persona="owners" />
+        <main className="min-h-screen bg-background pt-24 pb-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-16">
           <h1 className="text-4xl font-display font-light tracking-tight text-foreground sm:text-5xl">
@@ -87,6 +92,9 @@ export default function BlogPage() {
           ))}
         </div>
       </div>
-    </main>
+      </main>
+      <Footer persona="owners" />
+    </div>
+  </div>
   )
 }

@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { Nav } from '@/components/sections/Nav'
+import { Footer } from '@/components/sections/Footer'
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | FitHuBro',
@@ -7,7 +9,10 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-background pt-24 pb-16">
+    <div className="marketing-scope min-h-screen bg-transparent relative">
+      <div className="relative z-10 w-full">
+        <Nav persona="owners" />
+        <main className="min-h-screen bg-background pt-24 pb-16">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <h1 className="mb-8 text-4xl font-display font-light tracking-tight text-foreground">Terms & Conditions</h1>
         
@@ -56,6 +61,9 @@ export default function TermsPage() {
           </p>
         </div>
       </div>
-    </main>
+      </main>
+      <Footer persona="owners" />
+    </div>
+  </div>
   )
 }
