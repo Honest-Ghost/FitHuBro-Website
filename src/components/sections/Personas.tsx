@@ -25,7 +25,7 @@ export function Personas() {
                   index % 2 !== 0 ? 'lg:grid-flow-col-dense' : ''
                 }`}
               >
-                <div className={index % 2 !== 0 ? 'lg:col-start-2' : ''}>
+                <div className={`rounded-3xl bg-background/60 p-5 shadow-2xl backdrop-blur-md border border-white/5 sm:border-transparent sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
                   <Reveal>
                     <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                       <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
@@ -51,10 +51,10 @@ export function Personas() {
                   </Stagger>
 
                   <Reveal delay={0.2} className="mt-12">
-                    <Magnetic>
+                    <Magnetic className="w-full sm:w-auto">
                       <Link
                         href={persona.ctaHref}
-                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
+                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
                       >
                         {persona.ctaLabel}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -83,7 +83,7 @@ export function Hero() {
           as="h1"
           text={audience.headline}
           accent={audience.accent}
-          className="font-display mt-6 max-w-[16ch] text-[clamp(3.25rem,11vw,9rem)] text-balance"
+          className="font-display mt-6 max-w-[16ch] text-[clamp(2.5rem,10vw,9rem)] text-balance"
         />
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -99,19 +99,19 @@ export function Hero() {
 
           <Reveal delay={0.24} direction="left">
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <Magnetic>
+              <Magnetic className="w-full sm:w-auto">
                 <Link
                   href={audience.ctaHref}
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
+                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
                 >
                   {audience.ctaLabel}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Magnetic>
-              <Magnetic>
+              <Magnetic className="w-full sm:w-auto">
                 <a
                   href="#product"
-                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base text-foreground transition-colors hover:bg-white/5"
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base text-foreground transition-colors hover:bg-white/5"
                 >
                   See it working
                 </a>

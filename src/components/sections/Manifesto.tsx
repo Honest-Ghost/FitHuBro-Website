@@ -11,7 +11,7 @@ export function Manifesto() {
             </p>
           </Reveal>
 
-          <div>
+          <div className="rounded-3xl bg-background/60 p-5 shadow-2xl backdrop-blur-md border border-white/5 sm:border-transparent sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none">
             <Reveal delay={0.06}>
               <p className="font-display text-[clamp(1.75rem,4.2vw,3.25rem)] !leading-[1.08] text-balance">
                 A member who stops coming doesn’t cancel. They just stop coming —
