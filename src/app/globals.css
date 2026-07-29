@@ -1,26 +1,259 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * FitHuBro token system (Phase 1 rebrand — docs/DESIGN_SYSTEM.md "Target").
+ * --primary INVERTS between modes (near-black in light, near-white in dark):
+ *   platform-level contrast rule, never overridden by gym branding.
+ * --secondary is the brand red in BOTH modes; per-gym branding overrides it
+ *   via --color-secondary (injected by ThemeProvider), see tailwind.config.ts.
+ * --destructive is deliberately a different red than --secondary.
+ * --sidebar stays near-black in both modes (brand chrome).
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 98%;          /* #FAFAFA */
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;               /* #FFFFFF */
+    --card-foreground: 240 10% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+    --primary: 240 4% 10%;           /* #18181B — inverts in dark */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 347 77% 50%;        /* #E11D48 brand red */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --accent: 240 5% 96%;            /* #F4F4F5 */
+    --accent-foreground: 240 6% 10%;
+    --destructive: 0 72% 51%;        /* #DC2626 — not the brand red */
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 76% 36%;          /* #16A34A */
+    --success-foreground: 0 0% 98%;
+    --warning: 32 95% 44%;           /* #D97706 */
+    --warning-foreground: 0 0% 98%;
+    --border: 240 6% 90%;            /* #E4E4E7 */
+    --input: 240 6% 90%;
+    --ring: 240 4% 10%;
+    --sidebar: 0 0% 100%;                    /* #FFFFFF — adapts with theme */
+    --sidebar-foreground: 240 10% 4%;
+    --sidebar-muted: 240 4% 46%;             /* inactive item text */
+    --sidebar-accent: 240 5% 96%;            /* hover surface */
+    --sidebar-border: 240 6% 90%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 5% 4%;         /* #0A0A0B */
+    --foreground: 0 0% 98%;
+    --card: 240 4% 9%;               /* #151517 */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 4% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;             /* #FAFAFA — inverted */
+    --primary-foreground: 240 4% 10%;
+    --secondary: 351 95% 71%;        /* #FB7185 brand red, lightened */
+    --secondary-foreground: 240 10% 4%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 4% 16%;            /* #27272A */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 91% 71%;        /* #F87171 */
+    --destructive-foreground: 240 10% 4%;
+    --success: 142 69% 58%;          /* #4ADE80 */
+    --success-foreground: 240 10% 4%;
+    --warning: 43 96% 56%;           /* #FBBF24 */
+    --warning-foreground: 240 10% 4%;
+    --border: 240 4% 15%;            /* #262629 */
+    --input: 240 4% 15%;
+    --ring: 0 0% 83%;
+    --sidebar: 240 4% 9%;                    /* #151517 — matches --card in dark */
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-muted: 240 5% 65%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-border: 240 4% 15%;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 3D Landing Page Utilities */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50 dark:from-white dark:to-white/50;
+  }
+  .glass-panel {
+    @apply bg-white/70 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgba(255,255,255,0.05)];
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotateX(0) rotateY(0); }
+  50% { transform: translateY(-20px) rotateX(5deg) rotateY(5deg); }
+  100% { transform: translateY(0px) rotateX(0) rotateY(0); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translateY(0px) rotateX(0) rotateY(0); }
+  50% { transform: translateY(20px) rotateX(-5deg) rotateY(-5deg); }
+  100% { transform: translateY(0px) rotateX(0) rotateY(0); }
+}
+
+@keyframes dust-float {
+  0% { margin-top: 0; margin-left: 0; }
+  33% { margin-top: -20px; margin-left: 10px; }
+  66% { margin-top: -10px; margin-left: -10px; }
+  100% { margin-top: 0; margin-left: 0; }
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+  100% { opacity: 0.5; transform: scale(1); }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+/*
+ * Marketing scope — the public homepage only.
+ *
+ * The product app is theme-aware (light/dark). The marketing site is
+ * permanently dark by design, so this class re-declares the same token
+ * names locally instead of introducing a parallel palette. Every shadcn
+ * component rendered inside inherits it for free, and nothing outside
+ * `.marketing-scope` is affected.
+ *
+ * Text is a warm off-white (#EDEAE4) rather than pure white — pure white on
+ * near-black vibrates at display sizes.
+ */
+.marketing-scope {
+  --background: 240 5% 4%;         /* #0A0A0B */
+  --foreground: 40 20% 91%;        /* #EDEAE4 warm off-white */
+  --card: 240 4% 8%;               /* #141416 */
+  --card-foreground: 40 20% 91%;
+  --popover: 240 4% 8%;
+  --popover-foreground: 40 20% 91%;
+  --primary: 40 20% 91%;
+  --primary-foreground: 240 5% 4%;
+  --secondary: 349 85% 55%;        /* brand red, lifted for near-black */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 240 4% 11%;
+  --muted-foreground: 40 5% 55%;   /* warm gray */
+  --accent: 240 4% 13%;
+  --accent-foreground: 40 20% 91%;
+  --border: 40 6% 18%;
+  --input: 40 6% 18%;
+  --ring: 349 85% 55%;
+
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body), system-ui, sans-serif;
+  /* Prevents horizontal scrollbars from marquees and oversized display type. */
+  overflow-x: clip;
+}
+
+@layer utilities {
+  /* Display type. Anton has no true small-caps, so tracking is tightened
+     manually — at 100px+ the default spacing reads loose. */
+  .font-display {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.92;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Film-grain overlay. Pure CSS radial-gradient dither, ~1kb, so no image
+     request. Sits above the background and below content. */
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: radial-gradient(hsl(var(--foreground)) 0.5px, transparent 0.5px);
+    background-size: 3px 3px;
+  }
+
+  /* Edge fade for marquees and scroll rails. */
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent);
+    mask-image: linear-gradient(to bottom, black 60%, transparent);
+  }
+
+  .hairline-t {
+    border-top: 1px solid hsl(var(--border));
+  }
+}
+
+@keyframes marquee-x {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee-x {
+  animation: marquee-x var(--marquee-duration, 40s) linear infinite;
+}
+
+/* One central opt-out. Motion primitives read the same media query in JS;
+   this covers the CSS-only animations above. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-x,
+  .animate-float,
+  .animate-float-reverse,
+  .animate-pulse-glow,
+  .animate-blob {
+    animation: none !important;
+  }
 }
