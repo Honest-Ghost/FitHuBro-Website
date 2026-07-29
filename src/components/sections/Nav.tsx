@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
@@ -9,9 +10,18 @@ import { getPersonaContent, type Persona } from '../content'
 import { Logo } from '../visuals/Logo'
 
 export function Nav({ persona }: { persona: Persona }) {
+  const pathname = usePathname()
   const { NAV_LINKS } = getPersonaContent(persona)
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  
+  const getBasePath = (p: Persona) => {
+    if (p === 'members') return '/members'
+    if (p === 'trainers') return '/trainers'
+    return '/'
+  }
+  const basePath = getBasePath(persona)
+  const isCorrectPage = pathname === basePath
   
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
@@ -54,15 +64,18 @@ export function Nav({ persona }: { persona: Persona }) {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const finalHref = isCorrectPage ? link.href : `${basePath === '/' ? '' : basePath}${link.href}`
+            return (
+              <Link
+                key={link.href}
+                href={finalHref}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            )
+          })}
           <div className="h-4 w-px bg-white/10" />
           <Link href="/owners" className={cn("text-sm transition-colors hover:text-secondary", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
           <Link href="/members" className={cn("text-sm transition-colors hover:text-secondary", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
@@ -98,16 +111,19 @@ export function Nav({ persona }: { persona: Persona }) {
       {open ? (
         <div className="border-t border-white/10 md:hidden">
           <div className="flex flex-col gap-1 px-5 py-4">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="py-3 text-base text-muted-foreground"
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const finalHref = isCorrectPage ? link.href : `${basePath === '/' ? '' : basePath}${link.href}`
+              return (
+                <Link
+                  key={link.href}
+                  href={finalHref}
+                  onClick={() => setOpen(false)}
+                  className="py-3 text-base text-muted-foreground"
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
             <div className="my-2 h-px w-full bg-white/10" />
             <Link href="/owners" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
             <Link href="/members" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
