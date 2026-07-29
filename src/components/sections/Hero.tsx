@@ -30,7 +30,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal direction="none" duration={0.9}>
           <div className="flex flex-wrap items-center gap-3">
-            <p className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               {audience.eyebrow}
             </p>
@@ -54,7 +54,7 @@ export function Hero() {
                   role="tab"
                   aria-selected={selected}
                   onClick={() => setActive(item.id)}
-                  className="relative rounded-full px-4 py-2 text-[13px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="relative rounded-full px-4 py-2 text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {selected ? (
                     <motion.span
@@ -102,7 +102,7 @@ export function Hero() {
               <Magnetic>
                 <Link
                   href={audience.ctaHref}
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base font-semibold text-secondary-foreground transition-transform hover:scale-[1.03]"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
                 >
                   {audience.ctaLabel}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -111,7 +111,7 @@ export function Hero() {
               <Magnetic>
                 <a
                   href="#product"
-                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base font-semibold text-foreground transition-colors hover:bg-white/5"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base text-foreground transition-colors hover:bg-white/5"
                 >
                   See it working
                 </a>
@@ -120,13 +120,13 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.3} className="mt-16 sm:mt-20">
+        <div className="mt-16 sm:mt-20">
           <Parallax distance={30}>
             <div className="mx-auto aspect-video max-w-5xl overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
               <DashboardScreen />
             </div>
           </Parallax>
-        </Reveal>
+        </div>
       </div>
 
       <div className="hairline-t mt-20 py-5">

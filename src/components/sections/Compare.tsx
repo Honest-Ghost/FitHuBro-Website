@@ -14,7 +14,7 @@ function Cell({ state }: { state: CompareRow['us'] | CompareRow['them'] }) {
 
   if (state === 'upcoming') {
     return (
-      <span className="inline-flex flex-col items-center gap-1 text-[10px] font-medium leading-tight text-warning sm:flex-row sm:gap-1.5 sm:text-xs">
+      <span className="inline-flex flex-col items-center gap-1 text-[10px] leading-tight text-warning sm:flex-row sm:gap-1.5 sm:text-xs">
         <Clock className="h-3.5 w-3.5" />
         In build
       </span>
@@ -24,7 +24,7 @@ function Cell({ state }: { state: CompareRow['us'] | CompareRow['them'] }) {
   if (state === 'partial') {
     return (
       <>
-        <span className="text-xs font-medium text-muted-foreground">Partial</span>
+        <span className="text-xs text-muted-foreground">Partial</span>
       </>
     )
   }
@@ -42,7 +42,7 @@ export function Compare() {
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
             Straight comparison
           </p>
         </Reveal>
@@ -68,13 +68,13 @@ export function Compare() {
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-white/10 bg-white/[0.03]">
-                  <th className="px-3 py-4 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground sm:px-6 sm:text-xs">
+                  <th className="px-3 py-4 text-[11px] uppercase tracking-wider text-muted-foreground sm:px-6 sm:text-xs">
                     Capability
                   </th>
-                  <th className="w-[68px] px-2 py-4 text-center text-[11px] font-semibold uppercase tracking-wider text-foreground sm:w-36 sm:px-3 sm:text-xs">
+                  <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-foreground sm:w-36 sm:px-3 sm:text-xs">
                     FitHuBro
                   </th>
-                  <th className="w-[68px] px-2 py-4 text-center text-[11px] font-semibold uppercase tracking-wider text-muted-foreground sm:w-36 sm:px-3 sm:text-xs">
+                  <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground sm:w-36 sm:px-3 sm:text-xs">
                     Typical
                     <span className="hidden sm:inline"> gym software</span>
                   </th>

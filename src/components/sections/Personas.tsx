@@ -27,11 +27,11 @@ export function Personas() {
               >
                 <div className={index % 2 !== 0 ? 'lg:col-start-2' : ''}>
                   <Reveal>
-                    <p className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+                    <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                       <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
                       {persona.label}
                     </p>
-                    <h2 className="font-display mt-5 max-w-sm text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                    <h2 className="font-display mt-5 max-w-sm text-4xl tracking-tight text-foreground sm:text-5xl">
                       {persona.title}
                     </h2>
                     <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
@@ -54,7 +54,7 @@ export function Personas() {
                     <Magnetic>
                       <Link
                         href={persona.ctaHref}
-                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm font-semibold text-secondary transition-colors hover:bg-secondary/20"
+                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
                       >
                         {persona.ctaLabel}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

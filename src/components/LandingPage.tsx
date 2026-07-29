@@ -15,7 +15,7 @@ import { Footer } from './sections/Footer'
 
 import { ScrollScene } from './visuals/ScrollScene'
 
-export function MarketingHome() {
+export function LandingPage() {
   return (
     <div className="marketing-scope min-h-screen relative bg-transparent">
       {/* 3D Scroll-Driven Background */}

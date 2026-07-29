@@ -73,7 +73,7 @@ export function Nav() {
           </Link>
           <Link
             href="/register"
-            className="rounded-full bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground transition-transform hover:scale-[1.03]"
+            className="rounded-full bg-secondary px-5 py-2.5 text-sm text-secondary-foreground transition-transform hover:scale-[1.03]"
           >
             Start free
           </Link>
@@ -113,7 +113,7 @@ export function Nav() {
             <Link
               href="/register"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-secondary px-5 py-3.5 text-center text-base font-semibold text-secondary-foreground"
+              className="mt-2 rounded-full bg-secondary px-5 py-3.5 text-center text-base text-secondary-foreground"
             >
               Start free
             </Link>

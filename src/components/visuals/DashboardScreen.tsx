@@ -16,7 +16,7 @@ export function DashboardScreen({ className }: { className?: string }) {
         ].map(kpi => (
           <div key={kpi.label} className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
             <p className="text-xs text-muted-foreground">{kpi.label}</p>
-            <p className="mt-1 font-display text-2xl font-bold">{kpi.val}</p>
+            <p className="mt-1 font-display text-2xl ">{kpi.val}</p>
             <svg className="mt-3 h-4 w-full overflow-visible stroke-secondary stroke-2" fill="none" viewBox="0 0 80 20" preserveAspectRatio="none">
               <path d={kpi.spark} />
             </svg>

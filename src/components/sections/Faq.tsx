@@ -8,7 +8,7 @@ export function Faq() {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)]">
           <div>
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 Questions
               </p>
             </Reveal>
@@ -25,7 +25,7 @@ export function Faq() {
             {FAQS.map((faq, index) => (
               <Reveal key={faq.q} delay={index * 0.04}>
                 <details className="group py-6">
-                  <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-base font-semibold text-foreground [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-base text-foreground [&::-webkit-details-marker]:hidden">
                     {faq.q}
                     <span
                       aria-hidden

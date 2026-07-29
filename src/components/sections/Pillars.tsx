@@ -12,7 +12,7 @@ export function Pillars() {
 
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
             The AI coach
           </p>
         </Reveal>

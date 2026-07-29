@@ -16,7 +16,7 @@ export function ProductTour() {
     <section id="product" className="relative scroll-mt-16 py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
             The product
           </p>
         </Reveal>
@@ -38,7 +38,7 @@ export function ProductTour() {
             <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#101012] p-6 sm:p-10">
               <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
                 <div className={index % 2 === 1 ? 'lg:order-2' : undefined}>
-                  <p className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.2em] text-secondary">
+                  <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] text-secondary">
                     <span className="font-mono">0{index + 1}</span>
                     {step.eyebrow}
                   </p>

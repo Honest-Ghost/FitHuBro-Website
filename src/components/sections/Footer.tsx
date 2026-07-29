@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import React from 'react'
 import { NAV_LINKS } from '../content'
 import { Logo } from '../visuals/Logo'
 
@@ -8,7 +9,7 @@ const LEGAL_LINKS = [
   { label: 'Check in', href: '/attendance' },
 ]
 
-export function Footer() {
+export const Footer = React.memo(function Footer() {
   return (
     <footer className="hairline-t relative py-14">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
@@ -25,7 +26,7 @@ export function Footer() {
 
           <div className="flex gap-14 sm:gap-20">
             <nav aria-label="Sections">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 Product
               </p>
               <ul className="mt-4 space-y-3">
@@ -43,7 +44,7 @@ export function Footer() {
             </nav>
 
             <nav aria-label="Account">
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 Access
               </p>
               <ul className="mt-4 space-y-3">
@@ -69,10 +70,10 @@ export function Footer() {
       </div>
       
       <div className="pointer-events-none mt-20 flex select-none overflow-hidden" aria-hidden="true">
-        <p className="font-display -mb-[4%] w-full text-center text-[clamp(4rem,22vw,26rem)] font-bold leading-[0.75] tracking-tight text-white/5">
+        <p className="font-display -mb-[4%] w-full text-center text-[clamp(4rem,22vw,26rem)] leading-[0.75] tracking-tight text-white/5">
           FITHU<span className="text-secondary/20">BRO</span>
         </p>
       </div>
     </footer>
   )
-}
+})

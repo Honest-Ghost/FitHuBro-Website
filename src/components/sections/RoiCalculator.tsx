@@ -22,7 +22,7 @@ export function RoiCalculator() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
           <div>
             <Reveal>
-              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
                 The maths
               </p>
             </Reveal>
@@ -50,7 +50,7 @@ export function RoiCalculator() {
                 htmlFor="member-count"
                 className="flex items-baseline justify-between"
               >
-                <span className="text-sm font-medium text-muted-foreground">
+                <span className="text-sm text-muted-foreground">
                   Members at your gym
                 </span>
                 <span className="font-display text-3xl text-foreground">
@@ -97,7 +97,7 @@ export function RoiCalculator() {
 
               <Link
                 href="/register"
-                className="mt-8 block rounded-full bg-secondary px-6 py-4 text-center text-base font-semibold text-secondary-foreground transition-transform hover:scale-[1.02]"
+                className="mt-8 block rounded-full bg-secondary px-6 py-4 text-center text-base text-secondary-foreground transition-transform hover:scale-[1.02]"
               >
                 Start free
               </Link>

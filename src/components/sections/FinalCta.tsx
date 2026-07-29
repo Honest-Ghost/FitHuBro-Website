@@ -15,7 +15,7 @@ export function FinalCta() {
 
       <div className="relative z-10 mx-auto max-w-4xl px-5 sm:px-8">
         <Reveal>
-          <h2 className="font-display text-[clamp(4rem,10vw,8rem)] font-bold tracking-tight text-white text-balance leading-none">
+          <h2 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tight text-white text-balance leading-none">
             Your gym. <br className="hidden sm:block" />
             <span className="text-secondary">One login.</span>
           </h2>
@@ -33,7 +33,7 @@ export function FinalCta() {
             <Magnetic>
               <Link
                 href="/register"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-8 py-5 text-lg font-semibold text-secondary-foreground transition-transform hover:scale-[1.03]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-8 py-5 text-lg text-secondary-foreground transition-transform hover:scale-[1.03]"
               >
                 Start free
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -42,7 +42,7 @@ export function FinalCta() {
             <Magnetic>
               <Link
                 href="/login"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-5 text-lg font-semibold text-foreground transition-colors hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-5 text-lg text-foreground transition-colors hover:bg-white/5"
               >
                 Sign in
               </Link>

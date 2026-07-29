@@ -14,7 +14,7 @@ export function Pricing() {
 
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
             Pricing
           </p>
         </Reveal>
@@ -48,7 +48,7 @@ export function Pricing() {
                 <div className="flex items-center justify-between">
                   <h3 className="font-display text-2xl">{tier.name}</h3>
                   {tier.featured ? (
-                    <span className="rounded-full bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-secondary-foreground">
+                    <span className="rounded-full bg-secondary px-3 py-1 text-[10px] uppercase tracking-wider text-secondary-foreground">
                       Most popular
                     </span>
                   ) : null}
@@ -75,7 +75,7 @@ export function Pricing() {
                 <Link
                   href="/register"
                   className={cn(
-                    'mt-8 rounded-full px-6 py-3.5 text-center text-sm font-semibold transition-transform hover:scale-[1.02]',
+                    'mt-8 rounded-full px-6 py-3.5 text-center text-sm transition-transform hover:scale-[1.02]',
                     tier.featured
                       ? 'bg-secondary text-secondary-foreground'
                       : 'border border-white/20 text-foreground hover:bg-white/5'

@@ -18,7 +18,7 @@ export function PlanEditorScreen({ className }: { className?: string }) {
         <div className="mb-4 flex gap-4">
           {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, i) => (
             <div key={day} className={cn("flex-1 rounded-xl p-3", i === 1 ? "bg-white/10 ring-1 ring-secondary" : "bg-white/5")}>
-              <p className="text-xs font-medium text-muted-foreground">{day}</p>
+              <p className="text-xs text-muted-foreground">{day}</p>
               {i === 1 && (
                 <div className="mt-3 flex flex-col gap-2">
                   <div className="h-10 rounded bg-white/10" />

@@ -6,7 +6,7 @@ export function Manifesto() {
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)]">
           <Reveal>
-            <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
               Why we built it
             </p>
           </Reveal>

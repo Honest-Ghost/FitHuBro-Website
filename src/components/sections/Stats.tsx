@@ -22,7 +22,7 @@ export function Stats() {
               <p className="font-display text-[clamp(3rem,6vw,4.5rem)] text-foreground">
                 <CountUp to={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </p>
-              <p className="mt-2 text-sm font-semibold text-foreground">{stat.label}</p>
+              <p className="mt-2 text-sm text-foreground">{stat.label}</p>
               <p className="mt-1 text-sm text-muted-foreground">{stat.note}</p>
             </StaggerItem>
           ))}
