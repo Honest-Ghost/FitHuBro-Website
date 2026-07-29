@@ -331,3 +331,5 @@ export const FINAL_CTA = {
   buttonText: 'Start using FitHuBro',
   buttonHref: '/register'
 }
+
+export const PRICING_SUBTITLE = 'One price per gym, not per member. No setup fee, no hardware, no annual lock-in. Cancel whenever.'

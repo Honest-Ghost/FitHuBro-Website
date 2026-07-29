@@ -2,6 +2,7 @@ export const NAV_LINKS = [
   { label: 'AI Coach', href: '#pillars' },
   { label: 'Community', href: '#community' },
   { label: 'Streaks', href: '#streaks' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ] as const
 
@@ -12,7 +13,7 @@ export const MARQUEE_WORDS = [
   'Q&A Community',
   'Find Trainers',
   'Form Check',
-  'Equipment Aware',
+  'Custom Diet Plans',
 ] as const
 
 export const AUDIENCES = [
@@ -22,7 +23,7 @@ export const AUDIENCES = [
     eyebrow: 'Train with a plan',
     headline: 'Lift heavier.\nKeep the streak.',
     accent: ['streak.'],
-    body: 'Your workout, food, and recovery in one app. Built around your goal, your kitchen, and the exact equipment on your gym floor. Maintain your weekly streak and see real results.',
+    body: 'Your workout, diet, and recovery in one app. Free members get standard plans and streak tracking, while Pro members unlock advanced AI coaching tailored to your body type and budget.',
     ctaLabel: 'Download free',
     ctaHref: '/join/home',
   }
@@ -47,14 +48,14 @@ export const MANIFESTO = {
   headline: 'Motivation fades.\nStreaks remain.',
   body: [
     'Most people quit the gym because they show up without a plan, get bored, and break their routine.',
-    'FitHuBro keeps you locked in. Our AI coach builds your workout based on the exact equipment your gym has. No guessing. No skipping because the machine was taken.',
-    'Hit your workouts, maintain your weekly streak, and ask our global trainer community when you get stuck.'
+    'FitHuBro keeps you locked in. Hit your workouts, maintain your weekly streak, and ask our global trainer community when you get stuck.',
+    'Upgrade to Pro to let our AI coach build a workout based on the exact equipment your gym has, and generate a diet plan optimized for your budget.'
   ]
 }
 
 export const PILLARS: import('./owners').Pillar[] = [
-  { index: '01', title: 'Smart AI Coach', body: 'The AI adapts your plan based on exactly what equipment your gym has and what you logged last time.' },
-  { index: '02', title: 'Community Q&A', body: 'Ask questions and get answers from certified trainers for free. No more guessing on your form or diet.' },
+  { index: '01', title: 'Smart AI Coach', body: 'Pro members get plans tailored to their body type and the exact equipment available at their gym or home.' },
+  { index: '02', title: 'Personalized Diets', body: 'Vegetarian? Non-veg? Tight budget? Pro unlocks a fully customized diet chart optimized for your needs.' },
   { index: '03', title: 'Motivation Streaks', body: 'Keep your momentum going by hitting your weekly targets. Show off your streaks on the leaderboard.' },
 ]
 
@@ -66,13 +67,13 @@ export const PRODUCT_TOUR = {
 }
 
 export const STATS = [
-  { value: 100, prefix: '', suffix: '%', label: 'Personalized', note: 'Based on your gym' },
+  { value: 100, prefix: '', suffix: '%', label: 'Personalized', note: 'Based on your body type' },
   { value: 24, prefix: '', suffix: '/7', label: 'Community', note: 'Always active' },
 ]
 
 export const ROI = {
   headline: 'Free to start.',
-  description: 'Join the community, get AI plans, and maintain your streaks for free.',
+  description: 'Join the community, get standard workout plans, and maintain your streaks for free.',
   metrics: []
 }
 
@@ -83,9 +84,9 @@ export const COMPARE = {
   us: 'FitHuBro',
   them: 'Generic Apps',
   rows: [
-    { feature: 'Knows your gym equipment', us: 'yes', them: 'no' },
+    { feature: 'Diet optimized for your budget', us: 'yes', them: 'no' },
     { feature: 'Free Q&A with real trainers', us: 'yes', them: 'no' },
-    { feature: 'Weekly motivation streaks', us: 'yes', them: 'no' },
+    { feature: 'Knows your gym equipment', us: 'yes', them: 'no' },
   ] as CompareRow[]
 }
 
@@ -93,38 +94,51 @@ export const TOUR_STEPS: TourStep[] = [
   {
     eyebrow: 'AI Coach',
     title: 'Smartest workouts',
-    body: 'The AI builds a plan based on exactly what equipment your gym has.',
+    body: 'For Pro members, the AI builds a plan based on exactly what equipment your gym has and your body type.',
     bullets: ['Tailored to your gym', 'Progressive overload', 'Form checks'],
     assetLabel: 'AI Coach screen',
     assetSize: '1200 × 2400px · 9:18'
   },
   {
-    eyebrow: 'Streaks',
-    title: 'Never miss a week',
-    body: 'Stay motivated by maintaining your weekly workout streaks.',
-    bullets: ['Weekly goals', 'Leaderboards', 'Milestone badges'],
-    assetLabel: 'Streaks screen',
+    eyebrow: 'Diet Plans',
+    title: 'Eat right, on budget',
+    body: 'Get a personalized diet chart that respects your dietary preferences and monthly budget constraints.',
+    bullets: ['Veg/Non-veg/Eggitarian', 'Budget optimized', 'Body type targeted'],
+    assetLabel: 'Diet screen',
     assetSize: '1200 × 2400px · 9:18'
   },
 ]
+
 export const TIERS = [
   {
-    name: 'Free Forever',
+    name: 'Free',
     price: 0,
     cap: 'For fitness enthusiasts',
+    features: ['Standard Workout Plan', 'BMI Calculator', 'Q&A Community Access', 'Streak Tracking', 'Find Trainers', 'Standard Diet Plan']
+  },
+  {
+    name: 'Pro',
+    price: 499,
+    cap: 'For serious lifters',
     featured: true,
-    features: ['AI Workouts', 'Q&A Community Access', 'Streak Tracking', 'Find Trainers']
+    features: ['Advanced AI Workout Plan (Body Type & Equipment)', 'Custom Diet Chart (Veg/Non-veg/Budget)', 'Everything in Free']
+  },
+  {
+    name: 'Elite',
+    price: 1999,
+    cap: '1-on-1 coaching',
+    features: ['Hire a Verified Trainer directly', 'Personalized Video Form Checks', 'Priority Q&A responses', 'Everything in Pro']
   }
 ]
 
 export const FAQS = [
   {
-    q: 'Is the community really free?',
-    a: 'Yes! You can ask questions about diet, supplements, and workouts, and certified trainers will answer them for free to build their reputation.'
+    q: 'What do I get for free?',
+    a: 'Free members get standard workout and diet plans, the BMI calculator, streak tracking, and full access to our Q&A community.'
   },
   {
-    q: 'How does the AI know my equipment?',
-    a: 'If your gym uses FitHuBro, the app syncs with their equipment inventory. If not, you can quickly filter out machines your gym doesn’t have.'
+    q: 'How does the custom diet plan work?',
+    a: 'Pro members answer a few questions about their body type, dietary preferences (vegetarian, non-veg, etc.), and monthly budget. The AI generates a cost-effective, personalized diet chart.'
   }
 ]
 
@@ -134,3 +148,5 @@ export const FINAL_CTA = {
   buttonText: 'Download the app',
   buttonHref: '/join/home'
 }
+
+export const PRICING_SUBTITLE = 'Start for free and upgrade when you are ready to take your training to the next level.'

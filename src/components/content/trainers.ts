@@ -1,17 +1,17 @@
 export const NAV_LINKS = [
   { label: 'Grow Your Brand', href: '#pillars' },
   { label: 'Get Clients', href: '#clients' },
-  { label: 'Community', href: '#community' },
+  { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ] as const
 
 export const MARQUEE_WORDS = [
   'Lead Generation',
-  'Social Visibility',
+  'Verified Trainers',
   'Online Coaching',
   'Global Clients',
   'Build Reputation',
-  'Free Registration',
+  'KYC Badges',
 ] as const
 
 export const AUDIENCES = [
@@ -21,8 +21,8 @@ export const AUDIENCES = [
     eyebrow: 'Monetize your knowledge',
     headline: 'Coach ten.\nOr a hundred.',
     accent: ['hundred.'],
-    body: 'Boost your social visibility by answering questions in our global fitness community. Build trust, increase your ratings, and secure online clients for personal training.',
-    ctaLabel: 'Register as a trainer',
+    body: 'Pass our fitness knowledge quiz and KYC to become a Verified Trainer. Answer questions to boost visibility, and secure online clients directly through the app.',
+    ctaLabel: 'Apply as a Trainer',
     ctaHref: '/join/trainer',
   }
 ]
@@ -32,7 +32,7 @@ export const PERSONAS = [
     id: 'leads',
     label: 'Lead Generation',
     title: 'Your knowledge is your marketing.',
-    body: 'Stop paying for ads. Answer member questions about diet, workouts, and supplements in our Quora-style community. When members see your expertise, they hire you.',
+    body: 'Stop paying for ads. Answer member questions in our Quora-style community. When members see your expertise and verified badge, they hire you directly.',
     points: ['Answer questions to boost visibility', 'Get rated by the community', 'Convert readers into paying clients'],
     ctaLabel: 'Start answering',
     ctaHref: '/community/questions',
@@ -46,15 +46,15 @@ export const MANIFESTO = {
   headline: 'Stop chasing leads.\nLet them find you.',
   body: [
     'Most trainers struggle to find online clients because they are buried in an algorithm on Instagram.',
-    'FitHuBro flips the model. We bring thousands of fitness enthusiasts to our community who have specific questions about diet, supplements, and workouts.',
-    'You provide the answers. You build the trust. You get the client. And registration is totally free.'
+    'FitHuBro flips the model. We bring thousands of fitness enthusiasts to our community who have specific questions.',
+    'To maintain quality, we only onboard trainers who pass our fitness quiz and submit their qualifications. Once verified, you get the clients.'
   ]
 }
 
 export const PILLARS: import('./owners').Pillar[] = [
-  { index: '01', title: 'Build Reputation', body: 'Answer questions in the community. The more helpful you are, the more the algorithm pushes your profile.' },
-  { index: '02', title: 'Generate Leads', body: 'When members love your free advice, they can easily reach out to buy a personalized plan.' },
-  { index: '03', title: 'Manage Clients', body: 'Deliver plans, track compliance, and manage payments all in one place.' },
+  { index: '01', title: 'Get Verified', body: 'Pass our fitness knowledge quiz, submit your qualifications, and upload a selfie with your ID to get the Verified Badge.' },
+  { index: '02', title: 'Build Reputation', body: 'Answer questions in the community. The more helpful you are, the more the algorithm pushes your profile to potential clients.' },
+  { index: '03', title: 'Manage Clients', body: 'Deliver personalized plans, track client compliance, and manage payments all in one place.' },
 ]
 
 export const PRODUCT_TOUR = {
@@ -65,8 +65,8 @@ export const PRODUCT_TOUR = {
 }
 
 export const STATS = [
-  { value: 0, prefix: '₹', suffix: '', label: 'Registration fee', note: 'Totally free to join' },
-  { value: 100, prefix: '', suffix: '%', label: 'Organic leads', note: 'Based on your answers' },
+  { value: 100, prefix: '', suffix: '%', label: 'Verified', note: 'Rigorous KYC process' },
+  { value: 0, prefix: '₹', suffix: '', label: 'Upfront fees', note: 'Start answering for free' },
 ]
 
 export const ROI = {
@@ -83,53 +83,62 @@ export const COMPARE = {
   them: 'Social Media',
   rows: [
     { feature: 'High-intent clients asking questions', us: 'yes', them: 'no' },
-    { feature: 'Built-in workout planner for clients', us: 'yes', them: 'no' },
+    { feature: 'Strict KYC & Verified Badges', us: 'yes', them: 'no' },
     { feature: 'Algorithm based on helpfulness', us: 'yes', them: 'no' },
   ] as CompareRow[]
 }
 
 export const TOUR_STEPS: TourStep[] = [
   {
-    eyebrow: 'Q&A',
-    title: 'Answer and attract',
-    body: 'Provide valuable answers to community questions and build your reputation.',
-    bullets: ['Showcase expertise', 'Algorithm favors helpfulness', 'Direct lead generation'],
-    assetLabel: 'Community Q&A screen',
+    eyebrow: 'Verification',
+    title: 'Trusted experts only',
+    body: 'Submit your certifications and ID to get verified. Members trust our trainers because of our strict vetting process.',
+    bullets: ['Fitness knowledge quiz', 'Qualification review', 'Selfie & ID KYC'],
+    assetLabel: 'Trainer Verification screen',
     assetSize: '1200 × 2400px · 9:18'
   },
   {
     eyebrow: 'Monetization',
     title: 'Sell plans seamlessly',
-    body: 'When users love your advice, they can buy your personalized plans right in the app.',
+    body: 'Once you build trust in the community, members can buy your personalized plans right in the app.',
     bullets: ['Zero friction', 'Integrated payments', 'Easy delivery'],
     assetLabel: 'Trainer monetization screen',
     assetSize: '1200 × 2400px · 9:18'
   },
 ]
+
 export const TIERS = [
   {
-    name: 'Trainer Pro',
+    name: 'Basic Trainer',
     price: 0,
-    cap: 'For certified professionals',
+    cap: 'For verified professionals',
+    features: ['Verified Trainer Badge', 'Answer Q&A to build reputation', 'Organic lead generation', 'Basic client management']
+  },
+  {
+    name: 'Trainer Pro',
+    price: 999,
+    cap: 'Scale your business',
     featured: true,
-    features: ['Global Lead Gen', 'Community Q&A Access', 'Client Management', 'Verified Badge']
+    features: ['Algorithm Boost in Q&A', 'Priority Listing for Clients', 'Advanced Client Analytics', 'Everything in Basic']
   }
 ]
 
 export const FAQS = [
   {
-    q: 'How do I get clients?',
-    a: 'By participating in the community. When a member asks about a workout plan or supplement, give a great answer. Your profile rating goes up, and members can contact you directly for personal training.'
+    q: 'How do I get the Verified Badge?',
+    a: 'You must pass our fitness knowledge quiz, submit your fitness certifications, and complete KYC by providing a selfie holding your Aadhar card or identity proof.'
   },
   {
-    q: 'Is it really free?',
-    a: 'Yes! Registration is free. You only need to verify your certifications to get the trusted trainer badge.'
+    q: 'How do I get clients?',
+    a: 'By participating in the community. When a member asks about a workout plan or supplement, give a great answer. Your verified profile rating goes up, and members can contact you directly.'
   }
 ]
 
 export const FINAL_CTA = {
   headline: 'Grow your roster.',
-  body: 'Join the smartest platform for trainers to find motivated online clients.',
-  buttonText: 'Register for free',
+  body: 'Join the smartest platform for trainers to find motivated online clients. Pass the quiz and start today.',
+  buttonText: 'Apply for Verification',
   buttonHref: '/join/trainer'
 }
+
+export const PRICING_SUBTITLE = 'Answer questions for free to build your reputation, and scale your business with the Pro tier.'

@@ -5,7 +5,7 @@ import { Reveal, Stagger, StaggerItem } from '../motion/Reveal'
 import { getPersonaContent, type Persona } from '../content'
 
 export function Pricing({ persona }: { persona: Persona }) {
-  const { TIERS } = getPersonaContent(persona)
+  const { TIERS, PRICING_SUBTITLE } = getPersonaContent(persona)
   return (
     <section id="pricing" className="relative scroll-mt-16 py-24 sm:py-32">
       <div
@@ -30,8 +30,7 @@ export function Pricing({ persona }: { persona: Persona }) {
 
         <Reveal delay={0.12}>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            One price per gym, not per member. No setup fee, no hardware, no annual
-            lock-in. Cancel whenever.
+            {PRICING_SUBTITLE}
           </p>
         </Reveal>
 
