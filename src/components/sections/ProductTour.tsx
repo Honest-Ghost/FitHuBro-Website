@@ -64,7 +64,7 @@ export function ProductTour({ persona }: { persona: Persona }) {
 
                 <div className={index % 2 === 1 ? 'lg:order-1' : undefined}>
                   <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[20px] border border-white/10 bg-[#0A0A0B] shadow-2xl lg:max-w-none lg:aspect-[16/10]">
-                    {index === 0 && <DashboardScreen />}
+                    {index === 0 && <DashboardScreen persona={persona} />}
                     {index === 1 && <PlanEditorScreen />}
                     {index === 2 && (
                       <div className="flex h-full items-center justify-center pt-8">
@@ -73,7 +73,7 @@ export function ProductTour({ persona }: { persona: Persona }) {
                         </PhoneFrame>
                       </div>
                     )}
-                    {index === 3 && <DashboardScreen />}
+                    {index === 3 && <DashboardScreen persona={persona} />}
                   </div>
                 </div>
               </div>

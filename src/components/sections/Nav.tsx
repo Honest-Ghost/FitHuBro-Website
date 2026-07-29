@@ -64,9 +64,9 @@ export function Nav({ persona }: { persona: Persona }) {
             </a>
           ))}
           <div className="h-4 w-px bg-white/10" />
-          <Link href="/owners" className="text-sm text-muted-foreground transition-colors hover:text-secondary">Gyms</Link>
-          <Link href="/members" className="text-sm text-muted-foreground transition-colors hover:text-secondary">Members</Link>
-          <Link href="/trainers" className="text-sm text-muted-foreground transition-colors hover:text-secondary">Trainers</Link>
+          <Link href="/owners" className={cn("text-sm transition-colors hover:text-secondary", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
+          <Link href="/members" className={cn("text-sm transition-colors hover:text-secondary", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
+          <Link href="/trainers" className={cn("text-sm transition-colors hover:text-secondary", persona === 'trainers' ? "text-secondary font-medium" : "text-muted-foreground")}>Trainers</Link>
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -108,6 +108,11 @@ export function Nav({ persona }: { persona: Persona }) {
                 {link.label}
               </a>
             ))}
+            <div className="my-2 h-px w-full bg-white/10" />
+            <Link href="/owners" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
+            <Link href="/members" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
+            <Link href="/trainers" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'trainers' ? "text-secondary font-medium" : "text-muted-foreground")}>Trainers</Link>
+            <div className="my-2 h-px w-full bg-white/10" />
             <Link
               href="/login"
               onClick={() => setOpen(false)}

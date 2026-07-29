@@ -80,7 +80,7 @@ export function Hero({ persona }: { persona: Persona }) {
         <div className="mt-16 sm:mt-20">
           <Parallax distance={30}>
             <div className="mx-auto aspect-video max-w-5xl overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-              <DashboardScreen />
+              <DashboardScreen persona={persona} />
             </div>
           </Parallax>
         </div>
