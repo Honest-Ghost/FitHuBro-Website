@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import { Nav } from '@/components/sections/Nav'
 import { Footer } from '@/components/sections/Footer'
+import { ScrollScene } from '@/components/visuals/ScrollScene'
+import { Cursor } from '@/components/motion/Cursor'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | FitHuBro',
@@ -10,9 +12,15 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="marketing-scope min-h-screen bg-transparent relative">
-      <div className="relative z-10 w-full">
-        <Nav persona="owners" />
-        <main className="min-h-screen bg-background pt-24 pb-16">
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <ScrollScene />
+      </div>
+      <div className="relative z-10 w-full pointer-events-none">
+        <div className="pointer-events-auto">
+          <Cursor />
+          <Nav persona="owners" />
+        </div>
+        <main className="pointer-events-auto min-h-screen pt-24 pb-16">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <h1 className="mb-8 text-4xl font-display font-light tracking-tight text-foreground">Privacy Policy</h1>
         
@@ -64,7 +72,9 @@ export default function PrivacyPage() {
         </div>
       </div>
       </main>
-      <Footer persona="owners" />
+      <div className="pointer-events-auto">
+        <Footer persona="owners" />
+      </div>
     </div>
   </div>
   )

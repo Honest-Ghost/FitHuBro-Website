@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Nav } from '@/components/sections/Nav'
 import { Footer } from '@/components/sections/Footer'
-
+import { ScrollScene } from '@/components/visuals/ScrollScene'
+import { Cursor } from '@/components/motion/Cursor'
 export const metadata: Metadata = {
   title: 'Blog | FitHuBro',
   description: 'Insights, updates, and articles on modern gym management.',
@@ -47,9 +48,15 @@ const POSTS = [
 export default function BlogPage() {
   return (
     <div className="marketing-scope min-h-screen bg-transparent relative">
-      <div className="relative z-10 w-full">
-        <Nav persona="owners" />
-        <main className="min-h-screen bg-background pt-24 pb-20">
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <ScrollScene />
+      </div>
+      <div className="relative z-10 w-full pointer-events-none">
+        <div className="pointer-events-auto">
+          <Cursor />
+          <Nav persona="owners" />
+        </div>
+        <main className="pointer-events-auto min-h-screen pt-24 pb-20">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-16">
           <h1 className="text-4xl font-display font-light tracking-tight text-foreground sm:text-5xl">
@@ -93,7 +100,9 @@ export default function BlogPage() {
         </div>
       </div>
       </main>
-      <Footer persona="owners" />
+      <div className="pointer-events-auto">
+        <Footer persona="owners" />
+      </div>
     </div>
   </div>
   )
