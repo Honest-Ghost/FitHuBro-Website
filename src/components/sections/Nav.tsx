@@ -65,7 +65,7 @@ export function Nav({ persona }: { persona: Persona }) {
 
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => {
-            const finalHref = isCorrectPage ? link.href : `${basePath === '/' ? '' : basePath}${link.href}`
+            const finalHref = isCorrectPage ? link.href : `${basePath}${link.href}`
             return (
               <Link
                 key={link.href}
@@ -112,7 +112,7 @@ export function Nav({ persona }: { persona: Persona }) {
         <div className="border-t border-white/10 md:hidden">
           <div className="flex flex-col gap-1 px-5 py-4">
             {NAV_LINKS.map((link) => {
-              const finalHref = isCorrectPage ? link.href : `${basePath === '/' ? '' : basePath}${link.href}`
+              const finalHref = isCorrectPage ? link.href : `${basePath}${link.href}`
               return (
                 <Link
                   key={link.href}
