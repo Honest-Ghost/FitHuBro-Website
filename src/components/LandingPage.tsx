@@ -23,7 +23,9 @@ export function LandingPage({ persona }: LandingPageProps) {
   return (
     <div className="marketing-scope min-h-screen relative bg-transparent">
       {/* 3D Scroll-Driven Background */}
-      <ScrollScene />
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <ScrollScene />
+      </div>
       
       {/* 
         The z-10 wrapper ensures our DOM content sits on top of the fixed WebGL canvas.
