@@ -225,6 +225,7 @@ export const COMPARE = {
   rows: [
     { feature: 'Attendance, members and payments', us: 'yes', them: 'yes' },
     { feature: 'Owner reports and churn risk', us: 'yes', them: 'partial' },
+    { feature: 'Lead Management CRM', us: 'upcoming', them: 'partial' },
     { feature: 'AI workout plans that adapt weekly', us: 'yes', them: 'no' },
     { feature: 'India-tuned nutrition targets', us: 'yes', them: 'no' },
     { feature: 'Recovery and load tracking', us: 'yes', them: 'no' },
