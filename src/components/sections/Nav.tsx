@@ -5,10 +5,11 @@ import Link from 'next/link'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
-import { NAV_LINKS } from '../content'
+import { getPersonaContent, type Persona } from '../content'
 import { Logo } from '../visuals/Logo'
 
-export function Nav() {
+export function Nav({ persona }: { persona: Persona }) {
+  const { NAV_LINKS } = getPersonaContent(persona)
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   
@@ -62,6 +63,10 @@ export function Nav() {
               {link.label}
             </a>
           ))}
+          <div className="h-4 w-px bg-white/10" />
+          <Link href="/owners" className="text-sm text-muted-foreground transition-colors hover:text-secondary">Gyms</Link>
+          <Link href="/members" className="text-sm text-muted-foreground transition-colors hover:text-secondary">Members</Link>
+          <Link href="/trainers" className="text-sm text-muted-foreground transition-colors hover:text-secondary">Trainers</Link>
         </div>
 
         <div className="hidden items-center gap-3 md:flex">

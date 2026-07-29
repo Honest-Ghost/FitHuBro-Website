@@ -212,29 +212,30 @@ export const TOUR_STEPS: TourStep[] = [
 ]
 
 export interface CompareRow {
-  capability: string
+  feature: string
   us: 'yes' | 'upcoming'
   them: 'yes' | 'no' | 'partial'
   note?: string
 }
 
-/**
- * Honest column. `upcoming` renders as "In build" — we do not claim Phase 2.6
- * work as delivered, and the row order puts what we actually have first.
- */
-export const COMPARE_ROWS: CompareRow[] = [
-  { capability: 'Attendance, members and payments', us: 'yes', them: 'yes' },
-  { capability: 'Owner reports and churn risk', us: 'yes', them: 'partial' },
-  { capability: 'AI workout plans that adapt weekly', us: 'yes', them: 'no' },
-  { capability: 'India-tuned nutrition targets', us: 'yes', them: 'no' },
-  { capability: 'Recovery and load tracking', us: 'yes', them: 'no' },
-  { capability: 'Camera form check on key lifts', us: 'yes', them: 'no' },
-  { capability: 'Installable member app', us: 'yes', them: 'partial' },
-  { capability: 'Public, self-serve pricing', us: 'yes', them: 'no' },
-  { capability: 'GST invoicing', us: 'upcoming', them: 'yes' },
-  { capability: 'UPI collection', us: 'upcoming', them: 'yes' },
-  { capability: 'WhatsApp reminders', us: 'upcoming', them: 'yes' },
-]
+export const COMPARE = {
+  headline: 'Including where we’re behind',
+  us: 'FitHuBro',
+  them: 'Typical gym software',
+  rows: [
+    { feature: 'Attendance, members and payments', us: 'yes', them: 'yes' },
+    { feature: 'Owner reports and churn risk', us: 'yes', them: 'partial' },
+    { feature: 'AI workout plans that adapt weekly', us: 'yes', them: 'no' },
+    { feature: 'India-tuned nutrition targets', us: 'yes', them: 'no' },
+    { feature: 'Recovery and load tracking', us: 'yes', them: 'no' },
+    { feature: 'Camera form check on key lifts', us: 'yes', them: 'no' },
+    { feature: 'Installable member app', us: 'yes', them: 'partial' },
+    { feature: 'Public, self-serve pricing', us: 'yes', them: 'no' },
+    { feature: 'GST invoicing', us: 'upcoming', them: 'yes' },
+    { feature: 'UPI collection', us: 'upcoming', them: 'yes' },
+    { feature: 'WhatsApp reminders', us: 'upcoming', them: 'yes' },
+  ] as CompareRow[]
+}
 
 export interface Tier {
   name: string
@@ -309,3 +310,24 @@ export const FAQS = [
     a: 'An afternoon for a typical single-branch gym. Members can also self-register from a link specific to your gym, which does most of the data entry for you.',
   },
 ] as const
+
+export const MANIFESTO = { headline: 'A member who stops coming doesn’t cancel. They just stop coming — and you find out sixty days later, when the renewal never lands.', body: ['Gym software has spent a decade getting good at the front desk and ignoring everything after it. It records that someone walked in. It has nothing to say about whether they’re making progress, and no idea they were about to quit.', 'So we built both halves into one login. Your staff run the floor. The AI coach handles the six days a week your trainers can’t. And the moment a member goes quiet, you know — while there’s still time to do something about it.'] };
+export const STATS = [
+  { value: 0, prefix: '₹', suffix: '', label: 'Hardware to buy', note: 'No biometric machine' },
+  { value: 3, prefix: '', suffix: '', label: 'Coaching pillars', note: 'Training, nutrition, recovery' },
+  { value: 24, prefix: '', suffix: 'h', label: 'QR rotation', note: 'Screenshots expire nightly' },
+  { value: 100, prefix: '', suffix: '%', label: 'Offline check-in', note: 'Syncs when WiFi returns' },
+]
+
+export const ROI = {
+  headline: 'The ROI',
+  description: 'Assuming a gym with 150 members and a ₹1,500 monthly fee, FitHuBro only needs to save a handful of at-risk members a year to pay for itself.',
+  metrics: []
+}
+
+export const FINAL_CTA = {
+  headline: 'Free while we build.',
+  body: 'The app is live in production but still in active development. Early adopters who join now lock in free access while we build out the next phase.',
+  buttonText: 'Start using FitHuBro',
+  buttonHref: '/register'
+}

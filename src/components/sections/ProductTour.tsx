@@ -4,14 +4,15 @@ import { PlanEditorScreen } from '../visuals/PlanEditorScreen'
 import { WorkoutScreen } from '../visuals/WorkoutScreen'
 import { PhoneFrame } from '../visuals/PhoneFrame'
 import { Reveal } from '../motion/Reveal'
-import { TOUR_STEPS } from '../content'
+import { getPersonaContent, type Persona } from '../content'
 
 /**
  * Sticky stacked scroll. Each step sticks to the top and the next one slides
  * over it — CSS `position: sticky` only, no scroll listener, so it stays smooth
  * on a mid-range phone.
  */
-export function ProductTour() {
+export function ProductTour({ persona }: { persona: Persona }) {
+  const { TOUR_STEPS } = getPersonaContent(persona)
   return (
     <section id="product" className="relative scroll-mt-16 py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">

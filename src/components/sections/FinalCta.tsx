@@ -6,8 +6,11 @@ import { Reveal } from '../motion/Reveal'
 import { Magnetic } from '../motion/Magnetic'
 import { GradientMesh } from '../visuals/GradientMesh'
 import { DustField } from '../visuals/DustField'
+import { getPersonaContent, type Persona } from '../content'
 
-export function FinalCta() {
+export function FinalCta({ persona }: { persona: Persona }) {
+  const { FINAL_CTA } = getPersonaContent(persona)
+  
   return (
     <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden py-32 text-center">
       <GradientMesh variant="accent" />
@@ -16,26 +19,25 @@ export function FinalCta() {
       <div className="relative z-10 mx-auto max-w-4xl px-5 sm:px-8">
         <Reveal>
           <h2 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tight text-white text-balance leading-none">
-            Your gym. <br className="hidden sm:block" />
-            <span className="text-secondary">One login.</span>
+            {FINAL_CTA?.headline.split('.')[0]} <br className="hidden sm:block" />
+            <span className="text-secondary">{FINAL_CTA?.headline.split('.')[1] || ''}.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.08}>
           <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            Set it up this afternoon. Bring your members across from the register,
-            and stop finding out about churn two months late.
+            {FINAL_CTA?.body}
           </p>
         </Reveal>
 
-        <Reveal delay={0.14}>
+        <Reveal delay={0.16}>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Magnetic>
               <Link
-                href="/register"
+                href={FINAL_CTA?.buttonHref || '/register'}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-8 py-5 text-lg text-secondary-foreground transition-transform hover:scale-[1.03]"
               >
-                Start free
+                {FINAL_CTA?.buttonText || 'Start free'}
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Magnetic>

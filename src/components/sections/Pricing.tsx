@@ -2,9 +2,10 @@ import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 import { Reveal, Stagger, StaggerItem } from '../motion/Reveal'
-import { TIERS } from '../content'
+import { getPersonaContent, type Persona } from '../content'
 
-export function Pricing() {
+export function Pricing({ persona }: { persona: Persona }) {
+  const { TIERS } = getPersonaContent(persona)
   return (
     <section id="pricing" className="relative scroll-mt-16 py-24 sm:py-32">
       <div

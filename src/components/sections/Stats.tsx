@@ -1,18 +1,10 @@
 import { CountUp } from '../motion/CountUp'
 import { Reveal, Stagger, StaggerItem } from '../motion/Reveal'
+import { getPersonaContent, type Persona } from '../content'
 
-/**
- * Product facts, not customer counts. We have one live gym — inventing
- * "500+ gyms trust us" would be the first lie on the page.
- */
-const STATS = [
-  { value: 0, prefix: '₹', suffix: '', label: 'Hardware to buy', note: 'No biometric machine' },
-  { value: 3, prefix: '', suffix: '', label: 'Coaching pillars', note: 'Training, nutrition, recovery' },
-  { value: 24, prefix: '', suffix: 'h', label: 'QR rotation', note: 'Screenshots expire nightly' },
-  { value: 100, prefix: '', suffix: '%', label: 'Offline check-in', note: 'Syncs when WiFi returns' },
-]
-
-export function Stats() {
+export function Stats({ persona }: { persona: Persona }) {
+  const { STATS } = getPersonaContent(persona)
+  
   return (
     <section className="hairline-t relative py-20 sm:py-24">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">

@@ -1,15 +1,16 @@
 import Link from 'next/link'
 import React from 'react'
-import { NAV_LINKS } from '../content'
+import { getPersonaContent, type Persona } from '../content'
 import { Logo } from '../visuals/Logo'
 
 const LEGAL_LINKS = [
-  { label: 'Sign in', href: '/login' },
-  { label: 'Start free', href: '/register' },
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Terms', href: '/terms' },
   { label: 'Check in', href: '/attendance' },
 ]
 
-export const Footer = React.memo(function Footer() {
+export const Footer = React.memo(function Footer({ persona }: { persona: Persona }) {
+  const { NAV_LINKS } = getPersonaContent(persona)
   return (
     <footer className="hairline-t relative py-14">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">

@@ -1,6 +1,7 @@
 import { Check, Clock, Minus } from 'lucide-react'
 import { Reveal } from '../motion/Reveal'
-import { COMPARE_ROWS, type CompareRow } from '../content'
+import { getPersonaContent, type Persona } from '../content'
+import type { CompareRow } from '../content/owners'
 
 function Cell({ state }: { state: CompareRow['us'] | CompareRow['them'] }) {
   if (state === 'yes') {
@@ -37,7 +38,10 @@ function Cell({ state }: { state: CompareRow['us'] | CompareRow['them'] }) {
   )
 }
 
-export function Compare() {
+export function Compare({ persona }: { persona: Persona }) {
+  const { COMPARE } = getPersonaContent(persona)
+  if (!COMPARE || !COMPARE.rows) return null
+
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
@@ -49,17 +53,15 @@ export function Compare() {
 
         <Reveal delay={0.06}>
           <h2 className="font-display mt-5 max-w-2xl text-[clamp(2.25rem,5.5vw,4.25rem)] text-balance">
-            Including where
+            {COMPARE.headline.split(' ').slice(0, -2).join(' ')}
             <br />
-            <span className="text-secondary">we’re behind</span>
+            <span className="text-secondary">{COMPARE.headline.split(' ').slice(-2).join(' ')}</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.12}>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            GST invoicing, UPI collection and WhatsApp reminders are the three things
-            traditional gym software does that we don’t yet. They’re in build and next
-            out. Everything above them we already ship.
+            See exactly how we stack up against the alternatives.
           </p>
         </Reveal>
 
@@ -72,19 +74,18 @@ export function Compare() {
                     Capability
                   </th>
                   <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-foreground sm:w-36 sm:px-3 sm:text-xs">
-                    FitHuBro
+                    {COMPARE.us}
                   </th>
                   <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground sm:w-36 sm:px-3 sm:text-xs">
-                    Typical
-                    <span className="hidden sm:inline"> gym software</span>
+                    {COMPARE.them}
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {COMPARE_ROWS.map((row) => (
-                  <tr key={row.capability} className="border-b border-white/5 last:border-0">
+                {COMPARE.rows.map((row) => (
+                  <tr key={row.feature} className="border-b border-white/5 last:border-0">
                     <td className="px-3 py-4 text-[13px] leading-snug text-foreground/90 sm:px-6 sm:text-sm">
-                      {row.capability}
+                      {row.feature}
                     </td>
                     <td className="px-2 py-4 text-center sm:px-3">
                       <Cell state={row.us} />

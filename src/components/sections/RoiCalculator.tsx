@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Reveal } from '../motion/Reveal'
+import { getPersonaContent, type Persona } from '../content'
 
 // Ported from the previous landing page. 8% is the share of churn we assume a
 // gym can recover once at-risk members surface before their expiry, not a
@@ -10,7 +11,8 @@ import { Reveal } from '../motion/Reveal'
 const CHURN_RECOVERY_RATE = 0.08
 const AVG_MONTHLY_FEE = 1500
 
-export function RoiCalculator() {
+export function RoiCalculator({ persona }: { persona: Persona }) {
+  const { ROI } = getPersonaContent(persona)
   const [memberCount, setMemberCount] = useState(150)
 
   const savedRenewals = Math.round(memberCount * CHURN_RECOVERY_RATE)
@@ -28,18 +30,14 @@ export function RoiCalculator() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <h2 className="font-display mt-5 text-[clamp(2.25rem,5.5vw,4.25rem)] text-balance">
-                What quiet members
-                <br />
-                <span className="text-secondary">actually cost</span>
+              <h2 className="font-display mt-5 text-[clamp(2.5rem,5.5vw,4.5rem)] leading-none text-balance">
+                {ROI?.headline || 'The ROI'}
               </h2>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-                Drag to your member count. The figure assumes you recover 8% of the
-                members who would otherwise drift off, at an average fee of ₹1,500 —
-                an estimate to size the problem, not a promise.
+              <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
+                {ROI?.description || 'Assuming a gym with 150 members and a ₹1,500 monthly fee, FitHuBro only needs to save a handful of at-risk members a year to pay for itself.'}
               </p>
             </Reveal>
           </div>

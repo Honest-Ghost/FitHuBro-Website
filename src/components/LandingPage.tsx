@@ -15,32 +15,44 @@ import { Footer } from './sections/Footer'
 
 import { ScrollScene } from './visuals/ScrollScene'
 
-export function LandingPage() {
+interface LandingPageProps {
+  persona: 'owners' | 'members' | 'trainers'
+}
+
+export function LandingPage({ persona }: LandingPageProps) {
   return (
     <div className="marketing-scope min-h-screen relative bg-transparent">
       {/* 3D Scroll-Driven Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <ScrollScene />
-      </div>
-
-      {/* Foreground Content */}
-      <div className="relative z-10 bg-transparent">
-        <Cursor />
-        <Nav />
-        <main>
-          <Hero />
-          <Manifesto />
-          <Personas />
-          <Pillars />
-          <ProductTour />
-          <Stats />
-          <RoiCalculator />
-          <Compare />
-          <Pricing />
-          <Faq />
-          <FinalCta />
+      <ScrollScene />
+      
+      {/* 
+        The z-10 wrapper ensures our DOM content sits on top of the fixed WebGL canvas.
+        pointer-events-none on the wrapper ensures we can scroll, but we must set
+        pointer-events-auto on interactive sections.
+      */}
+      <div className="relative z-10 w-full pointer-events-none">
+        <div className="pointer-events-auto">
+          <Cursor />
+          <Nav persona={persona} />
+        </div>
+        
+        <main className="pointer-events-auto">
+          <Hero persona={persona} />
+          <Manifesto persona={persona} />
+          <Personas persona={persona} />
+          <Pillars persona={persona} />
+          <ProductTour persona={persona} />
+          <Stats persona={persona} />
+          <RoiCalculator persona={persona} />
+          <Compare persona={persona} />
+          <Pricing persona={persona} />
+          <Faq persona={persona} />
+          <FinalCta persona={persona} />
         </main>
-        <Footer />
+        
+        <div className="pointer-events-auto">
+          <Footer persona={persona} />
+        </div>
       </div>
     </div>
   )

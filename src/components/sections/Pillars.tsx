@@ -3,9 +3,10 @@ import { LineArt } from '../visuals/LineArt'
 import { GradientMesh } from '../visuals/GradientMesh'
 import { Reveal, Stagger, StaggerItem } from '../motion/Reveal'
 import { TiltCard } from '../motion/TiltCard'
-import { PILLARS } from '../content'
+import { getPersonaContent, type Persona } from '../content'
 
-export function Pillars() {
+export function Pillars({ persona }: { persona: Persona }) {
+  const { PILLARS } = getPersonaContent(persona)
   return (
     <section id="pillars" className="relative scroll-mt-16 py-24 sm:py-32">
       <GradientMesh />

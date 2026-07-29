@@ -1,6 +1,6 @@
 'use client'
 
-import { PERSONAS } from '../content'
+import { getPersonaContent, type Persona } from '../content'
 import { PhoneFrame } from '../visuals/PhoneFrame'
 import { WorkoutScreen } from '../visuals/WorkoutScreen'
 import { PlanEditorScreen } from '../visuals/PlanEditorScreen'
@@ -10,7 +10,8 @@ import { Magnetic } from '../motion/Magnetic'
 import { ArrowRight, Check } from 'lucide-react'
 import Link from 'next/link'
 
-export function Personas() {
+export function Personas({ persona }: { persona: Persona }) {
+  const { PERSONAS } = getPersonaContent(persona)
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
