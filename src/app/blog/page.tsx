@@ -48,7 +48,7 @@ const POSTS = [
 export default function BlogPage() {
   return (
     <div className="marketing-scope min-h-screen bg-transparent relative">
-      <div className="fixed inset-0 pointer-events-none z-0">
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-20">
         <ScrollScene />
       </div>
       <div className="relative z-10 w-full pointer-events-none">
