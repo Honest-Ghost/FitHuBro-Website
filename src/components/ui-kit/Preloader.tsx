@@ -21,40 +21,28 @@ export function Preloader() {
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, filter: 'brightness(0.5)' }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[10000] flex items-center justify-center bg-white"
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[10000] flex items-center justify-center bg-background"
         >
-          {/* Aesthetic pulse effect behind the logo */}
           <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.7, 0.3],
+            animate={{ 
+              scale: [1, 1.1, 1],
+              opacity: [0.6, 1, 0.6]
             }}
-            transition={{
-              duration: 2,
+            transition={{ 
+              duration: 1.5, 
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut" 
             }}
-            className="absolute rounded-full w-[300px] h-[300px] bg-red-100 blur-[80px]"
-          />
-          
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 1.5, opacity: 0, filter: 'blur(10px)' }}
-            transition={{
-              duration: 0.8,
-              ease: "easeOut"
-            }}
-            className="relative z-10"
+            className="flex items-center justify-center"
           >
             <Image
               src="/fithubro-logo.png"
               alt="FitHuBro Logo"
-              width={250}
-              height={250}
-              className="drop-shadow-xl object-contain"
+              width={220}
+              height={220}
+              className="object-contain filter invert hue-rotate-180 brightness-110 drop-shadow-2xl"
               priority
             />
           </motion.div>
