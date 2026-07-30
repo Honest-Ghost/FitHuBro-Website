@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+import { Logo } from '../visuals/Logo'
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Show the preloader for 2 seconds
+    // Show the preloader for a clean 2 seconds
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2000)
@@ -28,23 +28,16 @@ export function Preloader() {
           <motion.div
             animate={{ 
               scale: [1, 1.1, 1],
-              opacity: [0.6, 1, 0.6]
+              opacity: [0.7, 1, 0.7]
             }}
             transition={{ 
               duration: 1.5, 
               repeat: Infinity,
               ease: "easeInOut" 
             }}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center scale-150"
           >
-            <Image
-              src="/fithubro-logo.png"
-              alt="FitHuBro Logo"
-              width={220}
-              height={220}
-              className="object-contain filter invert hue-rotate-180 brightness-110 drop-shadow-2xl"
-              priority
-            />
+            <Logo />
           </motion.div>
         </motion.div>
       )}
