@@ -3,26 +3,57 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 
-const waveVariants: Variants = {
-  animate: (i: number) => ({
-    scale: [1, 1.3, 1],
+const iconVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
     transition: {
-      delay: i * 0.15,
-      duration: 1.2,
-      repeat: Infinity,
-      ease: 'easeInOut',
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.1,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn"
+    }
+  }
+}
+
+const draw: Variants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: (i: number) => ({
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: { delay: i * 0.2, type: "spring", duration: 1.5, bounce: 0 },
+      opacity: { delay: i * 0.2, duration: 0.1 }
     }
   })
+}
+
+const pulse: Variants = {
+  animate: {
+    boxShadow: ["0px 0px 0px rgba(225, 29, 72, 0)", "0px 0px 40px rgba(225, 29, 72, 0.4)", "0px 0px 0px rgba(225, 29, 72, 0)"],
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
 }
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Let the wave animation play a couple of times before hiding
+    // Show the preloader for a clean 2 seconds to let the drawing animation finish
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2200)
+    }, 2000)
     
     return () => clearTimeout(timer)
   }, [])
@@ -31,44 +62,59 @@ export function Preloader() {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
           className="fixed inset-0 z-[10000] flex items-center justify-center bg-background"
         >
-          <div className="flex items-center gap-2 scale-150">
-            <motion.div custom={0} animate="animate" variants={waveVariants} style={{ originX: 0.5, originY: 0.5 }}>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-secondary"
-              >
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2.5" />
-                <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
-                <path
-                  d="M12 2V22"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M2 12H22"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </motion.div>
-            
-            <div className="font-display text-2xl tracking-tight text-foreground flex items-center gap-[1px]">
-              <motion.span custom={1} animate="animate" variants={waveVariants} style={{ display: 'inline-block', originX: 0.5, originY: 0.5 }}>Fit</motion.span>
-              <motion.span custom={2} animate="animate" variants={waveVariants} style={{ display: 'inline-block', originX: 0.5, originY: 0.5 }}>Hu</motion.span>
-              <motion.span custom={3} animate="animate" variants={waveVariants} className="text-secondary" style={{ display: 'inline-block', originX: 0.5, originY: 0.5 }}>Bro</motion.span>
-            </div>
-          </div>
+          {/* Aesthetic glow behind the logo */}
+          <motion.div
+            variants={pulse}
+            animate="animate"
+            className="absolute rounded-full w-32 h-32"
+          />
+          
+          <motion.div
+            variants={iconVariants}
+            className="relative flex flex-col items-center gap-4"
+          >
+            {/* The brand's SVG icon (no text), drawn dynamically */}
+            <motion.svg
+              width="64"
+              height="64"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-secondary drop-shadow-[0_0_15px_rgba(225,29,72,0.5)]"
+            >
+              <motion.circle 
+                cx="12" cy="12" r="10" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                custom={0} variants={draw} 
+              />
+              <motion.circle 
+                cx="12" cy="12" r="4" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                custom={1} variants={draw} 
+              />
+              <motion.path
+                d="M12 2V22"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                custom={2} variants={draw}
+              />
+              <motion.path
+                d="M2 12H22"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                custom={3} variants={draw}
+              />
+            </motion.svg>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
