@@ -29,6 +29,11 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        glass: {
+          DEFAULT: "rgba(255, 255, 255, 0.1)",
+          subtle: "rgba(255, 255, 255, 0.05)",
+          hover: "rgba(255, 255, 255, 0.2)",
+        },
         // Platform contrast rule: primary inverts by mode and is NEVER
         // overridden by gym branding — no --color-primary fallback here.
         primary: {

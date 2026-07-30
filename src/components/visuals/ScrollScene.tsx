@@ -14,7 +14,8 @@ export function ScrollScene() {
     <Canvas
       camera={{ position: [0, 0, 8], fov: 45 }}
       dpr={[1, 2]}
-      gl={{ antialias: true }}
+      performance={{ min: 0.5 }}
+      gl={{ antialias: true, powerPreference: 'high-performance' }}
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />

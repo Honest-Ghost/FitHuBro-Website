@@ -48,7 +48,7 @@ export function GatewayModal() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 10 }}
             transition={{ duration: 0.4, delay: 0.1, type: 'spring', bounce: 0 }}
-            className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#0A0A0B] px-8 py-16 text-center shadow-2xl sm:px-12"
+            className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-background px-8 py-16 text-center shadow-2xl sm:px-12"
           >
             {/* Ambient glow inside the modal */}
             <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[300px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/20 blur-[100px]" />

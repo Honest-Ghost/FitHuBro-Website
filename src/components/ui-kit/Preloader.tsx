@@ -42,7 +42,8 @@ export function Preloader() {
               alt="FitHuBro Logo"
               width={400}
               height={140}
-              className="object-contain drop-shadow-2xl"
+              style={{ height: 'auto' }}
+              className="object-contain max-w-[280px] sm:max-w-[380px] drop-shadow-2xl"
               priority
             />
           </motion.div>

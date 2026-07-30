@@ -36,7 +36,7 @@ export function ProductTour({ persona }: { persona: Persona }) {
             className="sticky top-20 pb-6"
             style={{ zIndex: index + 1 }}
           >
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#101012] p-6 sm:p-10">
+            <div className="overflow-hidden rounded-3xl border border-white/10 bg-card p-6 sm:p-10">
               <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
                 <div className={index % 2 === 1 ? 'lg:order-2' : undefined}>
                   <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] text-secondary">
@@ -54,7 +54,7 @@ export function ProductTour({ persona }: { persona: Persona }) {
 
                   <ul className="mt-7 space-y-3">
                     {step.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3 text-sm text-foreground/85">
+                      <li key={bullet} className="flex gap-3 text-sm text-foreground/90">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary" strokeWidth={2.5} />
                         {bullet}
                       </li>
@@ -63,7 +63,7 @@ export function ProductTour({ persona }: { persona: Persona }) {
                 </div>
 
                 <div className={index % 2 === 1 ? 'lg:order-1' : undefined}>
-                  <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[20px] border border-white/10 bg-[#0A0A0B] shadow-2xl lg:max-w-none lg:aspect-[16/10]">
+                  <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[20px] border border-white/10 bg-background shadow-2xl lg:max-w-none lg:aspect-[16/10]">
                     {index === 0 && <DashboardScreen persona={persona} />}
                     {index === 1 && <PlanEditorScreen />}
                     {index === 2 && (

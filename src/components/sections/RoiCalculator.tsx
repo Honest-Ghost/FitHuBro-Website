@@ -169,7 +169,7 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
                   </p>
                   <button
                     onClick={() => router.push(`/join/${persona === 'trainers' ? 'trainer' : 'home'}`)}
-                    className="mt-8 block w-full rounded-full bg-white px-6 py-4 text-center text-base text-black transition-transform hover:scale-[1.02]"
+                    className="mt-8 block w-full rounded-full bg-secondary px-6 py-4 text-center text-base text-secondary-foreground transition-transform hover:scale-[1.02]"
                   >
                     Sign up now
                   </button>

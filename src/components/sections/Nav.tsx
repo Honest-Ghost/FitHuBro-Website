@@ -50,7 +50,7 @@ export function Nav({ persona }: { persona: Persona }) {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
         scrolled || open
-          ? 'border-b border-white/10 bg-[#0A0A0B]/85 backdrop-blur-md'
+          ? 'border-b border-white/10 bg-background/85 backdrop-blur-md'
           : 'border-b border-transparent'
       )}
     >

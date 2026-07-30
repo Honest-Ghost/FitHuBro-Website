@@ -42,7 +42,7 @@ export default function AboutPage() {
                 Be part of our story, We're just getting started!
               </p>
 
-              <div className="mt-12 rounded-2xl border border-white/10 bg-[#0A0A0B] p-8">
+              <div className="mt-12 rounded-2xl border border-white/10 bg-card p-8">
                 <h2 className="mb-4 text-xl font-medium text-foreground">Contact Details</h2>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">

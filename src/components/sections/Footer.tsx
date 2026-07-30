@@ -6,7 +6,7 @@ import { Logo } from '../visuals/Logo'
 export const Footer = React.memo(function Footer({ persona }: { persona: Persona }) {
   const { NAV_LINKS } = getPersonaContent(persona)
   return (
-    <footer className="hairline-t relative pt-16 pb-8 bg-[#0A0A0B]">
+    <footer className="hairline-t relative pt-16 pb-8 bg-background">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           {/* Logo & Info */}

@@ -72,7 +72,7 @@ export function Personas({ persona }: { persona: Persona }) {
                           <WorkoutScreen />
                         </PhoneFrame>
                       ) : (
-                        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] border border-white/10 bg-[#0A0A0B] shadow-2xl">
+                        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] border border-white/10 bg-background shadow-2xl">
                           <PlanEditorScreen />
                         </div>
                       )}

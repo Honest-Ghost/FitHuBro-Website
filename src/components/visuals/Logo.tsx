@@ -8,7 +8,8 @@ export function Logo({ className = '' }: { className?: string }) {
         alt="FitHuBro Logo"
         width={220}
         height={70}
-        className="object-contain"
+        style={{ height: 'auto' }}
+        className="object-contain w-auto max-h-10 sm:max-h-12"
         priority
       />
     </div>
