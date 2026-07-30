@@ -38,11 +38,11 @@ export function Preloader() {
             className="flex items-center justify-center"
           >
             <Image
-              src="/fithubro-horizontal-logo.png"
+              src="/fithubro-horizontal-logo-transparent.png"
               alt="FitHuBro Logo"
               width={400}
               height={140}
-              className="object-contain mix-blend-screen drop-shadow-2xl"
+              className="object-contain drop-shadow-2xl"
               priority
             />
           </motion.div>
