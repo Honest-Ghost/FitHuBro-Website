@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment, ContactShadows } from '@react-three/drei'
 import { WebGLDumbbell } from './WebGLDumbbell'
@@ -7,6 +8,23 @@ import { useReducedMotion } from '../motion/use-reduced-motion'
 
 export function ScrollScene() {
   const reduced = useReducedMotion()
+  const [scale, setScale] = useState(0.8)
+
+  useEffect(() => {
+    const updateScale = () => {
+      if (window.innerWidth < 640) {
+        setScale(0.42)
+      } else if (window.innerWidth < 1024) {
+        setScale(0.6)
+      } else {
+        setScale(0.8)
+      }
+    }
+
+    updateScale()
+    window.addEventListener('resize', updateScale, { passive: true })
+    return () => window.removeEventListener('resize', updateScale)
+  }, [])
 
   if (reduced) return null
 
@@ -23,8 +41,8 @@ export function ScrollScene() {
       {/* City environment for realistic metal reflections */}
       <Environment preset="city" />
 
-      {/* The animated barbell driven by scroll */}
-      <WebGLDumbbell scale={0.8} />
+      {/* The animated barbell driven by scroll & responsive viewport size */}
+      <WebGLDumbbell scale={scale} />
 
       <ContactShadows
         position={[0, -2.5, 0]}

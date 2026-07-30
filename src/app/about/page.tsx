@@ -3,6 +3,7 @@ import { Nav } from '@/components/sections/Nav'
 import { Footer } from '@/components/sections/Footer'
 import { ScrollScene } from '@/components/visuals/ScrollScene'
 import { Cursor } from '@/components/motion/Cursor'
+import { WhatsAppButton } from '@/components/ui-kit/WhatsAppButton'
 
 export const metadata: Metadata = {
   title: 'About Us | FitHuBro',
@@ -64,6 +65,7 @@ export default function AboutPage() {
         </main>
         <div className="pointer-events-auto">
           <Footer persona="owners" />
+          <WhatsAppButton />
         </div>
       </div>
     </div>

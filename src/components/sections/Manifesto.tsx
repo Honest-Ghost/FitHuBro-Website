@@ -14,7 +14,7 @@ export function Manifesto({ persona }: { persona: Persona }) {
             </p>
           </Reveal>
 
-          <div className="rounded-3xl bg-background/60 p-5 shadow-2xl backdrop-blur-md border border-white/5 sm:border-transparent sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none">
+          <div className="rounded-3xl bg-card/75 p-6 sm:p-10 lg:p-12 shadow-2xl backdrop-blur-xl border border-white/10">
             <Reveal delay={0.06}>
               <p className="font-display text-[clamp(1.75rem,4.2vw,3.25rem)] !leading-[1.08] text-balance">
                 {MANIFESTO?.headline || 'A member who stops coming doesn’t cancel. They just stop coming — and then they cancel.'}

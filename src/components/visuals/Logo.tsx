@@ -1,15 +1,16 @@
 import Image from 'next/image'
+import { cn } from '@/lib/utils/cn'
 
-export function Logo({ className = '' }: { className?: string }) {
+export function Logo({ className = '', imageClassName = '' }: { className?: string; imageClassName?: string }) {
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={cn('flex items-center', className)}>
       <Image
         src="/fithubro-horizontal-logo-transparent.png"
         alt="FitHuBro Logo"
-        width={220}
-        height={70}
+        width={180}
+        height={43}
         style={{ height: 'auto' }}
-        className="object-contain w-auto max-h-10 sm:max-h-12"
+        className={cn('object-contain h-5 sm:h-6 w-auto', imageClassName)}
         priority
       />
     </div>

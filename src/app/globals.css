@@ -187,10 +187,10 @@
   --popover-foreground: 40 20% 91%;
   --primary: 40 20% 91%;
   --primary-foreground: 240 5% 4%;
-  --secondary: 349 85% 55%;        /* brand red, lifted for near-black */
+  --secondary: 349 85% 55%;        /* brand red */
   --secondary-foreground: 0 0% 100%;
   --muted: 240 4% 11%;
-  --muted-foreground: 40 5% 55%;   /* warm gray */
+  --muted-foreground: 40 10% 72%;   /* Crisp, high-contrast readable silver */
   --accent: 240 4% 13%;
   --accent-foreground: 40 20% 91%;
   --border: 40 6% 18%;
@@ -200,19 +200,16 @@
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-body), system-ui, sans-serif;
-  /* Prevents horizontal scrollbars from marquees and oversized display type. */
   overflow-x: clip;
 }
 
 @layer utilities {
-  /* Display type. Anton has no true small-caps, so tracking is tightened
-     manually — at 100px+ the default spacing reads loose. */
   .font-display {
     font-family: var(--font-display), system-ui, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 0.92;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
   }
 
   .text-balance {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+import { Logo } from '../visuals/Logo'
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true)
@@ -37,15 +37,7 @@ export function Preloader() {
             }}
             className="flex items-center justify-center"
           >
-            <Image
-              src="/fithubro-horizontal-logo-transparent.png"
-              alt="FitHuBro Logo"
-              width={400}
-              height={140}
-              style={{ height: 'auto' }}
-              className="object-contain max-w-[280px] sm:max-w-[380px] drop-shadow-2xl"
-              priority
-            />
+            <Logo imageClassName="h-12 sm:h-16 w-auto drop-shadow-2xl" />
           </motion.div>
         </motion.div>
       )}

@@ -13,6 +13,7 @@ import { Faq } from './sections/Faq'
 import { FinalCta } from './sections/FinalCta'
 import { Footer } from './sections/Footer'
 
+import { WhatsAppButton } from './ui-kit/WhatsAppButton'
 import { ScrollScene } from './visuals/ScrollScene'
 
 interface LandingPageProps {
@@ -54,6 +55,7 @@ export function LandingPage({ persona }: LandingPageProps) {
         
         <div className="pointer-events-auto">
           <Footer persona={persona} />
+          <WhatsAppButton />
         </div>
       </div>
     </div>
