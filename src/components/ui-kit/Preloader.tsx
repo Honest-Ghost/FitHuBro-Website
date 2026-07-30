@@ -3,35 +3,26 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
+const waveVariants: Variants = {
+  animate: (i: number) => ({
+    scale: [1, 1.3, 1],
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      delay: i * 0.15,
+      duration: 1.2,
+      repeat: Infinity,
+      ease: 'easeInOut',
     }
-  }
-}
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.3, y: 10 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    y: 0,
-    transition: { type: 'spring', stiffness: 300, damping: 20 }
-  }
+  })
 }
 
 export function Preloader() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Hide preloader after the staggered animation completes
+    // Let the wave animation play a couple of times before hiding
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 2200)
     
     return () => clearTimeout(timer)
   }, [])
@@ -45,13 +36,8 @@ export function Preloader() {
           transition={{ duration: 0.6, ease: 'easeInOut' }}
           className="fixed inset-0 z-[10000] flex items-center justify-center bg-background"
         >
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex items-center gap-2 scale-150"
-          >
-            <motion.div variants={itemVariants}>
+          <div className="flex items-center gap-2 scale-150">
+            <motion.div custom={0} animate="animate" variants={waveVariants} style={{ originX: 0.5, originY: 0.5 }}>
               <svg
                 width="24"
                 height="24"
@@ -77,12 +63,12 @@ export function Preloader() {
               </svg>
             </motion.div>
             
-            <div className="font-display text-xl tracking-tight text-foreground flex items-center gap-[1px]">
-              <motion.span variants={itemVariants}>Fit</motion.span>
-              <motion.span variants={itemVariants}>Hu</motion.span>
-              <motion.span variants={itemVariants} className="text-secondary">Bro</motion.span>
+            <div className="font-display text-2xl tracking-tight text-foreground flex items-center gap-[1px]">
+              <motion.span custom={1} animate="animate" variants={waveVariants} style={{ display: 'inline-block', originX: 0.5, originY: 0.5 }}>Fit</motion.span>
+              <motion.span custom={2} animate="animate" variants={waveVariants} style={{ display: 'inline-block', originX: 0.5, originY: 0.5 }}>Hu</motion.span>
+              <motion.span custom={3} animate="animate" variants={waveVariants} className="text-secondary" style={{ display: 'inline-block', originX: 0.5, originY: 0.5 }}>Bro</motion.span>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
