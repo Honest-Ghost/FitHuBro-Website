@@ -1,3 +1,4 @@
+import { APP_ROUTES } from '@/lib/config'
 export const NAV_LINKS = [
   { label: 'Grow Your Brand', href: '#pillars' },
   { label: 'Get Clients', href: '#clients' },
@@ -23,7 +24,7 @@ export const AUDIENCES = [
     accent: ['hundred.'],
     body: 'Pass our fitness knowledge quiz and KYC to become a Verified Trainer. Answer questions to boost visibility, and secure online clients directly through the app.',
     ctaLabel: 'Apply as a Trainer',
-    ctaHref: '/join/trainer',
+    ctaHref: APP_ROUTES.trainerLogin,
   }
 ]
 
@@ -138,7 +139,7 @@ export const FINAL_CTA = {
   headline: 'Grow your roster.',
   body: 'Join the smartest platform for trainers to find motivated online clients. Pass the quiz and start today.',
   buttonText: 'Apply for Verification',
-  buttonHref: '/join/trainer'
+  buttonHref: APP_ROUTES.trainerLogin
 }
 
 export const PRICING_SUBTITLE = 'Answer questions for free to build your reputation, and scale your business with the Pro tier.'

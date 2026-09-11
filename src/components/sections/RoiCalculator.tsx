@@ -1,34 +1,35 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Reveal } from '../motion/Reveal'
 import { getPersonaContent, type Persona } from '../content'
-
-const CHURN_RECOVERY_RATE = 0.08
-const AVG_MONTHLY_FEE = 1500
+import { APP_ROUTES } from '@/lib/config'
 
 export function RoiCalculator({ persona }: { persona: Persona }) {
-  const { ROI } = getPersonaContent(persona)
   const router = useRouter()
+  const { ROI } = getPersonaContent(persona)
   
-  // ROI State
-  const [memberCount, setMemberCount] = useState(150)
-  const savedRenewals = Math.round(memberCount * CHURN_RECOVERY_RATE)
-  const monthlyRecovered = savedRenewals * AVG_MONTHLY_FEE
+  // Gym Owner ROI state
+  const [members, setMembers] = useState(150)
+  const [fee, setFee] = useState(1500)
+  const [churnRate, setChurnRate] = useState(8)
 
-  // BMI State
-  const [height, setHeight] = useState(170)
+  // Member / Trainer BMI State
+  const [height, setHeight] = useState(175)
   const [weight, setWeight] = useState(70)
   const [bmiCalculated, setBmiCalculated] = useState(false)
-  const [bmi, setBmi] = useState(0)
+  const [bmi, setBmi] = useState<number | null>(null)
 
-  const handleBmiSubmit = (e: React.FormEvent) => {
+  const monthlyLost = Math.round(members * (churnRate / 100))
+  const savedRenewals = Math.max(1, Math.round(monthlyLost * 0.4))
+  const monthlyRecovered = savedRenewals * fee
+
+  const calculateBmi = (e: React.FormEvent) => {
     e.preventDefault()
     const heightInMeters = height / 100
-    const calculatedBmi = weight / (heightInMeters * heightInMeters)
-    setBmi(Number(calculatedBmi.toFixed(1)))
+    const calculatedBmi = Number((weight / (heightInMeters * heightInMeters)).toFixed(1))
+    setBmi(calculatedBmi)
     setBmiCalculated(true)
   }
 
@@ -40,38 +41,72 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
             <div>
               <Reveal>
                 <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-                  The maths
+                  The business case
                 </p>
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="font-display mt-5 text-[clamp(2.5rem,5.5vw,4.5rem)] leading-none text-balance">
-                  {ROI?.headline || 'The ROI'}
+                  Pays for itself
+                  <br />
+                  <span className="text-secondary">on renewals alone.</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.12}>
-                <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-                  {ROI?.description}
+                <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+                  Move the sliders to match your floor. We assume FitHuBro saves four out of ten members who would otherwise slip away.
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.1} direction="left">
+
+            <Reveal delay={0.16}>
               <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-10">
-                <label className="flex items-baseline justify-between">
-                  <span className="text-sm text-muted-foreground">Members at your gym</span>
-                  <span className="font-display text-3xl text-foreground">{memberCount}</span>
-                </label>
-                <input
-                  type="range"
-                  min={30}
-                  max={1000}
-                  step={10}
-                  value={memberCount}
-                  onChange={(event) => setMemberCount(Number(event.target.value))}
-                  className="mt-5 h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/15 accent-secondary"
-                />
-                <div className="mt-2 flex justify-between text-xs text-muted-foreground">
-                  <span>30</span>
-                  <span>1,000</span>
+                <div className="space-y-7">
+                  <div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Active members</span>
+                      <span className="font-display text-lg text-foreground">{members}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={30}
+                      max={600}
+                      step={10}
+                      value={members}
+                      onChange={(e) => setMembers(Number(e.target.value))}
+                      className="mt-3 h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/15 accent-secondary"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Monthly fee</span>
+                      <span className="font-display text-lg text-foreground">₹{fee.toLocaleString('en-IN')}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={500}
+                      max={5000}
+                      step={100}
+                      value={fee}
+                      onChange={(e) => setFee(Number(e.target.value))}
+                      className="mt-3 h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/15 accent-secondary"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Monthly drop-off</span>
+                      <span className="font-display text-lg text-foreground">{churnRate}%</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={3}
+                      max={20}
+                      value={churnRate}
+                      onChange={(e) => setChurnRate(Number(e.target.value))}
+                      className="mt-3 h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/15 accent-secondary"
+                    />
+                  </div>
                 </div>
                 <dl className="mt-9 space-y-6 border-t border-white/10 pt-8">
                   <div className="flex items-baseline justify-between gap-4">
@@ -86,12 +121,12 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
                     </dd>
                   </div>
                 </dl>
-                <Link
-                  href="/register"
+                <a
+                  href={APP_ROUTES.ownerLogin}
                   className="mt-8 block rounded-full bg-secondary px-6 py-4 text-center text-base text-secondary-foreground transition-transform hover:scale-[1.02]"
                 >
-                  Start free
-                </Link>
+                  Get Started
+                </a>
               </div>
             </Reveal>
           </div>
@@ -116,20 +151,21 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-                {ROI?.description || 'Calculate your body mass index to understand your starting point. We use this to personalize your AI workout and diet plans.'}
+              <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+                {ROI?.description || 'Calculate your baseline and discover your personalized fitness targets.'}
               </p>
             </Reveal>
           </div>
-          <Reveal delay={0.1} direction="left">
+
+          <Reveal delay={0.16}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-10">
               {!bmiCalculated ? (
-                <form onSubmit={handleBmiSubmit} className="space-y-8">
+                <form onSubmit={calculateBmi} className="space-y-6">
                   <div>
-                    <label className="flex items-baseline justify-between">
-                      <span className="text-sm text-muted-foreground">Height (cm)</span>
-                      <span className="font-display text-3xl text-foreground">{height}</span>
-                    </label>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Height</span>
+                      <span className="font-display text-lg text-foreground">{height} cm</span>
+                    </div>
                     <input
                       type="range"
                       min={120}
@@ -140,10 +176,10 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
                     />
                   </div>
                   <div>
-                    <label className="flex items-baseline justify-between">
-                      <span className="text-sm text-muted-foreground">Weight (kg)</span>
-                      <span className="font-display text-3xl text-foreground">{weight}</span>
-                    </label>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Weight</span>
+                      <span className="font-display text-lg text-foreground">{weight} kg</span>
+                    </div>
                     <input
                       type="range"
                       min={30}
@@ -165,14 +201,14 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
                   <p className="text-sm text-muted-foreground">Your Body Mass Index</p>
                   <p className="mt-2 font-display text-6xl text-secondary">{bmi}</p>
                   <p className="mt-6 leading-relaxed text-muted-foreground">
-                    We've determined your body type. To get your personalized {persona === 'trainers' ? 'trainer profile' : 'workout and diet plan'}, create your free account now.
+                    We&apos;ve determined your body type. To get your personalized {persona === 'trainers' ? 'trainer profile' : 'workout and diet plan'}, access the FitHuBro app now.
                   </p>
-                  <button
-                    onClick={() => router.push(`/join/${persona === 'trainers' ? 'trainer' : 'home'}`)}
+                  <a
+                    href={persona === 'trainers' ? APP_ROUTES.trainerLogin : APP_ROUTES.memberCheckIn}
                     className="mt-8 block w-full rounded-full bg-secondary px-6 py-4 text-center text-base text-secondary-foreground transition-transform hover:scale-[1.02]"
                   >
-                    Sign up now
-                  </button>
+                    Continue to App
+                  </a>
                   <button
                     onClick={() => setBmiCalculated(false)}
                     className="mt-4 block w-full rounded-full border border-white/20 px-6 py-4 text-center text-base text-foreground transition-colors hover:bg-white/5"

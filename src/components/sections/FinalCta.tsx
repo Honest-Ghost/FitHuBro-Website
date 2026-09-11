@@ -1,12 +1,12 @@
 'use client'
 
-import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '../motion/Reveal'
 import { Magnetic } from '../motion/Magnetic'
 import { GradientMesh } from '../visuals/GradientMesh'
 import { DustField } from '../visuals/DustField'
 import { getPersonaContent, type Persona } from '../content'
+import { APP_ROUTES } from '@/lib/config'
 
 export function FinalCta({ persona }: { persona: Persona }) {
   const { FINAL_CTA } = getPersonaContent(persona)
@@ -33,21 +33,21 @@ export function FinalCta({ persona }: { persona: Persona }) {
         <Reveal delay={0.16}>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Magnetic>
-              <Link
-                href={FINAL_CTA?.buttonHref || '/register'}
+              <a
+                href={FINAL_CTA?.buttonHref || APP_ROUTES.ownerLogin}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-8 py-5 text-lg text-secondary-foreground transition-transform hover:scale-[1.03]"
               >
-                {FINAL_CTA?.buttonText || 'Start free'}
+                {FINAL_CTA?.buttonText || 'Get Started'}
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </a>
             </Magnetic>
             <Magnetic>
-              <Link
-                href="/login"
+              <a
+                href={APP_ROUTES.signIn}
                 className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-5 text-lg text-foreground transition-colors hover:bg-white/5"
               >
                 Sign in
-              </Link>
+              </a>
             </Magnetic>
           </div>
         </Reveal>

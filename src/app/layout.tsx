@@ -17,9 +17,26 @@ const fontDisplay = Anton({
 });
 
 export const metadata: Metadata = {
-  title: "FitHuBro — I'm Fit, Are You?",
+  title: "FitHuBro — Gym Management Software & Fitness SaaS",
   description:
-    "The 3D fitness platform for gym owners, trainers, and members. AI workout coaching, membership management, and community retention.",
+    "The all-in-one multi-tenant gym management platform. QR attendance, memberships, payments, leads CRM, trainer portal, and AI workout delivery.",
+  keywords: [
+    "gym management software",
+    "gym software india",
+    "gym attendance qr code",
+    "gym membership software",
+    "trainer software",
+    "fithubro"
+  ],
+  openGraph: {
+    title: "FitHuBro — Gym Management Software & Fitness SaaS",
+    description:
+      "The all-in-one multi-tenant gym management platform. QR attendance, memberships, payments, leads CRM, trainer portal, and AI workout delivery.",
+    url: "https://fithubro.com",
+    siteName: "FitHuBro",
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -39,4 +56,3 @@ export default function RootLayout({
     </html>
   );
 }
-

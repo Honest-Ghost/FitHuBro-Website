@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 import { getPersonaContent, type Persona } from '../content'
 import { Logo } from '../visuals/Logo'
+import { APP_ROUTES } from '@/lib/config'
 
 export function Nav({ persona }: { persona: Persona }) {
   const pathname = usePathname()
@@ -83,18 +84,18 @@ export function Nav({ persona }: { persona: Persona }) {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Link
-            href="/login"
+          <a
+            href={APP_ROUTES.signIn}
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Sign in
-          </Link>
-          <Link
-            href="/register"
+          </a>
+          <a
+            href={APP_ROUTES.ownerLogin}
             className="rounded-full bg-secondary px-5 py-2.5 text-sm text-secondary-foreground transition-transform hover:scale-[1.03]"
           >
-            Start free
-          </Link>
+            Get Started
+          </a>
         </div>
 
         <button
@@ -129,20 +130,20 @@ export function Nav({ persona }: { persona: Persona }) {
             <Link href="/members" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
             <Link href="/trainers" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'trainers' ? "text-secondary font-medium" : "text-muted-foreground")}>Trainers</Link>
             <div className="my-2 h-px w-full bg-white/10" />
-            <Link
-              href="/login"
+            <a
+              href={APP_ROUTES.signIn}
               onClick={() => setOpen(false)}
               className="py-3 text-base text-muted-foreground"
             >
               Sign in
-            </Link>
-            <Link
-              href="/register"
+            </a>
+            <a
+              href={APP_ROUTES.ownerLogin}
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-secondary px-5 py-3.5 text-center text-base text-secondary-foreground"
             >
-              Start free
-            </Link>
+              Get Started
+            </a>
           </div>
         </div>
       ) : null}

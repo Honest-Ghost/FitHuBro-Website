@@ -1,11 +1,24 @@
-import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils/cn'
 import { Reveal, Stagger, StaggerItem } from '../motion/Reveal'
 import { getPersonaContent, type Persona } from '../content'
+import { APP_ROUTES } from '@/lib/config'
 
 export function Pricing({ persona }: { persona: Persona }) {
   const { TIERS, PRICING_SUBTITLE } = getPersonaContent(persona)
+
+  const getCtaLink = () => {
+    if (persona === 'trainers') return APP_ROUTES.trainerLogin;
+    if (persona === 'members') return APP_ROUTES.memberCheckIn;
+    return APP_ROUTES.ownerLogin;
+  }
+
+  const getCtaText = () => {
+    if (persona === 'trainers') return 'Trainer Portal';
+    if (persona === 'members') return 'Open Member App';
+    return 'Get Started';
+  }
+
   return (
     <section id="pricing" className="relative scroll-mt-16 py-24 sm:py-32">
       <div
@@ -72,8 +85,8 @@ export function Pricing({ persona }: { persona: Persona }) {
                   ))}
                 </ul>
 
-                <Link
-                  href="/register"
+                <a
+                  href={getCtaLink()}
                   className={cn(
                     'mt-8 rounded-full px-6 py-3.5 text-center text-sm transition-transform hover:scale-[1.02]',
                     tier.featured
@@ -81,8 +94,8 @@ export function Pricing({ persona }: { persona: Persona }) {
                       : 'border border-white/20 text-foreground hover:bg-white/5'
                   )}
                 >
-                  Start free
-                </Link>
+                  {getCtaText()}
+                </a>
               </div>
             </StaggerItem>
           ))}

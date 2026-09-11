@@ -53,13 +53,23 @@ export function Personas({ persona }: { persona: Persona }) {
 
                   <Reveal delay={0.2} className="mt-12">
                     <Magnetic className="w-full sm:w-auto">
-                      <Link
-                        href={persona.ctaHref}
-                        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
-                      >
-                        {persona.ctaLabel}
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Link>
+                      {persona.ctaHref.startsWith('http') ? (
+                        <a
+                          href={persona.ctaHref}
+                          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
+                        >
+                          {persona.ctaLabel}
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={persona.ctaHref}
+                          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
+                        >
+                          {persona.ctaLabel}
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      )}
                     </Magnetic>
                   </Reveal>
                 </div>

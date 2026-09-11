@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -10,12 +9,13 @@ import { Parallax } from '../motion/Parallax'
 import { Marquee } from '../motion/Marquee'
 import { WordFlip } from '../motion/WordFlip'
 import { Magnetic } from '../motion/Magnetic'
-import { HybridHero3D } from '../motion/HybridHero3D'
 import { getPersonaContent, type Persona } from '../content'
 
 export function Hero({ persona }: { persona: Persona }) {
   const { AUDIENCES, MARQUEE_WORDS } = getPersonaContent(persona)
   const audience = AUDIENCES[0]
+
+  const isExternalCta = audience.ctaHref.startsWith('http')
 
   return (
     <section className="grain relative overflow-hidden pt-28 sm:pt-36">
@@ -57,13 +57,23 @@ export function Hero({ persona }: { persona: Persona }) {
           <Reveal delay={0.24} direction="left">
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Magnetic className="w-full sm:w-auto">
-                <Link
-                  href={audience.ctaHref}
-                  className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
-                >
-                  {audience.ctaLabel}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                {isExternalCta ? (
+                  <a
+                    href={audience.ctaHref}
+                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
+                  >
+                    {audience.ctaLabel}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                ) : (
+                  <Link
+                    href={audience.ctaHref}
+                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
+                  >
+                    {audience.ctaLabel}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                )}
               </Magnetic>
               <Magnetic className="w-full sm:w-auto">
                 <a

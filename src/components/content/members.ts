@@ -1,3 +1,4 @@
+import { APP_ROUTES } from '@/lib/config'
 export const NAV_LINKS = [
   { label: 'AI Coach', href: '#pillars' },
   { label: 'Community', href: '#community' },
@@ -25,7 +26,7 @@ export const AUDIENCES = [
     accent: ['streak.'],
     body: 'Your workout, diet, and recovery in one app. Free members get standard plans and streak tracking, while Pro members unlock advanced AI coaching tailored to your body type and budget.',
     ctaLabel: 'Download free',
-    ctaHref: '/join/home',
+    ctaHref: APP_ROUTES.memberCheckIn,
   }
 ]
 
@@ -146,7 +147,7 @@ export const FINAL_CTA = {
   headline: 'Start your streak.',
   body: 'Join the smartest fitness community and get a plan that actually works for you.',
   buttonText: 'Download the app',
-  buttonHref: '/join/home'
+  buttonHref: APP_ROUTES.memberCheckIn
 }
 
 export const PRICING_SUBTITLE = 'Start for free and upgrade when you are ready to take your training to the next level.'
