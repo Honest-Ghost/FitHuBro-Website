@@ -10,8 +10,20 @@ import { Marquee } from '../motion/Marquee'
 import { WordFlip } from '../motion/WordFlip'
 import { Magnetic } from '../motion/Magnetic'
 import { getPersonaContent, type Persona } from '../content'
+import { cn } from '@/lib/utils/cn'
 
-export function Hero({ persona }: { persona: Persona }) {
+const PERSONA_TABS: { id: Persona; label: string }[] = [
+  { id: 'members', label: "I'm here to get fit" },
+  { id: 'trainers', label: "I'm a fitness trainer" },
+  { id: 'owners', label: "I run a gym" },
+]
+
+interface HeroProps {
+  persona: Persona
+  onPersonaChange?: (persona: Persona) => void
+}
+
+export function Hero({ persona, onPersonaChange }: HeroProps) {
   const { AUDIENCES, MARQUEE_WORDS } = getPersonaContent(persona)
   const audience = AUDIENCES[0]
 
@@ -27,8 +39,30 @@ export function Hero({ persona }: { persona: Persona }) {
 
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal direction="none" duration={0.9}>
-          <div className="flex flex-wrap items-center gap-3">
-            <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            {/* Non-blocking Personalization Selector */}
+            <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+              {PERSONA_TABS.map((tab) => {
+                const isActive = persona === tab.id
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => onPersonaChange?.(tab.id)}
+                    className={cn(
+                      "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
+                      isActive
+                        ? "bg-secondary text-secondary-foreground shadow-sm shadow-secondary/30"
+                        : "text-muted-foreground hover:bg-white/5 hover:text-white"
+                    )}
+                  >
+                    {tab.label}
+                  </button>
+                )
+              })}
+            </div>
+
+            <p className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               {audience.eyebrow}
             </p>
@@ -40,7 +74,7 @@ export function Hero({ persona }: { persona: Persona }) {
           as="h1"
           text={audience.headline}
           accent={audience.accent}
-          className="font-display mt-6 max-w-[16ch] text-[clamp(2.5rem,10vw,9rem)] text-balance"
+          className="font-display mt-8 max-w-[16ch] text-[clamp(2.5rem,10vw,9rem)] text-balance"
         />
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -77,10 +111,10 @@ export function Hero({ persona }: { persona: Persona }) {
               </Magnetic>
               <Magnetic className="w-full sm:w-auto">
                 <a
-                  href="#product"
+                  href={(audience as any).secondaryCtaHref || "#coach"}
                   className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base text-foreground transition-colors hover:bg-white/5"
                 >
-                  See it working
+                  {(audience as any).secondaryCtaLabel || "Meet Your AI Coach"}
                 </a>
               </Magnetic>
             </div>

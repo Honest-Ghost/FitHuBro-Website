@@ -8,12 +8,8 @@ export function Preloader() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Show the preloader for 2 seconds
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
-    
-    return () => clearTimeout(timer)
+    // Remove the artificial 2-second blocking delay
+    setIsLoading(false)
   }, [])
 
   return (

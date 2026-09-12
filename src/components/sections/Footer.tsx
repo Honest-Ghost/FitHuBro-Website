@@ -14,7 +14,7 @@ export const Footer = React.memo(function Footer({ persona: _persona }: { person
               <Logo imageClassName="h-5 sm:h-6" />
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground pt-0.5">
-              The modern gym management SaaS platform. Multi-tenant operations, QR kiosk attendance, payments, and AI workout delivery.
+              The connected fitness platform. AI coaching, personalized member journeys, verified trainer discovery, and modern gym facility operations.
             </p>
             <div className="pt-1">
               <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-0.5 text-[11px] font-medium text-white/70">
@@ -27,10 +27,9 @@ export const Footer = React.memo(function Footer({ persona: _persona }: { person
           <div>
             <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-foreground">Solutions</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="text-muted-foreground hover:text-secondary transition-colors">Gym Management Software</Link></li>
-              <li><Link href="/owners" className="text-muted-foreground hover:text-secondary transition-colors">For Gym Owners</Link></li>
-              <li><Link href="/trainers" className="text-muted-foreground hover:text-secondary transition-colors">For Personal Trainers</Link></li>
-              <li><Link href="/members" className="text-muted-foreground hover:text-secondary transition-colors">For Gym Members</Link></li>
+              <li><Link href="/members" className="text-muted-foreground hover:text-secondary transition-colors">Fitness Enthusiasts</Link></li>
+              <li><Link href="/trainers" className="text-muted-foreground hover:text-secondary transition-colors">Personal Trainers</Link></li>
+              <li><Link href="/owners" className="text-muted-foreground hover:text-secondary transition-colors">Gym Owners & Studios</Link></li>
             </ul>
           </div>
 

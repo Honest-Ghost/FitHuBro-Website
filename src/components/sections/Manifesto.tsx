@@ -10,7 +10,7 @@ export function Manifesto({ persona }: { persona: Persona }) {
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)]">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
-              Why we built it
+              {(MANIFESTO as any)?.eyebrow || 'Why we built it'}
             </p>
           </Reveal>
 

@@ -7,8 +7,8 @@ export type Persona = 'owners' | 'members' | 'trainers'
 export function usePersona(): Persona {
   const pathname = usePathname()
   
-  if (pathname?.startsWith('/members')) return 'members'
+  if (pathname?.startsWith('/owners')) return 'owners'
   if (pathname?.startsWith('/trainers')) return 'trainers'
   
-  return 'owners'
+  return 'members'
 }

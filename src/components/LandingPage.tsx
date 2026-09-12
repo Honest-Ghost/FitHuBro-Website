@@ -1,10 +1,14 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import { Cursor } from './motion/Cursor'
 import { Nav } from './sections/Nav'
 import { Hero } from './sections/Hero'
 import { Manifesto } from './sections/Manifesto'
-import { Personas } from './sections/Personas'
 import { Pillars } from './sections/Pillars'
 import { ProductTour } from './sections/ProductTour'
+import { Personas } from './sections/Personas'
+import { AudienceBridges } from './sections/AudienceBridges'
 import { Stats } from './sections/Stats'
 import { RoiCalculator } from './sections/RoiCalculator'
 import { Compare } from './sections/Compare'
@@ -15,12 +19,21 @@ import { Footer } from './sections/Footer'
 
 import { WhatsAppButton } from './ui-kit/WhatsAppButton'
 import { ScrollScene } from './visuals/ScrollScene'
+import type { Persona } from './content'
 
 interface LandingPageProps {
-  persona: 'owners' | 'members' | 'trainers'
+  persona: Persona
 }
 
-export function LandingPage({ persona }: LandingPageProps) {
+export function LandingPage({ persona: initialPersona }: LandingPageProps) {
+  const [persona, setPersona] = useState<Persona>(initialPersona)
+
+  useEffect(() => {
+    setPersona(initialPersona)
+  }, [initialPersona])
+
+  const isMember = persona === 'members'
+
   return (
     <div className="marketing-scope min-h-screen relative bg-transparent">
       {/* 3D Scroll-Driven Background */}
@@ -40,15 +53,33 @@ export function LandingPage({ persona }: LandingPageProps) {
         </div>
         
         <main className="pointer-events-auto">
-          <Hero persona={persona} />
+          <Hero persona={persona} onPersonaChange={setPersona} />
           <Manifesto persona={persona} />
-          <Personas persona={persona} />
           <Pillars persona={persona} />
           <ProductTour persona={persona} />
-          <Stats persona={persona} />
-          <RoiCalculator persona={persona} />
-          <Compare persona={persona} />
-          <Pricing persona={persona} />
+          <Personas persona={persona} />
+          
+          {isMember ? (
+            <AudienceBridges onSelectPersona={setPersona} />
+          ) : (
+            <>
+              {persona === 'owners' && (
+                <>
+                  <Stats persona={persona} />
+                  <RoiCalculator persona={persona} />
+                  <Compare persona={persona} />
+                  <Pricing persona={persona} />
+                </>
+              )}
+              {persona === 'trainers' && (
+                <>
+                  <Stats persona={persona} />
+                  <Compare persona={persona} />
+                </>
+              )}
+            </>
+          )}
+
           <Faq persona={persona} />
           <FinalCta persona={persona} />
         </main>

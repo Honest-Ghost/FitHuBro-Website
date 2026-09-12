@@ -1,145 +1,152 @@
 import { APP_ROUTES } from '@/lib/config'
+import type { CompareRow, TourStep, Pillar, Persona as ContentPersona } from './owners'
+
 export const NAV_LINKS = [
-  { label: 'Grow Your Brand', href: '#pillars' },
-  { label: 'Get Clients', href: '#clients' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Overview', href: '#pillars' },
+  { label: 'Programs', href: '#product' },
   { label: 'FAQ', href: '#faq' },
 ] as const
 
 export const MARQUEE_WORDS = [
-  'Lead Generation',
-  'Verified Trainers',
-  'Online Coaching',
-  'Global Clients',
-  'Build Reputation',
+  'Verified Credentials',
   'KYC Badges',
+  'Client Roster',
+  'Program Builder',
+  'Workout Assignment',
+  'Trainer Directory',
 ] as const
 
 export const AUDIENCES = [
   {
     id: 'trainers',
-    label: "I'm a trainer",
-    eyebrow: 'Monetize your knowledge',
-    headline: 'Coach ten.\nOr a hundred.',
-    accent: ['hundred.'],
-    body: 'Pass our fitness knowledge quiz and KYC to become a Verified Trainer. Answer questions to boost visibility, and secure online clients directly through the app.',
-    ctaLabel: 'Apply as a Trainer',
+    label: "I'm a fitness trainer",
+    eyebrow: 'BUILT FOR FITNESS PROFESSIONALS',
+    headline: 'Build your brand.\nCoach with clarity.',
+    accent: ['clarity.'],
+    body: 'Complete KYC verification to earn your verified badge. Showcase your qualifications on the gym trainer directory, organize your client roster, and author multi-week training programs.',
+    ctaLabel: 'Trainer Portal',
     ctaHref: APP_ROUTES.trainerLogin,
+    secondaryCtaLabel: 'See Capabilities',
+    secondaryCtaHref: '#pillars',
   }
 ]
 
-export const PERSONAS = [
+export const PERSONAS: ContentPersona[] = [
   {
-    id: 'leads',
-    label: 'Lead Generation',
-    title: 'Your knowledge is your marketing.',
-    body: 'Stop paying for ads. Answer member questions in our Quora-style community. When members see your expertise and verified badge, they hire you directly.',
-    points: ['Answer questions to boost visibility', 'Get rated by the community', 'Convert readers into paying clients'],
-    ctaLabel: 'Start answering',
-    ctaHref: '/community/questions',
-    assetLabel: 'Visibility',
-    assetSize: 'Global',
-    assetRatio: 'Scale'
+    id: 'programs',
+    label: 'PROGRAM ARCHITECTURE',
+    title: 'Structure programs. Assign in seconds.',
+    body: 'Stop emailing spreadsheets and texting routines. Use the program builder to draft multi-week training schedules, complete with set ranges, rest intervals, and exercise alternatives, then assign them directly to your affiliated gym clients.',
+    points: [
+      'Multi-week workout program authoring',
+      'Direct program assignment to assigned clients',
+      'Exercise library with movement guidance',
+      'Client workout logging and compliance tracking',
+    ],
+    ctaLabel: 'Open Trainer Portal',
+    ctaHref: APP_ROUTES.trainerLogin,
+    assetLabel: 'Program Builder',
+    assetSize: '2400 × 1800px · 4:3',
+    assetRatio: '4 / 3'
   }
 ]
 
 export const MANIFESTO = {
-  headline: 'Stop chasing leads.\nLet them find you.',
+  eyebrow: 'Professional Coaching',
+  headline: 'Spend time coaching.\nNot chasing paperwork.',
   body: [
-    'Most trainers struggle to find online clients because they are buried in an algorithm on Instagram.',
-    'FitHuBro flips the model. We bring thousands of fitness enthusiasts to our community who have specific questions.',
-    'To maintain quality, we only onboard trainers who pass our fitness quiz and submit their qualifications. Once verified, you get the clients.'
+    'Great coaching happens on the gym floor — correcting form, driving intensity, and keeping clients accountable.',
+    'FitHuBro gives verified fitness trainers structured tools to build their brand, organize their assigned client roster, and deliver customized workout programs through partnered gym facilities.'
   ]
 }
 
-export const PILLARS: import('./owners').Pillar[] = [
-  { index: '01', title: 'Get Verified', body: 'Pass our fitness knowledge quiz, submit your qualifications, and upload a selfie with your ID to get the Verified Badge.' },
-  { index: '02', title: 'Build Reputation', body: 'Answer questions in the community. The more helpful you are, the more the algorithm pushes your profile to potential clients.' },
-  { index: '03', title: 'Manage Clients', body: 'Deliver personalized plans, track client compliance, and manage payments all in one place.' },
+export const PILLARS: Pillar[] = [
+  {
+    index: '01',
+    title: 'KYC & Verified Badge',
+    body: 'Submit your professional certifications and identity verification for gym review. Stand out with an authentic Verified Trainer badge on the gym directory.'
+  },
+  {
+    index: '02',
+    title: 'Client Roster Management',
+    body: 'Track your assigned gym clients in one clean interface. View their current workout program, attendance patterns, and logged exercise performance.'
+  },
+  {
+    index: '03',
+    title: 'Structured Program Builder',
+    body: 'Create multi-week progressive training programs. Author exercise sets, rep targets, and rest periods with seamless client assignment.'
+  },
 ]
 
 export const PRODUCT_TOUR = {
-  eyebrow: 'Trainer Dashboard',
-  headline: 'Manage your empire.',
-  body: 'Track your leads, reply to community doubts, and write plans for your new online clients from one clean interface.',
+  eyebrow: 'Trainer Suite',
+  headline: 'Tools built for personal trainers',
+  body: 'Manage your verified profile, client roster, and training programs from a focused workspace.',
   features: []
 }
 
 export const STATS = [
-  { value: 100, prefix: '', suffix: '%', label: 'Verified', note: 'Rigorous KYC process' },
-  { value: 0, prefix: '₹', suffix: '', label: 'Upfront fees', note: 'Start answering for free' },
+  { value: 100, prefix: '', suffix: '%', label: 'Verified', note: 'Owner-reviewed certifications' },
+  { value: 0, prefix: '', suffix: '', label: 'Admin Friction', note: 'Structured digital delivery' },
 ]
 
 export const ROI = {
-  headline: 'Your time is money.',
-  description: 'Spend 15 minutes a day clearing doubts in the community, and watch your client roster fill up.',
+  headline: 'Professional efficiency.',
+  description: 'Deliver structured routines and track assigned clients without spreadsheet clutter.',
   metrics: []
 }
 
-import type { CompareRow, TourStep } from './owners'
-
 export const COMPARE = {
-  headline: 'Why coach here?',
+  headline: 'Why FitHuBro for Trainers?',
   us: 'FitHuBro',
-  them: 'Social Media',
+  them: 'Manual Methods',
   rows: [
-    { feature: 'High-intent clients asking questions', us: 'yes', them: 'no' },
-    { feature: 'Strict KYC & Verified Badges', us: 'yes', them: 'no' },
-    { feature: 'Algorithm based on helpfulness', us: 'yes', them: 'no' },
+    { feature: 'Verified badge backed by reviewed credentials', us: 'yes', them: 'no' },
+    { feature: 'Structured multi-week program authoring', us: 'yes', them: 'partial' },
+    { feature: 'Seamless gym client affiliation and assignment', us: 'yes', them: 'no' },
   ] as CompareRow[]
 }
 
 export const TOUR_STEPS: TourStep[] = [
   {
     eyebrow: 'Verification',
-    title: 'Trusted experts only',
-    body: 'Submit your certifications and ID to get verified. Members trust our trainers because of our strict vetting process.',
-    bullets: ['Fitness knowledge quiz', 'Qualification review', 'Selfie & ID KYC'],
+    title: 'Professional KYC & Vetting',
+    body: 'Upload your fitness certifications, qualifications, and identity documents. Gym owners review and verify your profile before you are featured on the gym floor.',
+    bullets: ['Certification upload & verification', 'Gym-reviewed professional badge', 'Marketplace directory portfolio'],
     assetLabel: 'Trainer Verification screen',
     assetSize: '1200 × 2400px · 9:18'
   },
   {
-    eyebrow: 'Monetization',
-    title: 'Sell plans seamlessly',
-    body: 'Once you build trust in the community, members can buy your personalized plans right in the app.',
-    bullets: ['Zero friction', 'Integrated payments', 'Easy delivery'],
-    assetLabel: 'Trainer monetization screen',
+    eyebrow: 'Programs',
+    title: 'Structured Program Delivery',
+    body: 'Author progressive multi-week training programs with specific sets, target reps, and exercise notes. Assign programs directly to clients at your partnered facility.',
+    bullets: ['Multi-week program builder', 'Direct client assignment', 'Integrated movement library'],
+    assetLabel: 'Program editor screen',
     assetSize: '1200 × 2400px · 9:18'
   },
 ]
 
-export const TIERS = [
-  {
-    name: 'Basic Trainer',
-    price: 0,
-    cap: 'For verified professionals',
-    features: ['Verified Trainer Badge', 'Answer Q&A to build reputation', 'Organic lead generation', 'Basic client management']
-  },
-  {
-    name: 'Trainer Pro',
-    price: 999,
-    cap: 'Scale your business',
-    featured: true,
-    features: ['Algorithm Boost in Q&A', 'Priority Listing for Clients', 'Advanced Client Analytics', 'Everything in Basic']
-  }
-]
+export const TIERS: import('./owners').Tier[] = []
+export const PRICING_SUBTITLE = ''
 
 export const FAQS = [
   {
-    q: 'How do I get the Verified Badge?',
-    a: 'You must pass our fitness knowledge quiz, submit your fitness certifications, and complete KYC by providing a selfie holding your Aadhar card or identity proof.'
+    q: 'How do I become a Verified Trainer?',
+    a: 'Sign up in the trainer portal, upload your fitness credentials, and submit identity verification. The affiliated gym owner reviews your qualifications before granting the Verified Trainer badge.'
   },
   {
-    q: 'How do I get clients?',
-    a: 'By participating in the community. When a member asks about a workout plan or supplement, give a great answer. Your verified profile rating goes up, and members can contact you directly.'
+    q: 'Can I assign custom workout routines to my clients?',
+    a: 'Yes. You can build comprehensive multi-week workout programs with specific exercise splits, rep ranges, and rest intervals, and assign them directly to your clients.'
+  },
+  {
+    q: 'How does client discovery work?',
+    a: 'Members at your affiliated gym can view verified trainer profiles on the gym marketplace directory, including your qualifications, specialties, and bio.'
   }
 ]
 
 export const FINAL_CTA = {
-  headline: 'Grow your roster.',
-  body: 'Join the smartest platform for trainers to find motivated online clients. Pass the quiz and start today.',
-  buttonText: 'Apply for Verification',
+  headline: 'Coach with confidence. Get verified.',
+  body: 'Join verified trainers delivering structured programs and building their professional reputation.',
+  buttonText: 'Access Trainer Portal',
   buttonHref: APP_ROUTES.trainerLogin
 }
-
-export const PRICING_SUBTITLE = 'Answer questions for free to build your reputation, and scale your business with the Pro tier.'

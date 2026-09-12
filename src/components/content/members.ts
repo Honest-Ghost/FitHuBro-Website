@@ -1,153 +1,175 @@
 import { APP_ROUTES } from '@/lib/config'
+import type { CompareRow, TourStep, Pillar, Persona as ContentPersona } from './owners'
+
 export const NAV_LINKS = [
-  { label: 'AI Coach', href: '#pillars' },
-  { label: 'Community', href: '#community' },
-  { label: 'Streaks', href: '#streaks' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'AI Coach', href: '#coach' },
+  { label: 'Journey', href: '#journey' },
+  { label: 'Trainers', href: '#trainers' },
   { label: 'FAQ', href: '#faq' },
 ] as const
 
 export const MARQUEE_WORDS = [
   'AI Workouts',
-  'Weekly Streaks',
-  'Nutrition',
-  'Q&A Community',
-  'Find Trainers',
-  'Form Check',
-  'Custom Diet Plans',
+  'Nutrition Photo Scan',
+  'Daily Consistency',
+  'Digital Gym Card',
+  'Conversational AI',
+  'Verified Trainers',
+  'Plate Calculator',
 ] as const
 
 export const AUDIENCES = [
   {
     id: 'members',
-    label: "I'm a member",
-    eyebrow: 'Train with a plan',
-    headline: 'Lift heavier.\nKeep the streak.',
-    accent: ['streak.'],
-    body: 'Your workout, diet, and recovery in one app. Free members get standard plans and streak tracking, while Pro members unlock advanced AI coaching tailored to your body type and budget.',
-    ctaLabel: 'Download free',
+    label: "I'm here to get fit",
+    eyebrow: 'YOUR FITNESS. YOUR COACH. YOUR JOURNEY.',
+    headline: 'Lift smarter.\nEat better.\nStay consistent.',
+    accent: ['smarter.', 'better.', 'consistent.'],
+    body: 'Your personal fitness journey, guided by an AI Coach and connected to your local gym.',
+    ctaLabel: 'Start Your Journey',
     ctaHref: APP_ROUTES.memberCheckIn,
+    secondaryCtaLabel: 'Meet Your AI Coach',
+    secondaryCtaHref: '#coach',
   }
 ]
 
-export const PERSONAS = [
+export const MANIFESTO = {
+  eyebrow: 'Why We Built It',
+  headline: 'Fitness isn’t just one workout.\nIt’s everything around it.',
+  body: [
+    'Showing up at the gym is only half the battle. Real progress happens when your training matches your equipment, your nutrition fuels recovery, and your habits stay consistent week after week.',
+    'FitHuBro unifies your daily fitness routine with intelligent text-based AI coaching, practical nutrition awareness, and a seamless connection to your gym floor.'
+  ]
+}
+
+export const PILLARS: Pillar[] = [
   {
-    id: 'community',
-    label: 'The Community',
-    title: 'Your fitness questions, answered by pros.',
-    body: 'Got a doubt about a diet plan? Curious about supplements or form? Ask the community and get answers directly from certified trainers worldwide. A free space for fitness freaks.',
-    points: ['Free Q&A platform', 'Verified trainer badges', 'Supplement and diet advice'],
-    ctaLabel: 'Join the community',
-    ctaHref: '/community',
-    assetLabel: 'Q&A Board',
+    index: '01',
+    title: 'Workout Guidance',
+    body: 'Intelligent daily training routines built around available equipment. Get exercise substitutions, Olympic plate calculations, and progressive overload tracking.'
+  },
+  {
+    index: '02',
+    title: 'Nutrition Guidance',
+    body: 'Practical meal guidance with culturally relevant foods — roti, dal, paneer, eggs, and chicken. Estimate macros and generate 7-day meal plans tailored to your targets.'
+  },
+  {
+    index: '03',
+    title: 'Conversational Assistance',
+    body: 'Ask fitness questions anytime via text chat. Get instant guidance on training cues, muscle soreness, recovery, and daily momentum from an always-on AI companion.'
+  },
+]
+
+export const PRODUCT_TOUR = {
+  eyebrow: 'Fitness Journey',
+  headline: 'Four pillars of your fitness journey',
+  body: 'Train with intent, fuel with awareness, build unstoppable consistency, and connect with your gym.',
+  features: []
+}
+
+export const TOUR_STEPS: TourStep[] = [
+  {
+    eyebrow: 'Train',
+    title: 'Equipment-aware workout routines',
+    body: 'Your AI Coach generates daily training based on available equipment — barbells, dumbbells, machines, or bodyweight. Log your sets, track progressive overload, and use the Olympic plate calculator.',
+    bullets: ['Adaptive workout generation', 'Olympic barbell plate calculator', 'Progressive overload set logging'],
+    assetLabel: 'Workout screen',
+    assetSize: '1200 × 2400px · 9:18'
+  },
+  {
+    eyebrow: 'Eat',
+    title: 'Macro scanning and meal awareness',
+    body: 'Snap meal photos to estimate calories and macronutrients with multimodal AI, or scan packaged food barcodes. Plan your nutrition around practical Indian meals like roti, dal, paneer, and eggs.',
+    bullets: ['AI meal photo macro scanning', 'Barcode food lookup', '7-day meal plan assistance'],
+    assetLabel: 'Diet screen',
+    assetSize: '1200 × 2400px · 9:18'
+  },
+  {
+    eyebrow: 'Stay Consistent',
+    title: 'Streaks, volume, and momentum',
+    body: 'Build sustainable discipline with daily streak tracking, volume load history, and progress milestones that keep you showing up.',
+    bullets: ['Daily streak counters', 'Weekly volume metrics', 'Progressive momentum tracking'],
+    assetLabel: 'Dashboard screen',
+    assetSize: '1200 × 2400px · 9:18'
+  },
+  {
+    eyebrow: 'Connect',
+    title: 'Seamless gym check-in',
+    body: 'Carry your digital gym card on your phone. Scan the rotating 60-second HMAC QR kiosk at partnered gyms for instant attendance.',
+    bullets: ['Digital gym card on your phone', 'Fraud-proof 60s rotating QR check-in', 'Direct facility connection'],
+    assetLabel: 'Check-in screen',
+    assetSize: '1200 × 2400px · 9:18'
+  },
+]
+
+export const PERSONAS: ContentPersona[] = [
+  {
+    id: 'trainers',
+    label: 'HUMAN COACHING',
+    title: 'AI for answers. Human trainers for expertise.',
+    body: 'While the AI Coach delivers instant 24/7 answers, heavy compound lifting and specialized goals benefit from human guidance. Discover verified personal trainers at your gym for tailored multi-week programs, hands-on form correction, and real accountability.',
+    points: [
+      'Gym-verified credentials and reviewed trainer profiles',
+      'Custom multi-week workout programs assigned directly to you',
+      'Hands-on expertise, form accountability, and mentorship',
+      'Explore coaches freely on the trainer marketplace directory',
+    ],
+    ctaLabel: 'Discover Verified Trainers',
+    ctaHref: '/trainers',
+    assetLabel: 'Trainer Board',
     assetSize: 'Live',
     assetRatio: '24/7'
   }
 ]
 
-export const MANIFESTO = {
-  headline: 'Motivation fades.\nStreaks remain.',
-  body: [
-    'Most people quit the gym because they show up without a plan, get bored, and break their routine.',
-    'FitHuBro keeps you locked in. Hit your workouts, maintain your weekly streak, and ask our global trainer community when you get stuck.',
-    'Upgrade to Pro to let our AI coach build a workout based on the exact equipment your gym has, and generate a diet plan optimized for your budget.'
-  ]
-}
-
-export const PILLARS: import('./owners').Pillar[] = [
-  { index: '01', title: 'Smart AI Coach', body: 'Pro members get plans tailored to their body type and the exact equipment available at their gym or home.' },
-  { index: '02', title: 'Personalized Diets', body: 'Vegetarian? Non-veg? Tight budget? Pro unlocks a fully customized diet chart optimized for your needs.' },
-  { index: '03', title: 'Motivation Streaks', body: 'Keep your momentum going by hitting your weekly targets. Show off your streaks on the leaderboard.' },
+export const FAQS = [
+  {
+    q: 'How does the AI Coach work?',
+    a: 'The AI Coach is a conversational assistant powered by Google Gemini. You can chat with it anytime via text to get workout recommendations, alternative exercises for available gym equipment, recovery advice, and macro estimates.'
+  },
+  {
+    q: 'What nutrition features are supported?',
+    a: 'You can snap photos of your meals for AI calorie and macro estimations, scan packaged food barcodes, and generate 7-day meal plans using everyday foods like roti, dal, paneer, curd, eggs, and chicken.'
+  },
+  {
+    q: 'How do human trainers fit into FitHuBro?',
+    a: 'The AI Coach and human trainers are complementary. The AI is your immediate digital assistant for daily questions. When you want hands-on technique coaching, specialized programming, or human accountability, you can find verified trainers on the marketplace directory.'
+  },
+  {
+    q: 'How does the gym check-in work?',
+    a: 'Partnered gyms display a secure kiosk screen with a dynamic QR code that refreshes every 60 seconds. Simply open your digital gym card in the app and scan the kiosk code to record your attendance instantly.'
+  }
 ]
 
-export const PRODUCT_TOUR = {
-  eyebrow: 'Inside the app',
-  headline: 'Your pocket coach.',
-  body: 'Log your sets, check your streak, and ask questions to the community all from one beautiful dashboard.',
-  features: []
+export const FINAL_CTA = {
+  headline: 'Lift smarter. Start today.',
+  body: 'Your personal fitness journey, guided by AI and connected to your gym. Free to start on your phone.',
+  buttonText: 'Start Your Journey',
+  buttonHref: APP_ROUTES.memberCheckIn
 }
 
+// Fallback objects for persona content typing compatibility
 export const STATS = [
-  { value: 100, prefix: '', suffix: '%', label: 'Personalized', note: 'Based on your body type' },
-  { value: 24, prefix: '', suffix: '/7', label: 'Community', note: 'Always active' },
+  { value: 100, prefix: '', suffix: '%', label: 'Personalized', note: 'Based on your equipment and goals' },
+  { value: 24, prefix: '', suffix: '/7', label: 'AI Coach', note: 'Text chat assistance' },
 ]
 
 export const ROI = {
   headline: 'Free to start.',
-  description: 'Join the community, get standard workout plans, and maintain your streaks for free.',
+  description: 'Track workouts, maintain streaks, and ask fitness questions for free.',
   metrics: []
 }
-
-import type { CompareRow, TourStep } from './owners'
 
 export const COMPARE = {
   headline: 'Why FitHuBro?',
   us: 'FitHuBro',
   them: 'Generic Apps',
   rows: [
-    { feature: 'Diet optimized for your budget', us: 'yes', them: 'no' },
-    { feature: 'Free Q&A with real trainers', us: 'yes', them: 'no' },
-    { feature: 'Knows your gym equipment', us: 'yes', them: 'no' },
+    { feature: 'Equipment-aware workout generation', us: 'yes', them: 'no' },
+    { feature: 'Culturally relevant Indian nutrition', us: 'yes', them: 'no' },
+    { feature: 'Fraud-proof rotating QR gym check-in', us: 'yes', them: 'no' },
   ] as CompareRow[]
 }
 
-export const TOUR_STEPS: TourStep[] = [
-  {
-    eyebrow: 'AI Coach',
-    title: 'Smartest workouts',
-    body: 'For Pro members, the AI builds a plan based on exactly what equipment your gym has and your body type.',
-    bullets: ['Tailored to your gym', 'Progressive overload', 'Form checks'],
-    assetLabel: 'AI Coach screen',
-    assetSize: '1200 × 2400px · 9:18'
-  },
-  {
-    eyebrow: 'Diet Plans',
-    title: 'Eat right, on budget',
-    body: 'Get a personalized diet chart that respects your dietary preferences and monthly budget constraints.',
-    bullets: ['Veg/Non-veg/Eggitarian', 'Budget optimized', 'Body type targeted'],
-    assetLabel: 'Diet screen',
-    assetSize: '1200 × 2400px · 9:18'
-  },
-]
-
-export const TIERS = [
-  {
-    name: 'Free',
-    price: 0,
-    cap: 'For fitness enthusiasts',
-    features: ['Standard Workout Plan', 'BMI Calculator', 'Q&A Community Access', 'Streak Tracking', 'Find Trainers', 'Standard Diet Plan']
-  },
-  {
-    name: 'Pro',
-    price: 499,
-    cap: 'For serious lifters',
-    featured: true,
-    features: ['Advanced AI Workout Plan (Body Type & Equipment)', 'Custom Diet Chart (Veg/Non-veg/Budget)', 'Everything in Free']
-  },
-  {
-    name: 'Elite',
-    price: 1999,
-    cap: '1-on-1 coaching',
-    features: ['Hire a Verified Trainer directly', 'Personalized Video Form Checks', 'Priority Q&A responses', 'Everything in Pro']
-  }
-]
-
-export const FAQS = [
-  {
-    q: 'What do I get for free?',
-    a: 'Free members get standard workout and diet plans, the BMI calculator, streak tracking, and full access to our Q&A community.'
-  },
-  {
-    q: 'How does the custom diet plan work?',
-    a: 'Pro members answer a few questions about their body type, dietary preferences (vegetarian, non-veg, etc.), and monthly budget. The AI generates a cost-effective, personalized diet chart.'
-  }
-]
-
-export const FINAL_CTA = {
-  headline: 'Start your streak.',
-  body: 'Join the smartest fitness community and get a plan that actually works for you.',
-  buttonText: 'Download the app',
-  buttonHref: APP_ROUTES.memberCheckIn
-}
-
-export const PRICING_SUBTITLE = 'Start for free and upgrade when you are ready to take your training to the next level.'
+export const TIERS: import('./owners').Tier[] = []
+export const PRICING_SUBTITLE = ''

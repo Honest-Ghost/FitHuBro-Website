@@ -91,7 +91,7 @@ export function Nav({ persona }: { persona: Persona }) {
             Sign in
           </a>
           <a
-            href={APP_ROUTES.ownerLogin}
+            href={persona === 'owners' ? APP_ROUTES.ownerLogin : APP_ROUTES.memberCheckIn}
             className="rounded-full bg-secondary px-5 py-2.5 text-sm text-secondary-foreground transition-transform hover:scale-[1.03]"
           >
             Get Started
@@ -100,7 +100,7 @@ export function Nav({ persona }: { persona: Persona }) {
 
         <button
           type="button"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => setOpen((value: boolean) => !value)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           className="-mr-2 p-2 text-foreground md:hidden"
@@ -138,7 +138,7 @@ export function Nav({ persona }: { persona: Persona }) {
               Sign in
             </a>
             <a
-              href={APP_ROUTES.ownerLogin}
+              href={persona === 'owners' ? APP_ROUTES.ownerLogin : APP_ROUTES.memberCheckIn}
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-secondary px-5 py-3.5 text-center text-base text-secondary-foreground"
             >

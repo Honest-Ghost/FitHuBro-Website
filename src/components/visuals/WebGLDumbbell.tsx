@@ -33,8 +33,8 @@ function PremiumPlate({ radius, thickness, holeRadius, material, position, group
       {/* Extrude builds along Z, so we rotate 90deg to face along X */}
       <mesh rotation={[0, Math.PI / 2, 0]}>
         <extrudeGeometry 
-          args={[shape, extrudeSettings]} 
-          onUpdate={(self) => self.center()} 
+          args={[shape, extrudeSettings] as any} 
+          onUpdate={(self: any) => self.center()} 
         />
         <meshStandardMaterial {...material} />
       </mesh>
@@ -57,7 +57,7 @@ export function WebGLDumbbell(props: any) {
 
   const { scrollYProgress } = useScroll()
 
-  useFrame((state) => {
+  useFrame((state: any) => {
     if (!group.current || !l0.current) return
     const t = state.clock.getElapsedTime()
     const scroll = scrollYProgress.get()

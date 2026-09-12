@@ -32,7 +32,7 @@ export function Personas({ persona }: { persona: Persona }) {
                       <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
                       {persona.label}
                     </p>
-                    <h2 className="font-display mt-5 max-w-sm text-4xl tracking-tight text-foreground sm:text-5xl">
+                    <h2 className="font-display mt-5 max-w-lg text-3xl tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                       {persona.title}
                     </h2>
                     <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
