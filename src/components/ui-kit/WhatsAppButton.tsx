@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react'
+import { CONTACT_INFO } from '@/lib/config'
 
 export function WhatsAppButton() {
-  const phoneNumber = '919911209589'
-  const message = encodeURIComponent("Hi FitHuBro team! I'm interested in your fitness platform.")
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
+  const whatsappUrl = CONTACT_INFO.whatsappUrl("Hi FitHuBro team! I'm interested in your fitness platform.")
 
   return (
     <a

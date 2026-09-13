@@ -30,7 +30,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
   const isExternalCta = audience.ctaHref.startsWith('http')
 
   return (
-    <section className="grain relative overflow-hidden pt-28 sm:pt-36">
+    <section className="grain relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
       {/* Ambient brand glow, sitting behind the rig. */}
       <div
         aria-hidden
@@ -41,7 +41,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
         <Reveal direction="none" duration={0.9}>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             {/* Non-blocking Personalization Selector */}
-            <div className="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <div className="inline-flex flex-wrap items-center gap-1.5 rounded-full border border-white/15 bg-zinc-900/80 p-1.5 backdrop-blur-md shadow-lg">
               {PERSONA_TABS.map((tab) => {
                 const isActive = persona === tab.id
                 return (
@@ -53,7 +53,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
                       "rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200",
                       isActive
                         ? "bg-secondary text-secondary-foreground shadow-sm shadow-secondary/30"
-                        : "text-muted-foreground hover:bg-white/5 hover:text-white"
+                        : "text-zinc-400 hover:bg-white/10 hover:text-white"
                     )}
                   >
                     {tab.label}
@@ -62,7 +62,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
               })}
             </div>
 
-            <p className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-zinc-400 font-medium">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               {audience.eyebrow}
             </p>
@@ -74,16 +74,16 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
           as="h1"
           text={audience.headline}
           accent={audience.accent}
-          className="font-display mt-8 max-w-[16ch] text-[clamp(2.5rem,10vw,9rem)] text-balance"
+          className="font-display mt-6 max-w-[18ch] text-[clamp(2.5rem,6.5vw,5.75rem)] leading-[1.02] text-balance text-white"
         />
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <motion.p
             key={`${audience.id}-body`}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="max-w-xl text-lg leading-relaxed text-muted-foreground"
+            className="max-w-xl text-base sm:text-lg leading-relaxed text-zinc-300 font-normal"
           >
             {audience.body}
           </motion.p>
@@ -94,7 +94,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
                 {isExternalCta ? (
                   <a
                     href={audience.ctaHref}
-                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
+                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base font-semibold text-secondary-foreground shadow-lg shadow-secondary/25 transition-transform hover:scale-[1.03]"
                   >
                     {audience.ctaLabel}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -102,7 +102,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
                 ) : (
                   <Link
                     href={audience.ctaHref}
-                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base text-secondary-foreground transition-transform hover:scale-[1.03]"
+                    className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-4 text-base font-semibold text-secondary-foreground shadow-lg shadow-secondary/25 transition-transform hover:scale-[1.03]"
                   >
                     {audience.ctaLabel}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -112,7 +112,7 @@ export function Hero({ persona, onPersonaChange }: HeroProps) {
               <Magnetic className="w-full sm:w-auto">
                 <a
                   href={(audience as any).secondaryCtaHref || "#coach"}
-                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-white/20 px-7 py-4 text-base text-foreground transition-colors hover:bg-white/5"
+                  className="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-white/20 bg-white/[0.07] px-7 py-4 text-base font-medium text-white transition-all hover:bg-white/[0.14] hover:border-white/35 shadow-sm"
                 >
                   {(audience as any).secondaryCtaLabel || "Meet Your AI Coach"}
                 </a>

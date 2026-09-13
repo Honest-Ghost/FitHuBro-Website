@@ -12,6 +12,7 @@ import { AudienceBridges } from './sections/AudienceBridges'
 import { Stats } from './sections/Stats'
 import { RoiCalculator } from './sections/RoiCalculator'
 import { Compare } from './sections/Compare'
+import { CustomGymWebDemo } from './sections/CustomGymWebDemo'
 import { Pricing } from './sections/Pricing'
 import { Faq } from './sections/Faq'
 import { FinalCta } from './sections/FinalCta'
@@ -67,6 +68,7 @@ export function LandingPage({ persona: initialPersona }: LandingPageProps) {
                 <>
                   <Stats persona={persona} />
                   <RoiCalculator persona={persona} />
+                  <CustomGymWebDemo />
                   <Compare persona={persona} />
                   <Pricing persona={persona} />
                 </>

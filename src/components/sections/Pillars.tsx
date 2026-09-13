@@ -18,13 +18,13 @@ export function Pillars({ persona }: { persona: Persona }) {
 
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-secondary font-semibold">
             {isMember ? '24/7 AI COACH' : 'Core Pillars'}
           </p>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h2 className="font-display mt-5 max-w-3xl text-[clamp(2.5rem,6.5vw,5rem)] text-balance">
+          <h2 className="font-display mt-5 max-w-3xl text-[clamp(2.5rem,6.5vw,5rem)] text-balance text-white">
             {isMember ? (
               <>
                 Intelligent coaching.
@@ -42,27 +42,27 @@ export function Pillars({ persona }: { persona: Persona }) {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 font-normal">
             {isMember
               ? 'Most apps give you a static template. FitHuBro gives you conversational guidance to adjust workouts for available gym equipment, estimate macros, and stay accountable.'
               : 'Structure your coaching delivery, set nutrition targets, and maintain member retention.'}
           </p>
         </Reveal>
 
-        <Stagger className="mt-14 grid gap-5 md:grid-cols-3">
+        <Stagger className="mt-14 grid gap-6 md:grid-cols-3">
           {PILLARS.map((pillar) => (
             <StaggerItem key={pillar.index}>
               <TiltCard className="h-full">
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-colors hover:border-white/20">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl surface-card p-7 sm:p-8 transition-all hover:border-white/25 hover:shadow-2xl">
                   <div className="flex items-center justify-between">
                     <PlateBadge number={pillar.index} className="scale-75 origin-top-left" />
                     <LineArt
                       icon={pillar.index === '01' ? 'dumbbell' : pillar.index === '02' ? 'plate' : 'kettlebell'}
-                      className="h-10 w-10 opacity-30"
+                      className="h-10 w-10 opacity-40 text-white"
                     />
                   </div>
-                  <h3 className="font-display mt-5 text-3xl">{pillar.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="font-display mt-5 text-3xl text-white tracking-wide">{pillar.title}</h3>
+                  <p className="mt-4 text-sm sm:text-[15px] leading-relaxed text-zinc-300">
                     {pillar.body}
                   </p>
                 </div>

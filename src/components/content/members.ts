@@ -9,11 +9,12 @@ export const NAV_LINKS = [
 ] as const
 
 export const MARQUEE_WORDS = [
-  'AI Workouts',
-  'Nutrition Photo Scan',
-  'Daily Consistency',
-  'Digital Gym Card',
-  'Conversational AI',
+  'Equipment-Aware Workouts',
+  'Multimodal Meal Scan',
+  'Text AI Coach',
+  'Daily Consistency Streaks',
+  'Digital Gym Pass',
+  '60s Rotating QR Check-In',
   'Verified Trainers',
   'Plate Calculator',
 ] as const
@@ -25,7 +26,7 @@ export const AUDIENCES = [
     eyebrow: 'YOUR FITNESS. YOUR COACH. YOUR JOURNEY.',
     headline: 'Lift smarter.\nEat better.\nStay consistent.',
     accent: ['smarter.', 'better.', 'consistent.'],
-    body: 'Your personal fitness journey, guided by an AI Coach and connected to your local gym.',
+    body: 'Your personal fitness journey, guided by an intelligent text-based AI Coach and connected directly to your gym floor.',
     ctaLabel: 'Start Your Journey',
     ctaHref: APP_ROUTES.memberCheckIn,
     secondaryCtaLabel: 'Meet Your AI Coach',
@@ -51,52 +52,60 @@ export const PILLARS: Pillar[] = [
   {
     index: '02',
     title: 'Nutrition Guidance',
-    body: 'Practical meal guidance with culturally relevant foods — roti, dal, paneer, eggs, and chicken. Estimate macros and generate 7-day meal plans tailored to your targets.'
+    body: 'Practical meal guidance with culturally relevant foods — roti, dal, paneer, eggs, and chicken. Estimate macros with meal photo scans and generate 7-day meal plans tailored to your targets.'
   },
   {
     index: '03',
-    title: 'Conversational Assistance',
-    body: 'Ask fitness questions anytime via text chat. Get instant guidance on training cues, muscle soreness, recovery, and daily momentum from an always-on AI companion.'
+    title: 'Text AI Companion',
+    body: 'Ask fitness questions anytime via text chat. Get instant guidance on training cues, muscle soreness, recovery, and daily momentum from an always-on AI companion powered by Google Gemini.'
   },
 ]
 
 export const PRODUCT_TOUR = {
   eyebrow: 'Fitness Journey',
-  headline: 'Four pillars of your fitness journey',
-  body: 'Train with intent, fuel with awareness, build unstoppable consistency, and connect with your gym.',
+  headline: 'Five stages of your connected fitness journey',
+  body: 'Discover your path, train with intent, fuel with awareness, build unstoppable consistency, and connect with your gym floor.',
   features: []
 }
 
 export const TOUR_STEPS: TourStep[] = [
   {
-    eyebrow: 'Train',
-    title: 'Equipment-aware workout routines',
-    body: 'Your AI Coach generates daily training based on available equipment — barbells, dumbbells, machines, or bodyweight. Log your sets, track progressive overload, and use the Olympic plate calculator.',
-    bullets: ['Adaptive workout generation', 'Olympic barbell plate calculator', 'Progressive overload set logging'],
+    eyebrow: 'Stage 01 · Discovery',
+    title: 'Personalized Setup & Equipment Discovery',
+    body: 'Set your fitness goals, select your experience level, and configure the equipment available to you — whether you train at a full commercial gym, a local studio, or with a home setup.',
+    bullets: ['Goal selection & baseline strength', 'Equipment-aware routine matching', 'Home & commercial gym options'],
+    assetLabel: 'Discovery screen',
+    assetSize: '1200 × 2400px · 9:18'
+  },
+  {
+    eyebrow: 'Stage 02 · Train',
+    title: 'Adaptive Workouts & Set Logging',
+    body: 'Follow daily workout routines tailored to your gym floor. Swap exercises based on available machines, calculate Olympic barbell plate loadings, and log sets with progressive overload.',
+    bullets: ['Equipment-aware workout generation', 'Olympic barbell plate calculator', 'Progressive overload set logging'],
     assetLabel: 'Workout screen',
     assetSize: '1200 × 2400px · 9:18'
   },
   {
-    eyebrow: 'Eat',
-    title: 'Macro scanning and meal awareness',
-    body: 'Snap meal photos to estimate calories and macronutrients with multimodal AI, or scan packaged food barcodes. Plan your nutrition around practical Indian meals like roti, dal, paneer, and eggs.',
-    bullets: ['AI meal photo macro scanning', 'Barcode food lookup', '7-day meal plan assistance'],
+    eyebrow: 'Stage 03 · Eat',
+    title: 'Meal Photo Macro Scanning & Nutrition',
+    body: 'Snap photos of your meals to estimate calories and macronutrients using multimodal AI, or look up packaged foods by barcode. Build practical 7-day meal plans around foods you actually eat, like roti, dal, paneer, and eggs.',
+    bullets: ['Multimodal AI meal photo macro scanning', 'Packaged food barcode lookup', '7-day practical meal plans (Indian diets supported)'],
     assetLabel: 'Diet screen',
     assetSize: '1200 × 2400px · 9:18'
   },
   {
-    eyebrow: 'Stay Consistent',
-    title: 'Streaks, volume, and momentum',
-    body: 'Build sustainable discipline with daily streak tracking, volume load history, and progress milestones that keep you showing up.',
-    bullets: ['Daily streak counters', 'Weekly volume metrics', 'Progressive momentum tracking'],
+    eyebrow: 'Stage 04 · Stay Consistent',
+    title: 'Streaks, Volume Load & Habit Tracking',
+    body: 'Build lasting discipline with daily workout streaks, weekly training volume tracking, and consistency milestones that keep you showing up week after week.',
+    bullets: ['Daily streak & consistency counters', 'Weekly volume load tracking', 'Personal milestone records'],
     assetLabel: 'Dashboard screen',
     assetSize: '1200 × 2400px · 9:18'
   },
   {
-    eyebrow: 'Connect',
-    title: 'Seamless gym check-in',
-    body: 'Carry your digital gym card on your phone. Scan the rotating 60-second HMAC QR kiosk at partnered gyms for instant attendance.',
-    bullets: ['Digital gym card on your phone', 'Fraud-proof 60s rotating QR check-in', 'Direct facility connection'],
+    eyebrow: 'Stage 05 · Connect',
+    title: 'Digital Gym Card & Trainer Discovery',
+    body: 'Carry your digital gym card on your phone and check into partnered gyms using the rotating 60-second HMAC QR kiosk. Browse verified trainers at your gym when you need expert human coaching.',
+    bullets: ['Digital gym card on your phone', 'Fraud-proof 60-second rotating QR check-in', 'Verified trainer discovery directory'],
     assetLabel: 'Check-in screen',
     assetSize: '1200 × 2400px · 9:18'
   },
@@ -107,7 +116,7 @@ export const PERSONAS: ContentPersona[] = [
     id: 'trainers',
     label: 'HUMAN COACHING',
     title: 'AI for answers. Human trainers for expertise.',
-    body: 'While the AI Coach delivers instant 24/7 answers, heavy compound lifting and specialized goals benefit from human guidance. Discover verified personal trainers at your gym for tailored multi-week programs, hands-on form correction, and real accountability.',
+    body: 'While the AI Coach delivers instant 24/7 text answers, heavy compound lifting and specialized goals benefit from human guidance. Discover verified personal trainers at your gym for tailored multi-week programs, hands-on form correction, and real accountability.',
     points: [
       'Gym-verified credentials and reviewed trainer profiles',
       'Custom multi-week workout programs assigned directly to you',
@@ -125,7 +134,7 @@ export const PERSONAS: ContentPersona[] = [
 export const FAQS = [
   {
     q: 'How does the AI Coach work?',
-    a: 'The AI Coach is a conversational assistant powered by Google Gemini. You can chat with it anytime via text to get workout recommendations, alternative exercises for available gym equipment, recovery advice, and macro estimates.'
+    a: 'The AI Coach is a conversational text assistant powered by Google Gemini. You can chat with it anytime to get workout recommendations, alternative exercises for available gym equipment, recovery advice, and macro estimates.'
   },
   {
     q: 'What nutrition features are supported?',
@@ -148,10 +157,11 @@ export const FINAL_CTA = {
   buttonHref: APP_ROUTES.memberCheckIn
 }
 
-// Fallback objects for persona content typing compatibility
 export const STATS = [
   { value: 100, prefix: '', suffix: '%', label: 'Personalized', note: 'Based on your equipment and goals' },
   { value: 24, prefix: '', suffix: '/7', label: 'AI Coach', note: 'Text chat assistance' },
+  { value: 60, prefix: '', suffix: 's', label: 'Rotating QR', note: 'Fraud-proof gym check-in' },
+  { value: 5, prefix: '', suffix: ' Stages', label: 'Fitness Journey', note: 'Discover, Train, Eat, Consistent, Connect' },
 ]
 
 export const ROI = {
@@ -161,13 +171,15 @@ export const ROI = {
 }
 
 export const COMPARE = {
-  headline: 'Why FitHuBro?',
+  headline: 'Why FitHuBro For members?',
   us: 'FitHuBro',
   them: 'Generic Apps',
   rows: [
     { feature: 'Equipment-aware workout generation', us: 'yes', them: 'no' },
+    { feature: 'Multimodal AI meal photo scan', us: 'yes', them: 'no' },
     { feature: 'Culturally relevant Indian nutrition', us: 'yes', them: 'no' },
-    { feature: 'Fraud-proof rotating QR gym check-in', us: 'yes', them: 'no' },
+    { feature: 'Fraud-proof rotating 60s QR gym check-in', us: 'yes', them: 'no' },
+    { feature: 'Verified trainer discovery directory', us: 'yes', them: 'no' },
   ] as CompareRow[]
 }
 

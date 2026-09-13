@@ -18,42 +18,57 @@ export default function DisclaimerPage() {
       <div className="relative z-10 w-full pointer-events-none">
         <div className="pointer-events-auto">
           <Cursor />
-          <Nav persona="owners" />
+          <Nav persona="members" />
         </div>
-        <main className="pointer-events-auto min-h-screen pt-24 pb-16">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <h1 className="mb-8 text-4xl font-display font-light tracking-tight text-foreground">Disclaimer</h1>
-        
-        <div className="prose prose-invert max-w-none text-muted-foreground">
-          <p className="mb-4">
-            YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT YOU ARE USING THE PLATFORM AT YOUR OWN RISK. THE PLATFORM AND ALL DATA AND CONTENT PROVIDED IS PROVIDED "AS IS", "WITH ALL FAULTS" AND WITHOUT WARRANTY, TERMS OR CONDITIONS OF ANY KIND.
-          </p>
+        <main className="pointer-events-auto min-h-screen pt-28 pb-20">
+          <div className="mx-auto max-w-4xl px-5 sm:px-8">
+            <div className="rounded-3xl surface-panel p-8 sm:p-12 shadow-2xl">
+              <h1 className="mb-8 text-4xl sm:text-5xl font-display tracking-tight text-white">Disclaimer</h1>
+              
+              <div className="prose prose-invert max-w-none text-zinc-300 space-y-6 text-base sm:text-[17px] leading-relaxed">
+                <p>
+                  YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT YOU ARE USING THE FITHUBRO PLATFORM AT YOUR OWN RISK. THE PLATFORM, WORKOUT LOGGING UTILITIES, PLATE CALCULATORS, AND ESTIMATED MACRONUTRIENT INFORMATION ARE PROVIDED &quot;AS IS&quot;, &quot;WITH ALL FAULTS&quot; AND WITHOUT WARRANTIES OF ANY KIND.
+                </p>
 
-          <h2 className="mt-8 mb-4 text-xl font-medium text-foreground">Limitation of Liability</h2>
-          <p className="mb-4">
-            YOU UNDERSTAND AND AGREE THAT UNDER NO CIRCUMSTANCE WILL FITHUBRO, ITS AGENTS, LICENSORS OR SUPPLIERS BE LIABLE TO YOU ON ACCOUNT FOR DAMAGES OF ANY KIND, WHETHER BASED IN TORT, CONTRACT, STRICT LIABILITY OR OTHERWISE YOUR MISUSE OF THE SOFTWARE.
-          </p>
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">Health &amp; Exercise Notice</h2>
+                  <p>
+                    FitHuBro and its conversational AI assistant provide general fitness guidance and tracking tools. They do not constitute medical advice, physical therapy diagnosis, or certified healthcare treatment. Always consult a qualified physician before commencing any strenuous exercise program, especially if you have pre-existing cardiovascular, musculoskeletal, or metabolic conditions.
+                  </p>
+                </div>
 
-          <h2 className="mt-8 mb-4 text-xl font-medium text-foreground">Damages</h2>
-          <p className="mb-4">
-            You shall defend and hold FitHuBro harmless from and against any and all liabilities, damages, costs, expenses or losses arising out of your improper or unauthorized use of the App, your negligent or wrongful acts, your violation of any applicable laws or regulations, and/or your breach of any provision of this agreement.
-          </p>
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">Limitation of Liability</h2>
+                  <p>
+                    UNDER NO CIRCUMSTANCE WILL FITHUBRO, ITS OPERATORS, AGENTS, LICENSORS, OR PARTNERED GYM AFFILIATES BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF YOUR USE OR MISUSE OF THE APPLICATION OR PHYSICAL GYM EQUIPMENT.
+                  </p>
+                </div>
 
-          <h2 className="mt-8 mb-4 text-xl font-medium text-foreground">Governing Law</h2>
-          <p className="mb-4">
-            The laws of the republic of India govern this agreement. All disputes are subject to the jurisdiction of the courts in New Delhi and you submit to such jurisdiction.
-          </p>
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">Indemnity</h2>
+                  <p>
+                    You agree to defend and hold FitHuBro harmless against any liabilities, claims, injuries, damages, costs, or expenses arising from improper or unauthorized use of the platform, exercise form failure, or violation of applicable facility rules.
+                  </p>
+                </div>
 
-          <p className="mt-8 text-sm italic">
-            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-          </p>
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">Governing Law</h2>
+                  <p>
+                    The laws of the Republic of India govern this agreement. All disputes are subject to the jurisdiction of the competent courts in New Delhi.
+                  </p>
+                </div>
+
+                <p className="mt-8 text-sm text-zinc-400 italic">
+                  Last updated: September 2026
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <div className="pointer-events-auto">
+          <Footer persona="members" />
         </div>
-      </div>
-      </main>
-      <div className="pointer-events-auto">
-        <Footer persona="owners" />
       </div>
     </div>
-  </div>
   )
 }

@@ -1,26 +1,27 @@
 /**
- * Marketing copy, centralised so claims are auditable in one file.
- * Aligned with FitHuBro SaaS product capabilities (CORE, GROWTH, FITNESS).
+ * Marketing copy for Gym Owners, centralised so claims are auditable.
+ * Aligned strictly with FitHuBro SaaS product capabilities (CORE, GROWTH, FITNESS).
  */
 import { APP_ROUTES } from '@/lib/config'
 
 export const NAV_LINKS = [
-  { label: 'Product', href: '#product' },
-  { label: 'AI Coach', href: '#pillars' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Platform', href: '#product' },
+  { label: 'Features', href: '#pillars' },
+  { label: '3D Website', href: '#custom-website' },
+  { label: 'Entitlements', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
 ] as const
 
 export const MARQUEE_WORDS = [
-  'Attendance',
-  'Memberships',
-  'Payments',
+  'QR Kiosk Attendance',
+  'Memberships & Plans',
+  'UPI Payments Ledger',
+  'WhatsApp Receipts',
   'Leads CRM',
-  'Reports',
-  'AI Workouts',
-  'Nutrition',
-  'Trainers',
-  'White-Label',
+  'Executive Reports',
+  'Trainer KYC',
+  'Custom 3D Gym Web',
+  'Tenant Isolation',
 ] as const
 
 export interface Audience {
@@ -32,38 +33,46 @@ export interface Audience {
   body: string
   ctaLabel: string
   ctaHref: string
+  secondaryCtaLabel?: string
+  secondaryCtaHref?: string
 }
 
 export const AUDIENCES: Audience[] = [
   {
     id: 'owners',
     label: 'I run a gym',
-    eyebrow: 'Built for Gym Owners',
-    headline: 'Run the gym.\nGrow your revenue.',
-    accent: ['Grow'],
-    body: 'Memberships, QR attendance, payments, and lead management in one place — plus AI workout delivery for your members and full trainer management. The register, spreadsheet, and manual follow-ups, replaced.',
+    eyebrow: 'Built for Gym Owners & Studios',
+    headline: 'Run your gym.\nElevate your facility.',
+    accent: ['Elevate'],
+    body: 'Member management, 60-second rotating QR attendance, unified payments ledger with WhatsApp receipts, leads CRM, trainer verification, and custom 3D gym websites — all in one modern platform.',
     ctaLabel: 'Get Started',
     ctaHref: APP_ROUTES.ownerLogin,
+    secondaryCtaLabel: 'See Capabilities',
+    secondaryCtaHref: '#product',
   },
   {
     id: 'trainers',
     label: "I'm a trainer",
-    eyebrow: 'Coach more clients',
-    headline: 'Coach ten.\nOr a hundred.',
-    accent: ['hundred.'],
-    body: 'Plan-writing, client tracking, and assigned workout delivery stop eating your evenings. Deliver customized programs, monitor client compliance, and build your reputation.',
+    eyebrow: 'Built for Personal Trainers',
+    headline: 'Coach clients.\nBuild your brand.',
+    accent: ['brand.'],
+    body: 'Verified credentials, gym marketplace discoverability, assigned client management, and multi-week workout program authoring without paperwork clutter.',
     ctaLabel: 'Trainer Portal',
     ctaHref: APP_ROUTES.trainerLogin,
+    secondaryCtaLabel: 'Explore Tools',
+    secondaryCtaHref: '#product',
   },
   {
     id: 'members',
     label: "I'm a member",
-    eyebrow: 'Train with a plan',
-    headline: 'Lift heavier.\nCheck in instantly.',
+    eyebrow: 'Built for Fitness Enthusiasts',
+    headline: 'Lift smarter.\nCheck in instantly.',
     accent: ['instantly.'],
-    body: 'Digital gym card, daily QR check-in, personalized workout plans, and AI coaching right on your phone — connected directly with your gym and trainer.',
+    body: 'Digital gym card, fraud-proof 60-second QR check-in, equipment-aware workout plans, and conversational AI coaching on your phone.',
     ctaLabel: 'Member Check-In',
     ctaHref: APP_ROUTES.memberCheckIn,
+    secondaryCtaLabel: 'Meet AI Coach',
+    secondaryCtaHref: '#coach',
   },
 ]
 
@@ -83,34 +92,34 @@ export interface Persona {
 export const PERSONAS: Persona[] = [
   {
     id: 'members',
-    label: 'For members',
-    title: 'A coach in your pocket, connected to your gym',
-    body: 'Most fitness apps have no idea which gym you go to. FitHuBro connects directly to your home gym floor — with your digital membership card, instant QR check-in, and workout logs.',
+    label: 'Member Experience',
+    title: 'A coach in their pocket, connected to your gym floor',
+    body: 'Most fitness apps operate in isolation from the gym. FitHuBro connects directly to your facility — giving members a digital gym pass, instant 60-second QR check-in, equipment-aware workouts, and nutrition awareness.',
     points: [
-      'Digital gym pass and instant QR kiosk check-in',
-      'Weekly workout plans adapted to your level',
-      'Indian food targets — roti, dal, paneer, curd, rice',
-      'Progressive overload and workout history',
+      'Digital gym pass and fraud-proof 60s rotating QR kiosk check-in',
+      'Daily workout routines tailored to your gym equipment',
+      'Multimodal AI meal photo scan with Indian dietary targets',
+      'Progressive overload tracking and exercise set logging',
     ],
-    ctaLabel: 'Open Member App',
-    ctaHref: APP_ROUTES.memberCheckIn,
+    ctaLabel: 'Explore Member App',
+    ctaHref: '/members',
     assetLabel: 'Member app — workout screen on a phone',
     assetSize: '1200 × 2400px · 9:18',
     assetRatio: '9 / 16',
   },
   {
     id: 'trainers',
-    label: 'For trainers',
-    title: 'Keep the coaching. Streamline client delivery.',
-    body: 'You already know what your clients need this week. What costs you the evening is manual tracking, chasing compliance, and typing out routines.',
+    label: 'Trainer Coordination',
+    title: 'Keep the coaching. Streamline client programming.',
+    body: 'Empower your personal trainers to shine. Review qualifications to grant verified status, supervise assigned member rosters, and allow trainers to author and deliver multi-week progressive workout programs.',
     points: [
-      'Client workout plans drafted and edited with ease',
-      'Track client attendance and logged sets',
-      'Public verified trainer profile on the marketplace',
-      'KYC verification and verified trainer status',
+      'Trainer KYC verification and reviewed badges',
+      'Public trainer marketplace directory for member discovery',
+      'Assigned member roster and compliance monitoring',
+      'Multi-week progressive workout program builder',
     ],
-    ctaLabel: 'Trainer Portal',
-    ctaHref: APP_ROUTES.trainerLogin,
+    ctaLabel: 'Explore Trainer Suite',
+    ctaHref: '/trainers',
     assetLabel: 'Trainer view — client list and plan editor',
     assetSize: '2400 × 1800px · 4:3',
     assetRatio: '4 / 3',
@@ -126,18 +135,18 @@ export interface Pillar {
 export const PILLARS: Pillar[] = [
   {
     index: '01',
-    title: 'Training Delivery',
-    body: 'Structured workout routines built around member goals and gym equipment. Trainers can create custom programs, and members log sets with progressive overload.',
+    title: 'Front-Desk & Attendance',
+    body: 'Eliminate fingerprint machine breakdowns. Deploy our fraud-proof 60-second rotating HMAC QR kiosk on any phone, tablet, or front-desk screen.',
   },
   {
     index: '02',
-    title: 'Nutrition Targets',
-    body: 'Targets in foods your members actually eat — roti, dal, paneer, curd, rice. Indian portions and meal tracking so dietary habits stay consistent.',
+    title: 'Memberships & Payments',
+    body: 'Manage member duration plans, log UPI/cash/card collections, send instant WhatsApp receipts, and organize incoming prospect leads with our CRM.',
   },
   {
     index: '03',
-    title: 'Attendance & Retention',
-    body: 'Daily rotating QR check-in, kiosk scanning, and real-time attendance logs so you spot at-risk members before they churn.',
+    title: 'Trainers & 3D Branding',
+    body: 'Review trainer credentials, assign clients to coaches, and stand out in your city with an optional custom-branded interactive 3D gym website demo.',
   },
 ]
 
@@ -150,53 +159,96 @@ export interface TourStep {
   assetSize: string
 }
 
+export const PRODUCT_TOUR = {
+  eyebrow: 'Facility Management',
+  headline: 'Complete gym management. Zero bloat.',
+  body: 'From front-desk attendance to executive revenue analytics, every tool is built specifically for modern fitness studios.',
+  features: []
+}
+
 export const TOUR_STEPS: TourStep[] = [
   {
-    eyebrow: 'Front desk',
-    title: 'Check-in that takes one second',
-    body: 'Members scan the rotating QR code at the door or on the kiosk and they are instantly marked present. The code updates constantly so screenshot sharing is impossible.',
+    eyebrow: '01 Members & Plans',
+    title: 'Member Management & Subscriptions',
+    body: 'Organize active members, membership duration tiers, and digital gym passes. Surface expiring memberships automatically so renewals never slip away.',
     bullets: [
-      'Rotating kiosk QR — prevents fraudulent check-ins',
-      'Works seamlessly on any tablet or phone',
-      'Real-time check-in ledger and member history',
-    ],
-    assetLabel: 'Screen recording — QR check-in at the door',
-    assetSize: '2400 × 1350px · 16:9',
-  },
-  {
-    eyebrow: 'Memberships & Leads',
-    title: 'Every renewal and lead, organized',
-    body: 'Members, membership plans, payment history, and incoming leads in one dashboard. Expiries surface ahead of time, while renewal conversations are easy to have.',
-    bullets: [
-      'Expiring-soon and at-risk member alerts',
-      'Full payment history, UPI records, and receipts',
-      'Lead management CRM with conversion tracking',
+      'Member profiles & active duration plans',
+      'Expiring-soon and at-risk member tracking',
+      'Member digital gym cards & app access',
     ],
     assetLabel: 'Screenshot — members list with expiring-soon filter',
     assetSize: '2400 × 1350px · 16:9',
   },
   {
-    eyebrow: 'Member app',
-    title: 'Your gym, in their pocket',
-    body: 'Members access their digital gym card, workout routines, and habit trackers. Installs straight from the browser as a modern PWA with zero app store friction.',
+    eyebrow: '02 Attendance',
+    title: '60-Second Rotating QR Kiosk Attendance',
+    body: 'Members scan the dynamic HMAC QR code displayed on your front-desk tablet or PC. The code regenerates every 60 seconds to prevent screenshot sharing.',
     bullets: [
-      'Digital gym pass for instant door entry',
-      'Workout tracking with set and weight history',
-      'Nutrition guidelines and progress metrics',
+      'Cryptographic 60s rotating QR kiosk',
+      'Runs on any tablet, phone, or desktop browser',
+      'Real-time check-in ledger with zero hardware expense',
     ],
-    assetLabel: 'Screen recording — member app on a phone',
-    assetSize: '1200 × 2400px · 9:18',
+    assetLabel: 'Screen recording — QR check-in at the door',
+    assetSize: '2400 × 1350px · 16:9',
   },
   {
-    eyebrow: 'Owner view',
-    title: 'Business reports and insights',
-    body: 'Monthly collections, payment method breakdown, attendance trends, and lead conversions in clean executive summaries with CSV export.',
+    eyebrow: '03 Payments',
+    title: 'Unified Ledger & WhatsApp Receipts',
+    body: 'Log payments across UPI QR, cash, card, and bank transfers. Generate instant digital receipts and share them directly with members via WhatsApp deep links.',
     bullets: [
-      'Revenue and collections breakdown (UPI, card, cash)',
-      'Daily attendance trends and peak hours',
-      'One-click CSV report exports for accounting',
+      'Fast UPI QR and manual payment logging',
+      'Direct WhatsApp receipt sharing deep links',
+      'Full transaction history with method breakdown',
+    ],
+    assetLabel: 'Screenshot — payment ledger and UPI records',
+    assetSize: '2400 × 1350px · 16:9',
+  },
+  {
+    eyebrow: '04 Leads CRM',
+    title: 'Lead Pipeline & Conversion Tracking',
+    body: 'Capture inquiries from walk-ins and referrals. Move prospective members through structured stages (Inquiry, Trial, Follow-Up, Converted) without losing contacts.',
+    bullets: [
+      'Visual CRM pipeline for gym prospects',
+      'Trial scheduling and follow-up logging',
+      'Conversion analytics to grow membership',
+    ],
+    assetLabel: 'Screenshot — leads pipeline view',
+    assetSize: '2400 × 1350px · 16:9',
+  },
+  {
+    eyebrow: '05 Trainers',
+    title: 'Trainer Roster & KYC Verification',
+    body: 'Review staff credentials and KYC documents before granting verified status. Supervise client assignments and multi-week workout program delivery.',
+    bullets: [
+      'Staff roster and trainer profile oversight',
+      'Certification and identity KYC review',
+      'Multi-week workout program authoring & assignment',
+    ],
+    assetLabel: 'Screenshot — trainer management dashboard',
+    assetSize: '2400 × 1350px · 16:9',
+  },
+  {
+    eyebrow: '06 Operations',
+    title: 'Executive Reports & CSV Accounting',
+    body: 'Get actionable visibility into monthly collections, peak check-in hours, trainer activity, and member retention with clean CSV exports for your accountant.',
+    bullets: [
+      'Monthly revenue and collections breakdown',
+      'Daily attendance heatmaps and peak hours',
+      '1-click CSV report exports for accounting',
     ],
     assetLabel: 'Screenshot — owner dashboard and reports',
+    assetSize: '2400 × 1350px · 16:9',
+  },
+  {
+    eyebrow: '07 3D Branding',
+    title: 'Custom 3D Gym Website Sales Showcase',
+    body: 'Elevate your gym above generic competitors with a bespoke interactive 3D website. Showcase your facility, equipment, and verified coaches with 3D barbell visuals and direct visitor inquiry.',
+    bullets: [
+      'Custom-branded 3D interactive hero experience',
+      'Showcase your floor, equipment, and verified coaches',
+      'Available as an enterprise sales package',
+    ],
+    assetLabel: 'Interactive demo — custom 3D gym website preview',
     assetSize: '2400 × 1350px · 16:9',
   },
 ]
@@ -209,29 +261,31 @@ export interface CompareRow {
 }
 
 export const COMPARE = {
-  headline: 'Including where we stand',
+  headline: 'Straight comparison With legacy tools',
   us: 'FitHuBro',
   them: 'Typical gym software',
   rows: [
     { feature: 'Attendance, members and plans', us: 'yes', them: 'yes' },
-    { feature: 'QR Kiosk & Digital Gym Card', us: 'yes', them: 'partial' },
-    { feature: 'UPI & Payment Recording', us: 'yes', them: 'partial' },
-    { feature: 'Lead Management CRM', us: 'yes', them: 'partial' },
+    { feature: 'Rotating 60s HMAC QR Kiosk', us: 'yes', them: 'partial' },
+    { feature: 'Unified UPI & Payment Ledger', us: 'yes', them: 'partial' },
+    { feature: 'WhatsApp Receipt Sharing Deep Links', us: 'yes', them: 'partial' },
+    { feature: 'Lead Management CRM Pipeline', us: 'yes', them: 'partial' },
     { feature: 'Executive Reports & CSV Export', us: 'yes', them: 'partial' },
-    { feature: 'Trainer Management & Roster', us: 'yes', them: 'no' },
-    { feature: 'Trainer Workout Program Builder', us: 'yes', them: 'no' },
-    { feature: 'AI Workout & Nutrition Plans', us: 'yes', them: 'no' },
+    { feature: 'Trainer Management & Staff Roster', us: 'yes', them: 'no' },
+    { feature: 'Trainer KYC Review & Verified Badges', us: 'yes', them: 'no' },
+    { feature: 'Multi-Week Trainer Workout Builder', us: 'yes', them: 'no' },
+    { feature: 'Multimodal AI Coach & Indian Nutrition', us: 'yes', them: 'no' },
     { feature: 'White-Label Gym Custom Branding', us: 'yes', them: 'no' },
-    { feature: 'Public, Transparent Pricing', us: 'yes', them: 'no' },
+    { feature: 'Custom 3D Gym Website Sales Demo', us: 'yes', them: 'no' },
     { feature: 'GST Invoicing', us: 'upcoming', them: 'yes' },
-    { feature: 'WhatsApp Automation', us: 'upcoming', them: 'yes' },
+    { feature: 'WhatsApp API Automation', us: 'upcoming', them: 'yes' },
     { feature: 'Multi-Branch Management', us: 'upcoming', them: 'partial' },
   ] as CompareRow[]
 }
 
 export interface Tier {
   name: string
-  price: number
+  entitlement: string
   cap: string
   featured?: boolean
   features: string[]
@@ -239,43 +293,45 @@ export interface Tier {
 
 export const TIERS: Tier[] = [
   {
-    name: 'Starter',
-    price: 999,
-    cap: 'Core / Up to 100 members',
+    name: 'Core',
+    entitlement: 'Front Desk & Attendance',
+    cap: 'Operational Foundation',
     features: [
-      'QR attendance kiosk & check-in',
-      'Members, memberships and plans',
-      'Payment recording & UPI receipt logging',
-      'Member digital gym card & app access',
-      'Email support',
+      'Rotating 60-second HMAC QR kiosk attendance',
+      'Members, memberships & duration plans',
+      'Unified payment recording & UPI receipt logging',
+      'Member digital gym card & check-in app',
+      'WhatsApp receipt sharing deep links',
+      'Strict multi-tenant database isolation',
     ],
   },
   {
-    name: 'Pro',
-    price: 1999,
-    cap: 'Growth / Up to 300 members',
+    name: 'Growth',
+    entitlement: 'CRM, Staff & Analytics',
+    cap: 'Expansion Suite',
     featured: true,
     features: [
-      'Everything in Starter',
-      'Lead Management CRM & conversions',
+      'Everything in Core',
+      'Leads management CRM pipeline & conversion stages',
       'Executive revenue & attendance reports',
+      'One-click CSV report exports for accounting',
       'Trainer management & staff roster',
-      'Trainer verification & KYC status',
-      'Priority support',
+      'Trainer verification & KYC review',
+      'Priority onboarding support',
     ],
   },
   {
-    name: 'Enterprise',
-    price: 3999,
-    cap: 'Fitness Suite / Unlimited members',
+    name: 'Fitness',
+    entitlement: 'Full AI & Coaching Ecosystem',
+    cap: 'Enterprise & 3D Web Suite',
     features: [
-      'Everything in Pro',
-      'Trainer workout program builder & delivery',
-      'AI Fitness Coach & nutrition guidance',
-      'Member community & leaderboards',
-      'Custom white-label gym branding',
-      'Multi-branch management (Coming Soon)',
-      'Dedicated onboarding call',
+      'Everything in Growth',
+      'Multi-week trainer workout program builder',
+      'Direct program assignment to gym members',
+      'Multimodal AI Coach (workouts & meal photo scan)',
+      'Indian nutrition guidance & macronutrient targets',
+      'White-label gym custom branding & themes',
+      'Custom 3D gym website demo & sales showcase',
     ],
   },
 ]
@@ -283,43 +339,48 @@ export const TIERS: Tier[] = [
 export const FAQS = [
   {
     q: 'Do we need to buy expensive biometric hardware?',
-    a: 'No. Check-in runs on your members’ phones and your front desk tablet using secure rotating QR codes. No hardware to purchase, install, or repair.',
+    a: 'No. Check-in runs on your front-desk tablet, PC, or phone using secure rotating 60-second HMAC QR codes. Members scan with their phone. No biometric machines to purchase, wire, or service.',
   },
   {
     q: 'What happens when the gym WiFi drops?',
-    a: 'Check-in data is cached and queued on the client and syncs automatically as soon as the connection is restored.',
+    a: 'Attendance check-in tokens are validated and cached so your front desk stays operational even during brief connectivity drops.',
   },
   {
-    q: 'Can members pay by UPI and get receipts?',
-    a: 'Yes. FitHuBro tracks UPI payments, card, cash, and bank transfers, issues digital receipts, and displays clear payment breakdowns.',
+    q: 'Can members pay by UPI and receive receipts?',
+    a: 'Yes. FitHuBro records UPI payments, cash, card, and bank transfers, issues digital receipts, and provides one-click WhatsApp deep links to share receipts with members.',
   },
   {
     q: 'Can trainers manage client programs directly?',
-    a: 'Yes. The dedicated Trainer Portal allows certified trainers to build multi-week workout programs and assign them directly to gym members.',
+    a: 'Yes. The dedicated Trainer Portal allows certified coaches to author multi-week workout programs and assign them directly to members at your facility.',
   },
   {
     q: 'Is our gym data isolated from other gyms?',
-    a: 'Yes. FitHuBro is a strict multi-tenant SaaS. Every gym’s members, plans, attendance records, and payments are strictly scoped with tenant isolation.',
+    a: 'Yes. FitHuBro is architected with strict multi-tenant scoping. Every gym’s members, plans, attendance logs, and financial records are completely private.',
+  },
+  {
+    q: 'Can our gym get a custom 3D website?',
+    a: 'Yes. We offer custom-branded interactive 3D website experiences as an enterprise sales package. Showcase your floor, equipment, trainers, and memberships with premium 3D visuals and lead capture.',
   },
   {
     q: 'How do we get started with FitHuBro?',
-    a: 'Click Get Started or contact our team on WhatsApp. Your gym tenant account is provisioned with your custom slug and branding.',
+    a: 'Click Get Started to access the Owner Portal. Set up your gym profile, configure membership plans, and start checking in members.',
   },
 ] as const
 
 export const MANIFESTO = {
-  headline: 'Members who stop coming don’t cancel. They just stop coming — and you find out months later when renewals lapse.',
+  eyebrow: 'Operational Clarity',
+  headline: 'Members who stop coming don’t cancel. They just stop coming — until renewals lapse.',
   body: [
     'Legacy gym software has spent years focusing only on the front desk and ignoring member engagement after sign-up.',
-    'FitHuBro bridges the gap between operations and engagement. Manage attendance, plans, and leads while delivering workouts and tracking progress so members stay consistent.',
+    'FitHuBro bridges operations and member progress. Manage attendance, plans, payments, and leads while your members stay engaged with workouts, progress tracking, and coaching.',
   ],
 }
 
 export const STATS = [
   { value: 0, prefix: '₹', suffix: '', label: 'Hardware Cost', note: 'No biometric machine required' },
-  { value: 100, prefix: '', suffix: '%', label: 'Tenant Scoped', note: 'Isolated gym database records' },
-  { value: 24, prefix: '', suffix: 'h', label: 'QR Security', note: 'Rotating check-in kiosk codes' },
-  { value: 3, prefix: '', suffix: '', label: 'Role Portals', note: 'Owner, Trainer, and Member' },
+  { value: 100, prefix: '', suffix: '%', label: 'Tenant Scoped', note: 'Strictly isolated gym records' },
+  { value: 60, prefix: '', suffix: 's', label: 'Rotating QR', note: 'Cryptographic HMAC kiosk security' },
+  { value: 3, prefix: '', suffix: '', label: 'Role Portals', note: 'Owner, Trainer, and Member apps' },
 ]
 
 export const ROI = {
@@ -329,10 +390,10 @@ export const ROI = {
 }
 
 export const FINAL_CTA = {
-  headline: 'Run your gym with FitHuBro.',
+  headline: 'Run your gym with FitHuBro. Modern operations.',
   body: 'The all-in-one SaaS platform for member management, QR attendance, payments, trainers, and fitness delivery.',
   buttonText: 'Get Started',
   buttonHref: APP_ROUTES.ownerLogin,
 }
 
-export const PRICING_SUBTITLE = 'One transparent price per gym. No setup fees, no expensive hardware, no annual lock-in.'
+export const PRICING_SUBTITLE = 'Transparent feature-entitlement tiers structured around your operational scale. No fake locks, no biometric hardware required.'

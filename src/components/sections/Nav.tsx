@@ -19,11 +19,22 @@ export function Nav({ persona }: { persona: Persona }) {
   const getBasePath = (p: Persona) => {
     if (p === 'members') return '/members'
     if (p === 'trainers') return '/trainers'
-    return '/'
+    return '/owners'
   }
   const basePath = getBasePath(persona)
-  const isCorrectPage = pathname === basePath
+  const isCorrectPage = pathname === basePath || (persona === 'members' && (pathname === '/' || pathname === '/members'))
   
+  const getCtaInfo = () => {
+    if (persona === 'trainers') {
+      return { label: 'Trainer Portal', href: APP_ROUTES.trainerLogin }
+    }
+    if (persona === 'owners') {
+      return { label: 'Get Started', href: APP_ROUTES.ownerLogin }
+    }
+    return { label: 'Get Started', href: APP_ROUTES.memberCheckIn }
+  }
+  const cta = getCtaInfo()
+
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -78,9 +89,9 @@ export function Nav({ persona }: { persona: Persona }) {
             )
           })}
           <div className="h-4 w-px bg-white/10" />
-          <Link href="/owners" className={cn("text-sm transition-colors hover:text-secondary", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
           <Link href="/members" className={cn("text-sm transition-colors hover:text-secondary", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
           <Link href="/trainers" className={cn("text-sm transition-colors hover:text-secondary", persona === 'trainers' ? "text-secondary font-medium" : "text-muted-foreground")}>Trainers</Link>
+          <Link href="/owners" className={cn("text-sm transition-colors hover:text-secondary", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
@@ -91,10 +102,10 @@ export function Nav({ persona }: { persona: Persona }) {
             Sign in
           </a>
           <a
-            href={persona === 'owners' ? APP_ROUTES.ownerLogin : APP_ROUTES.memberCheckIn}
+            href={cta.href}
             className="rounded-full bg-secondary px-5 py-2.5 text-sm text-secondary-foreground transition-transform hover:scale-[1.03]"
           >
-            Get Started
+            {cta.label}
           </a>
         </div>
 
@@ -126,9 +137,9 @@ export function Nav({ persona }: { persona: Persona }) {
               )
             })}
             <div className="my-2 h-px w-full bg-white/10" />
-            <Link href="/owners" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
             <Link href="/members" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'members' ? "text-secondary font-medium" : "text-muted-foreground")}>Members</Link>
             <Link href="/trainers" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'trainers' ? "text-secondary font-medium" : "text-muted-foreground")}>Trainers</Link>
+            <Link href="/owners" onClick={() => setOpen(false)} className={cn("py-3 text-base", persona === 'owners' ? "text-secondary font-medium" : "text-muted-foreground")}>Gyms</Link>
             <div className="my-2 h-px w-full bg-white/10" />
             <a
               href={APP_ROUTES.signIn}
@@ -138,11 +149,11 @@ export function Nav({ persona }: { persona: Persona }) {
               Sign in
             </a>
             <a
-              href={persona === 'owners' ? APP_ROUTES.ownerLogin : APP_ROUTES.memberCheckIn}
+              href={cta.href}
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-secondary px-5 py-3.5 text-center text-base text-secondary-foreground"
             >
-              Get Started
+              {cta.label}
             </a>
           </div>
         </div>

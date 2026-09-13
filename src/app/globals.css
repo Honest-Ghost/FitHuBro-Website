@@ -190,7 +190,7 @@
   --secondary: 349 85% 55%;        /* brand red */
   --secondary-foreground: 0 0% 100%;
   --muted: 240 4% 11%;
-  --muted-foreground: 40 10% 72%;   /* Crisp, high-contrast readable silver */
+  --muted-foreground: 40 10% 80%;   /* Crisp, high-contrast readable silver (#D1CDC7) */
   --accent: 240 4% 13%;
   --accent-foreground: 40 20% 91%;
   --border: 40 6% 18%;
@@ -204,6 +204,31 @@
 }
 
 @layer utilities {
+  /* Premium dark surfaces that reliably isolate content from the 3D rotating barbell */
+  .surface-card {
+    background-color: rgba(16, 16, 21, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  }
+
+  .surface-elevated {
+    background-color: rgba(18, 18, 24, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+  }
+
+  .surface-panel {
+    background-color: rgba(15, 15, 18, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  }
+
   .font-display {
     font-family: var(--font-display), system-ui, sans-serif;
     font-weight: 400;

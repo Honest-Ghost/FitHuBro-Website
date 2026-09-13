@@ -60,31 +60,31 @@ export function Compare({ persona }: { persona: Persona }) {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300 font-normal">
             See exactly how we stack up against the alternatives.
           </p>
         </Reveal>
 
         <Reveal delay={0.16}>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-white/10">
+          <div className="mt-12 overflow-hidden rounded-2xl surface-card shadow-2xl">
             <table className="w-full border-collapse text-left">
               <thead>
-                <tr className="border-b border-white/10 bg-white/[0.03]">
-                  <th className="px-3 py-4 text-[11px] uppercase tracking-wider text-muted-foreground sm:px-6 sm:text-xs">
+                <tr className="border-b border-white/10 bg-white/5">
+                  <th className="px-3 py-4 text-[11px] uppercase tracking-wider text-zinc-400 font-semibold sm:px-6 sm:text-xs">
                     Capability
                   </th>
-                  <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-foreground sm:w-36 sm:px-3 sm:text-xs">
+                  <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-white font-bold sm:w-36 sm:px-3 sm:text-xs">
                     {COMPARE.us}
                   </th>
-                  <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-muted-foreground sm:w-36 sm:px-3 sm:text-xs">
+                  <th className="w-[68px] px-2 py-4 text-center text-[11px] uppercase tracking-wider text-zinc-400 font-semibold sm:w-36 sm:px-3 sm:text-xs">
                     {COMPARE.them}
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARE.rows.map((row) => (
-                  <tr key={row.feature} className="border-b border-white/5 last:border-0">
-                    <td className="px-3 py-4 text-[13px] leading-snug text-foreground/90 sm:px-6 sm:text-sm">
+                  <tr key={row.feature} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
+                    <td className="px-3 py-4 text-[13px] sm:text-sm leading-snug text-zinc-200 sm:px-6">
                       {row.feature}
                     </td>
                     <td className="px-2 py-4 text-center sm:px-3">

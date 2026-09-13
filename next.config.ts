@@ -5,22 +5,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/login',
-        destination: 'https://app.fithubro.com/',
+        destination: '/owners',
         permanent: false,
       },
       {
         source: '/register',
-        destination: 'https://app.fithubro.com/owner/login',
+        destination: '/owners',
         permanent: false,
       },
       {
         source: '/join/trainer',
-        destination: 'https://app.fithubro.com/trainer/login',
+        destination: '/trainers',
         permanent: false,
       },
       {
         source: '/join/home',
-        destination: 'https://app.fithubro.com/checkin',
+        destination: '/members',
         permanent: false,
       },
     ];

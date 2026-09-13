@@ -18,62 +18,64 @@ export default function TermsPage() {
       <div className="relative z-10 w-full pointer-events-none">
         <div className="pointer-events-auto">
           <Cursor />
-          <Nav persona="owners" />
+          <Nav persona="members" />
         </div>
-        <main className="pointer-events-auto min-h-screen pt-24 pb-16">
-      <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <h1 className="mb-8 text-4xl font-display font-light tracking-tight text-foreground">Terms & Conditions</h1>
-        
-        <div className="prose prose-invert max-w-none text-muted-foreground space-y-6">
-          <p>
-            Welcome to FitHuBro. These Terms of Service govern your use of our platform and services. By accessing or using FitHuBro, you agree to be bound by these Terms.
-          </p>
+        <main className="pointer-events-auto min-h-screen pt-28 pb-20">
+          <div className="mx-auto max-w-4xl px-5 sm:px-8">
+            <div className="rounded-3xl surface-panel p-8 sm:p-12 shadow-2xl">
+              <h1 className="mb-8 text-4xl sm:text-5xl font-display tracking-tight text-white">Terms &amp; Conditions</h1>
+              
+              <div className="prose prose-invert max-w-none text-zinc-300 space-y-6 text-base sm:text-[17px] leading-relaxed">
+                <p>
+                  Welcome to FitHuBro. These Terms of Service govern your use of our platform, mobile web experiences, and connected fitness services. By accessing or using FitHuBro, you agree to be bound by these Terms.
+                </p>
 
-          <div>
-            <h2 className="text-xl font-medium text-foreground mb-3">1. Use of Service</h2>
-            <p>
-              FitHuBro provides gym management software and mobile applications for gyms, trainers, and fitness members. You must not misuse our services or help anyone else do so. You are responsible for ensuring that your account credentials are secure.
-            </p>
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">1. Use of Service</h2>
+                  <p>
+                    FitHuBro provides an integrated fitness platform connecting individuals, certified personal trainers, and gym operators. You agree not to misuse our services or bypass security mechanisms, including our rotating check-in QR codes and proprietary 3D rendering systems. You are responsible for safeguarding your account credentials.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">2. User Accounts &amp; Integrity</h2>
+                  <p>
+                    To access core features, you must register an account. You agree to provide accurate, current, and complete information during registration and keep your account details updated. Impersonation of trainers, gym facilities, or other members is strictly prohibited.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">3. Subscription, Ledgers &amp; Payments</h2>
+                  <p>
+                    Access to certain facility memberships, trainer programs, and platform tiers may require applicable fees. Payments logged through our UPI ledger and processed via certified gateways are governed by the specific terms agreed upon with your partnered facility or coach.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">4. Intellectual Property &amp; Content</h2>
+                  <p>
+                    All brand assets, 3D barbell geometries, software code, and interface designs belong to FitHuBro. You retain rights to any personal workout logs, meal photos, or brand logos you upload for custom demo previews.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-xl font-display tracking-wide text-white mb-3">5. Termination</h2>
+                  <p>
+                    We reserve the right to suspend or terminate access to the platform for violations of these terms, fraudulent check-in attempts, or abusive behavior toward trainers, staff, or community members.
+                  </p>
+                </div>
+
+                <p className="mt-8 text-sm text-zinc-400 italic">
+                  Last updated: September 2026
+                </p>
+              </div>
+            </div>
           </div>
-
-          <div>
-            <h2 className="text-xl font-medium text-foreground mb-3">2. User Accounts</h2>
-            <p>
-              To use certain features of the service, you must register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-medium text-foreground mb-3">3. Subscription and Billing</h2>
-            <p>
-              By subscribing to our services, you agree to pay all applicable fees associated with the chosen plan. Fees are non-refundable except as required by law or as explicitly stated in our Refund Policy.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-medium text-foreground mb-3">4. Content Ownership</h2>
-            <p>
-              You retain your rights to any content you submit, post or display on or through the Services. By submitting content, you grant FitHuBro a worldwide, non-exclusive, royalty-free license to use, copy, reproduce, process, adapt, modify, publish, transmit, display and distribute such Content.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-medium text-foreground mb-3">5. Termination</h2>
-            <p>
-              We may suspend or terminate your access to the Services at any time for any reason, including if we reasonably believe you have violated these Terms.
-            </p>
-          </div>
-
-          <p className="mt-8 text-sm italic">
-            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-          </p>
+        </main>
+        <div className="pointer-events-auto">
+          <Footer persona="members" />
         </div>
-      </div>
-      </main>
-      <div className="pointer-events-auto">
-        <Footer persona="owners" />
       </div>
     </div>
-  </div>
   )
 }

@@ -6,7 +6,7 @@ import { Environment, ContactShadows } from '@react-three/drei'
 import { WebGLDumbbell } from './WebGLDumbbell'
 import { useReducedMotion } from '../motion/use-reduced-motion'
 
-export function ScrollScene() {
+export function ScrollScene({ brandText, logoUrl, accentColor }: { brandText?: string; logoUrl?: string | null; accentColor?: string }) {
   const reduced = useReducedMotion()
   const [scale, setScale] = useState(0.8)
 
@@ -42,7 +42,7 @@ export function ScrollScene() {
       <Environment preset="city" />
 
       {/* The animated barbell driven by scroll & responsive viewport size */}
-      <WebGLDumbbell scale={scale} />
+      <WebGLDumbbell scale={scale} brandText={brandText} logoUrl={logoUrl} accentColor={accentColor} />
 
       <ContactShadows
         position={[0, -2.5, 0]}

@@ -7,7 +7,7 @@ import { ScrollScene } from '@/components/visuals/ScrollScene'
 import { Cursor } from '@/components/motion/Cursor'
 export const metadata: Metadata = {
   title: 'Blog | FitHuBro',
-  description: 'Insights, updates, and articles on modern gym management.',
+  description: 'Insights, updates, and articles on modern fitness technology, AI coaching, and gym operations.',
 }
 
 const POSTS = [
@@ -54,56 +54,59 @@ export default function BlogPage() {
       <div className="relative z-10 w-full pointer-events-none">
         <div className="pointer-events-auto">
           <Cursor />
-          <Nav persona="owners" />
+          <Nav persona="members" />
         </div>
-        <main className="pointer-events-auto min-h-screen pt-24 pb-20">
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-        <div className="mb-16">
-          <h1 className="text-4xl font-display font-light tracking-tight text-foreground sm:text-5xl">
-            FitHuBro Blog
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-            Insights, updates, and articles on modern gym management.
-          </p>
-        </div>
+        <main className="pointer-events-auto min-h-screen pt-28 pb-20">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+            <div className="mb-14">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-secondary font-semibold mb-2">
+                Knowledge & Research
+              </p>
+              <h1 className="text-4xl font-display tracking-tight text-white sm:text-5xl">
+                FitHuBro Blog
+              </h1>
+              <p className="mt-4 max-w-2xl text-base sm:text-lg text-zinc-300">
+                Insights, updates, and articles on modern fitness technology, AI coaching, and gym operations.
+              </p>
+            </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {POSTS.map((post) => (
-            <article 
-              key={post.id} 
-              className="group relative flex flex-col items-start justify-between rounded-2xl border border-white/10 bg-[#0A0A0B] p-6 sm:p-8 transition-colors hover:border-white/20"
-            >
-              <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime={post.date} className="text-muted-foreground">
-                  {post.date}
-                </time>
-                <span className="relative z-10 rounded-full bg-secondary/10 px-3 py-1.5 font-medium text-secondary">
-                  {post.category}
-                </span>
-              </div>
-              <div className="group relative mt-6">
-                <h3 className="text-xl font-semibold leading-tight text-foreground group-hover:text-foreground/80">
-                  <Link href={post.slug}>
-                    <span className="absolute inset-0" />
-                    {post.title}
-                  </Link>
-                </h3>
-                <p className="mt-4 line-clamp-3 text-sm leading-6 text-muted-foreground">
-                  {post.excerpt}
-                </p>
-              </div>
-              <div className="mt-8 flex items-center gap-2 text-sm font-medium text-foreground transition-colors group-hover:text-secondary">
-                Read article <ArrowRight className="h-4 w-4" />
-              </div>
-            </article>
-          ))}
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {POSTS.map((post) => (
+                <article 
+                  key={post.id} 
+                  className="group relative flex flex-col items-start justify-between rounded-2xl surface-card p-6 sm:p-8 transition-all hover:border-white/25 hover:shadow-2xl"
+                >
+                  <div className="flex items-center gap-x-4 text-xs">
+                    <time dateTime={post.date} className="text-xs text-zinc-400 font-mono">
+                      {post.date}
+                    </time>
+                    <span className="relative z-10 rounded-full bg-secondary/15 px-3 py-1 font-semibold text-secondary text-xs">
+                      {post.category}
+                    </span>
+                  </div>
+                  <div className="group relative mt-6">
+                    <h3 className="text-xl font-bold leading-snug text-white group-hover:text-secondary transition-colors">
+                      <Link href={post.slug}>
+                        <span className="absolute inset-0" />
+                        {post.title}
+                      </Link>
+                    </h3>
+                    <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-zinc-300">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                  <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-zinc-200 transition-colors group-hover:text-secondary">
+                    Read article <ArrowRight className="h-4 w-4" />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </main>
+        <div className="pointer-events-auto">
+          <Footer persona="members" />
         </div>
-      </div>
-      </main>
-      <div className="pointer-events-auto">
-        <Footer persona="owners" />
       </div>
     </div>
-  </div>
   )
 }

@@ -59,12 +59,12 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
             </div>
 
             <Reveal delay={0.16}>
-              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-10">
+              <div className="rounded-3xl surface-card p-7 sm:p-10 shadow-2xl">
                 <div className="space-y-7">
                   <div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Active members</span>
-                      <span className="font-display text-lg text-foreground">{members}</span>
+                      <span className="text-zinc-300 font-medium">Active members</span>
+                      <span className="font-display text-lg text-white">{members}</span>
                     </div>
                     <input
                       type="range"
@@ -79,8 +79,8 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
 
                   <div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Monthly fee</span>
-                      <span className="font-display text-lg text-foreground">₹{fee.toLocaleString('en-IN')}</span>
+                      <span className="text-zinc-300 font-medium">Monthly fee</span>
+                      <span className="font-display text-lg text-white">₹{fee.toLocaleString('en-IN')}</span>
                     </div>
                     <input
                       type="range"
@@ -158,13 +158,13 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
           </div>
 
           <Reveal delay={0.16}>
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-10">
+            <div className="rounded-3xl surface-card p-7 sm:p-10 shadow-2xl">
               {!bmiCalculated ? (
                 <form onSubmit={calculateBmi} className="space-y-6">
                   <div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Height</span>
-                      <span className="font-display text-lg text-foreground">{height} cm</span>
+                      <span className="text-zinc-300 font-medium">Height</span>
+                      <span className="font-display text-lg text-white">{height} cm</span>
                     </div>
                     <input
                       type="range"
@@ -177,8 +177,8 @@ export function RoiCalculator({ persona }: { persona: Persona }) {
                   </div>
                   <div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Weight</span>
-                      <span className="font-display text-lg text-foreground">{weight} kg</span>
+                      <span className="text-zinc-300 font-medium">Weight</span>
+                      <span className="font-display text-lg text-white">{weight} kg</span>
                     </div>
                     <input
                       type="range"

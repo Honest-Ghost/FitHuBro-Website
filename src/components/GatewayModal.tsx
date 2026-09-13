@@ -75,57 +75,57 @@ export function GatewayModal() {
               <br />
               <span className="text-secondary">Choose Your Portal</span>
             </h1>
-            <p className="mt-2 text-xs sm:text-sm text-white/60 max-w-lg mx-auto">
+            <p className="mt-2 text-xs sm:text-sm text-zinc-300 max-w-lg mx-auto">
               Select your role to access the FitHuBro software platform, or close this window to explore our features.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3 text-left">
               {/* Gym Owner */}
-              <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-secondary/50 hover:bg-secondary/[0.05] transition-all">
+              <div className="flex flex-col justify-between rounded-2xl surface-card p-5 hover:border-secondary/50 hover:bg-secondary/[0.08] transition-all">
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-3">
                     <Building2 className="w-5 h-5 text-secondary" />
                   </div>
                   <h3 className="font-display text-lg text-white">Gym Owner</h3>
-                  <p className="text-xs text-white/50 mt-1">
+                  <p className="text-xs text-zinc-300 mt-1">
                     Manage memberships, QR attendance, payments, leads, and staff.
                   </p>
                 </div>
                 <button
                   onClick={() => handleNavigate(APP_ROUTES.ownerLogin)}
-                  className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-secondary-foreground hover:scale-[1.02] transition-transform"
+                  className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-secondary-foreground hover:scale-[1.02] transition-transform shadow-md shadow-secondary/20"
                 >
                   Owner Portal <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               {/* Personal Trainer */}
-              <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-secondary/50 hover:bg-secondary/[0.05] transition-all">
+              <div className="flex flex-col justify-between rounded-2xl surface-card p-5 hover:border-secondary/50 hover:bg-secondary/[0.08] transition-all">
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-3">
                     <Dumbbell className="w-5 h-5 text-secondary" />
                   </div>
                   <h3 className="font-display text-lg text-white">Personal Trainer</h3>
-                  <p className="text-xs text-white/50 mt-1">
+                  <p className="text-xs text-zinc-300 mt-1">
                     Build workout programs, manage client rosters, and verify status.
                   </p>
                 </div>
                 <button
                   onClick={() => handleNavigate(APP_ROUTES.trainerLogin)}
-                  className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-secondary-foreground hover:scale-[1.02] transition-transform"
+                  className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-secondary px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-secondary-foreground hover:scale-[1.02] transition-transform shadow-md shadow-secondary/20"
                 >
                   Trainer Portal <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 
               {/* Gym Member */}
-              <div className="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-secondary/50 hover:bg-secondary/[0.05] transition-all">
+              <div className="flex flex-col justify-between rounded-2xl surface-card p-5 hover:border-secondary/50 hover:bg-secondary/[0.08] transition-all">
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center mb-3">
                     <UserCheck className="w-5 h-5 text-secondary" />
                   </div>
                   <h3 className="font-display text-lg text-white">Gym Member</h3>
-                  <p className="text-xs text-white/50 mt-1">
+                  <p className="text-xs text-zinc-300 mt-1">
                     Digital gym pass, door kiosk QR check-in, and workout logs.
                   </p>
                 </div>

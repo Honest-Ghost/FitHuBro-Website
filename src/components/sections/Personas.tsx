@@ -26,37 +26,37 @@ export function Personas({ persona }: { persona: Persona }) {
                   index % 2 !== 0 ? 'lg:grid-flow-col-dense' : ''
                 }`}
               >
-                <div className={`rounded-3xl bg-background/60 p-5 shadow-2xl backdrop-blur-md border border-white/5 sm:border-transparent sm:bg-transparent sm:p-0 sm:shadow-none sm:backdrop-blur-none ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
+                <div className={`rounded-3xl surface-card p-7 sm:p-10 lg:p-12 shadow-2xl ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
                   <Reveal>
-                    <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                    <p className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] text-secondary font-semibold">
                       <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
                       {persona.label}
                     </p>
-                    <h2 className="font-display mt-5 max-w-lg text-3xl tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+                    <h2 className="font-display mt-5 max-w-lg text-3xl tracking-tight text-white sm:text-4xl lg:text-5xl">
                       {persona.title}
                     </h2>
-                    <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
+                    <p className="mt-6 max-w-md text-base sm:text-lg leading-relaxed text-zinc-300 font-normal">
                       {persona.body}
                     </p>
                   </Reveal>
 
-                  <Stagger className="mt-10 space-y-4">
+                  <Stagger className="mt-8 space-y-4">
                     {persona.points.map((point) => (
                       <StaggerItem key={point}>
-                        <div className="flex items-start gap-3 text-base text-muted-foreground">
-                          <Check className="mt-1 h-4 w-4 shrink-0 text-secondary" />
+                        <div className="flex items-start gap-3 text-sm sm:text-base text-zinc-200">
+                          <Check className="mt-1 h-4 w-4 shrink-0 text-secondary" strokeWidth={2.5} />
                           <span>{point}</span>
                         </div>
                       </StaggerItem>
                     ))}
                   </Stagger>
 
-                  <Reveal delay={0.2} className="mt-12">
+                  <Reveal delay={0.2} className="mt-10">
                     <Magnetic className="w-full sm:w-auto">
                       {persona.ctaHref.startsWith('http') ? (
                         <a
                           href={persona.ctaHref}
-                          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
+                          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-3.5 text-sm font-semibold text-secondary-foreground shadow-lg shadow-secondary/25 transition-transform hover:scale-[1.03]"
                         >
                           {persona.ctaLabel}
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -64,7 +64,7 @@ export function Personas({ persona }: { persona: Persona }) {
                       ) : (
                         <Link
                           href={persona.ctaHref}
-                          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary/10 px-6 py-3 text-sm text-secondary transition-colors hover:bg-secondary/20"
+                          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-secondary px-7 py-3.5 text-sm font-semibold text-secondary-foreground shadow-lg shadow-secondary/25 transition-transform hover:scale-[1.03]"
                         >
                           {persona.ctaLabel}
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
