@@ -9,22 +9,25 @@
 export const FRONTEND_URL =
   process.env.NEXT_PUBLIC_APP_URL || 'https://fithubro.vercel.app'
 
+export const SAAS_APP_URL =
+  process.env.NEXT_PUBLIC_SAAS_APP_URL || 'https://fithubro.onrender.com'
+
 export const BACKEND_API_URL =
   process.env.NEXT_PUBLIC_API_URL || 'https://fithubro-api.onrender.com'
 
 export const APP_ROUTES = {
   // Main gateway / role router
-  root: FRONTEND_URL,
-  signIn: `${FRONTEND_URL}/owners`,
+  root: SAAS_APP_URL,
+  signIn: `${SAAS_APP_URL}/`,
 
   // Gym Owner portal entry
-  ownerLogin: `${FRONTEND_URL}/owners`,
+  ownerLogin: `${SAAS_APP_URL}/owner/login`,
 
   // Trainer portal entry
-  trainerLogin: `${FRONTEND_URL}/trainers`,
+  trainerLogin: `${SAAS_APP_URL}/trainer/login`,
 
   // Member app & QR check-in entry
-  memberCheckIn: `${FRONTEND_URL}/members`,
+  memberCheckIn: `${SAAS_APP_URL}/member`,
 } as const
 
 export const CONTACT_INFO = {
